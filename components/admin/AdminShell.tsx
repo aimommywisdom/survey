@@ -194,11 +194,19 @@ function ClassificationView({ surveys }: { surveys: SurveyRow[] }) {
                   <span key={i} className="rounded-full border border-rule px-2 py-0.5 text-[0.8rem] text-muted">{t}</span>
                 ))}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <a href={s.link} target="_blank" rel="noreferrer" className="truncate text-[0.85rem] text-focus underline">{s.link}</a>
                 <button onClick={() => copy(s.link, key)} className="shrink-0 text-[0.85rem] text-muted underline">
                   {copied === key ? '已複製' : '複製連結'}
                 </button>
+                {s.responseCount > 0 && (
+                  <a
+                    href={`/api/admin/export?project=${s.projectSlug}&survey=${s.surveySlug}`}
+                    className="shrink-0 rounded-lg border border-rule px-3 py-1 text-[0.85rem] font-medium text-ink hover:bg-ink/5"
+                  >
+                    ⬇ 匯出資料
+                  </a>
+                )}
               </div>
             </div>
           );
@@ -260,6 +268,20 @@ function PlanningView({ surveys }: { surveys: SurveyRow[] }) {
     } catch (e) { setErr((e as Error).message); } finally { setRunning(false); }
   };
 
+  const downloadProposal = () => {
+    const row = surveys.find((s) => `${s.projectSlug}/${s.surveySlug}` === sel);
+    const stamp = new Date().toISOString().slice(0, 10);
+    const name = `課程規劃建議書-${row?.title ?? sel}-${stamp}.md`;
+    const header = `# 課程規劃建議書\n\n問卷：${row?.title ?? sel}\n產出日期：${stamp}\n\n---\n\n`;
+    const blob = new Blob([header + content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = name;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <>
       <H1>課程規劃建議書</H1>
@@ -316,8 +338,11 @@ function PlanningView({ surveys }: { surveys: SurveyRow[] }) {
             <div className="mt-6 rounded-lg border border-rule bg-white p-5">
               <div className="mb-3 flex items-center justify-between">
                 <h2 className="font-bold text-ink">課程規劃建議書</h2>
-                <button onClick={() => { navigator.clipboard?.writeText(content); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-                  className="text-muted underline">{copied ? '已複製' : '複製全文'}</button>
+                <div className="flex items-center gap-4">
+                  <button onClick={() => { navigator.clipboard?.writeText(content); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+                    className="text-muted underline">{copied ? '已複製' : '複製全文'}</button>
+                  <button onClick={downloadProposal} className="text-muted underline">⬇ 下載</button>
+                </div>
               </div>
               <pre className="whitespace-pre-wrap break-words font-sans text-[0.98rem] leading-relaxed text-ink">{content}</pre>
             </div>
