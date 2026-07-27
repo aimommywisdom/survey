@@ -6,13 +6,14 @@ export interface CoursePromptInput {
   tna: unknown; // /tna 聚合（有痛點題才有內容）
   sampleAnswers?: unknown[]; // 去識別化原始作答（給沒有痛點/能力題的問卷，如主管版）
   responseCount: number;
+  supplement?: string; // 顧問補充：預算、背景、限制、偏好等
 }
 
 export function buildCoursePrompt(input: CoursePromptInput): {
   system: string;
   user: string;
 } {
-  const { survey, tna, sampleAnswers, responseCount } = input;
+  const { survey, tna, sampleAnswers, responseCount, supplement } = input;
 
   const system = [
     '你是一位資深企業教育訓練顧問，專長是把「訓練需求調查數據」轉成可執行的內訓課程規劃。',
@@ -48,6 +49,13 @@ export function buildCoursePrompt(input: CoursePromptInput): {
           '```json',
           JSON.stringify(sampleAnswers, null, 2),
           '```',
+        ].join('\n')
+      : '',
+    supplement && supplement.trim()
+      ? [
+          '',
+          '# 顧問補充說明（請務必納入考量：預算、時數、對象背景、限制或偏好等）',
+          supplement.trim(),
         ].join('\n')
       : '',
     '',

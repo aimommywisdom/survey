@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   if (!(await isAdmin())) {
     return NextResponse.json({ error: '未登入' }, { status: 401 });
   }
-  const { projectSlug, surveySlug } = await req.json().catch(() => ({}));
+  const { projectSlug, surveySlug, supplement } = await req.json().catch(() => ({}));
   if (!projectSlug || !surveySlug) {
     return NextResponse.json({ error: '缺少 projectSlug / surveySlug' }, { status: 400 });
   }
@@ -68,6 +68,7 @@ export async function POST(req: Request) {
     tna,
     sampleAnswers,
     responseCount,
+    supplement: typeof supplement === 'string' ? supplement : undefined,
   });
 
   let content: string;
