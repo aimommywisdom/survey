@@ -1,0 +1,34 @@
+{
+  "_note": "蓮心園 同仁版 — Day 1 最小骨架，用來驗證引擎（$block 引用 + overrides + 發布快照）。完整題目內容於後續獨立 session 補完（§16）。",
+  "slug": "staff",
+  "version": 1,
+  "title": "工作流程與訓練需求調查",
+  "subtitle": "財團法人蓮心園社會福利慈善事業基金會",
+  "intro": "為了解大家日常工作中最花時間、最重複的事項，作為未來流程改善與教育訓練規劃的依據。本問卷不記名，請安心填答。",
+  "estimated_minutes": 8,
+  "privacy": {
+    "purpose": "分析組織流程改善需求與教育訓練規劃",
+    "items": "服務單位、職務類別、年資、工作型態與能力自評",
+    "retention": "本專案結束後 6 個月內刪除",
+    "processor": "智慧媽咪國際有限公司",
+    "rights": "您可隨時要求查詢、更正或刪除",
+    "consent_required": true
+  },
+  "sections": [
+    {
+      "$block": "blocks/basic-profile.zh-TW",
+      "overrides": {
+        "q_dept.options": [
+          { "value": "residential", "label": "全日型住宿服務" },
+          { "value": "day_care", "label": "日間照顧服務" },
+          { "value": "home_care", "label": "居家服務" },
+          { "value": "admin", "label": "行政／會計／人資" },
+          { "value": "other", "label": "其他", "allow_text": true }
+        ]
+      }
+    },
+    {
+      "$block": "blocks/pain-repeater-nonprofit.zh-TW"
+    }
+  ]
+}

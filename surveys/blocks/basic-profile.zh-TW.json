@@ -1,0 +1,62 @@
+{
+  "code": "basic-profile",
+  "title": "關於你（基本資料）",
+  "version": 1,
+  "purpose": ["tna", "org_baseline"],
+  "industry": ["general"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "只問去識別化的分群欄位（單位/職務/年資），不問姓名、員工編號。q_dept 的 options 各專案用 overrides 覆寫成該機構實際單位。role_group 由 q_role 的 value 在計分時對應（admin_mgmt/professional/frontline）。",
+  "section": {
+    "id": "sec_basic",
+    "title": "關於你",
+    "questions": [
+      {
+        "id": "q_dept",
+        "type": "single",
+        "label": "你的服務單位？",
+        "required": true,
+        "options": [
+          { "value": "residential", "label": "全日型住宿服務" },
+          { "value": "day_work", "label": "日間作業設施" },
+          { "value": "day_care", "label": "日間照顧服務" },
+          { "value": "home_care", "label": "居家服務" },
+          { "value": "meal", "label": "失能長者送餐服務" },
+          { "value": "farm", "label": "庇護性農場" },
+          { "value": "admin", "label": "行政／會計／人資" },
+          { "value": "pr", "label": "公關募款" },
+          { "value": "other", "label": "其他", "allow_text": true }
+        ]
+      },
+      {
+        "id": "q_role",
+        "type": "single",
+        "label": "你的職務類別？",
+        "required": true,
+        "options": [
+          { "value": "manager", "label": "主管／組長" },
+          { "value": "social_worker", "label": "社工" },
+          { "value": "educator", "label": "教保員" },
+          { "value": "caregiver", "label": "照顧服務員" },
+          { "value": "driver", "label": "司機" },
+          { "value": "admin_staff", "label": "行政／會計" },
+          { "value": "other", "label": "其他", "allow_text": true }
+        ]
+      },
+      {
+        "id": "q_tenure",
+        "type": "single",
+        "label": "你在這裡服務多久了？",
+        "required": true,
+        "options": [
+          { "value": "lt1", "label": "未滿 1 年" },
+          { "value": "1to3", "label": "1–3 年" },
+          { "value": "3to5", "label": "3–5 年" },
+          { "value": "gt5", "label": "5 年以上" }
+        ]
+      }
+    ]
+  }
+}

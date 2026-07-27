@@ -1,0 +1,43 @@
+{
+  "_note": "固定五維度分類法（§14）。不允許自由標籤——自由標籤三個月後就變成無法查詢的爛泥。新增值請在此檔擴充。",
+  "purpose": {
+    "ai_readiness": "AI 導入需求診斷",
+    "tna": "訓練需求調查",
+    "org_baseline": "組織現況與流程盤點",
+    "digital_maturity": "數位成熟度評估",
+    "training_l1": "訓後反應（滿意度）",
+    "training_l2": "訓後學習成效",
+    "training_l3": "訓後行為追蹤",
+    "training_l4": "訓練成果驗收",
+    "client_feedback": "顧問服務回饋"
+  },
+  "industry": {
+    "nonprofit": "社福／NPO",
+    "manufacturing": "製造",
+    "retail_ec": "零售／電商",
+    "food_bev": "餐飲",
+    "education": "教育",
+    "professional_services": "專業服務",
+    "government": "政府",
+    "general": "通用"
+  },
+  "audience": {
+    "executive": "決策層",
+    "middle_mgmt": "中階主管",
+    "professional": "專業人員",
+    "frontline": "第一線",
+    "admin": "行政支援"
+  },
+  "ttqs_stage": {
+    "P": "計畫",
+    "D1": "設計",
+    "D2": "執行",
+    "R": "查核",
+    "O": "成果"
+  },
+  "complexity": {
+    "quick": "≤5 分鐘",
+    "standard": "6–12 分鐘",
+    "deep": "12 分鐘以上"
+  }
+}

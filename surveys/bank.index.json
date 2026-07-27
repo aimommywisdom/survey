@@ -1,0 +1,86 @@
+{
+  "_note": "由 seed script 自動產生，勿手改",
+  "blocks": [
+    {
+      "code": "basic-profile",
+      "title": "關於你（基本資料）",
+      "version": 1,
+      "purpose": [
+        "tna",
+        "org_baseline"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 3,
+      "item_codes": [
+        "residential",
+        "day_work",
+        "day_care",
+        "home_care",
+        "meal",
+        "farm",
+        "admin",
+        "pr",
+        "other",
+        "manager",
+        "social_worker",
+        "educator",
+        "caregiver",
+        "driver",
+        "admin_staff",
+        "other",
+        "lt1",
+        "1to3",
+        "3to5",
+        "gt5"
+      ],
+      "notes": "只問去識別化的分群欄位（單位/職務/年資），不問姓名、員工編號。q_dept 的 options 各專案用 overrides 覆寫成該機構實際單位。role_group 由 q_role 的 value 在計分時對應（admin_mgmt/professional/frontline）。"
+    },
+    {
+      "code": "pain-repeater-nonprofit",
+      "title": "重複性文書工作痛點盤點（社福版）",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "tna",
+        "org_baseline"
+      ],
+      "industry": [
+        "nonprofit"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 1,
+      "item_codes": [
+        "record_writing",
+        "monthly_report",
+        "reimburse",
+        "shift_table",
+        "signoff_sheet",
+        "meeting_notes",
+        "official_doc",
+        "purchase",
+        "inventory",
+        "donor_ack",
+        "photo_org",
+        "duplicate_entry",
+        "eval_doc",
+        "custom"
+      ],
+      "notes": "招牌題型。preset_items 的 item_code 一旦用於正式交付即不得變更語意（§13 治理鐵律）；要改語意請開 _v2。live_calc 即時年工時是本產品靈魂（§5），數字跳動不可造成版面位移。"
+    }
+  ]
+}

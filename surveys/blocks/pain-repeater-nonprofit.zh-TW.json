@@ -1,0 +1,81 @@
+{
+  "code": "pain-repeater-nonprofit",
+  "title": "重複性文書工作痛點盤點（社福版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "tna", "org_baseline"],
+  "industry": ["nonprofit"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "standard",
+  "notes": "招牌題型。preset_items 的 item_code 一旦用於正式交付即不得變更語意（§13 治理鐵律）；要改語意請開 _v2。live_calc 即時年工時是本產品靈魂（§5），數字跳動不可造成版面位移。",
+  "section": {
+    "id": "sec_pain",
+    "title": "最花時間的重複工作",
+    "questions": [
+      {
+        "id": "q_pain",
+        "type": "pain_repeater",
+        "label": "請選出你每天或每週一定要做的重複性文書工作",
+        "help": "先勾選項目，勾了才會展開細項。最多選 5 項。",
+        "required": true,
+        "max_items": 5,
+        "min_items": 1,
+        "preset_items": [
+          { "code": "record_writing", "label": "撰寫服務紀錄／個案紀錄" },
+          { "code": "monthly_report", "label": "月報表／季報表製作" },
+          { "code": "reimburse", "label": "核銷單據整理" },
+          { "code": "shift_table", "label": "排班表製作" },
+          { "code": "signoff_sheet", "label": "簽收單／簽到表整理" },
+          { "code": "meeting_notes", "label": "會議紀錄" },
+          { "code": "official_doc", "label": "公文／簽呈撰寫" },
+          { "code": "purchase", "label": "請購單／領用單" },
+          { "code": "inventory", "label": "物資盤點與登記" },
+          { "code": "donor_ack", "label": "捐款徵信／感謝函" },
+          { "code": "photo_org", "label": "活動照片整理與上傳" },
+          { "code": "duplicate_entry", "label": "同一份資料重複填到不同地方" },
+          { "code": "eval_doc", "label": "評鑑／督導資料準備" },
+          { "code": "custom", "label": "其他（請說明）", "allow_text": true }
+        ],
+        "fields": [
+          {
+            "id": "frequency",
+            "type": "single",
+            "label": "多久做一次",
+            "options": ["daily", "weekly", "biweekly", "monthly", "quarterly", "yearly"]
+          },
+          {
+            "id": "minutes",
+            "type": "number",
+            "label": "每次大約花",
+            "unit": "分鐘",
+            "min": 1,
+            "max": 960
+          },
+          {
+            "id": "format",
+            "type": "single",
+            "label": "目前用什麼方式做",
+            "options": ["paper", "excel", "word", "system", "line", "verbal"]
+          },
+          {
+            "id": "needs_sign",
+            "type": "single",
+            "label": "需要簽名或蓋章嗎",
+            "options": ["yes", "no"]
+          },
+          {
+            "id": "deliver_to",
+            "type": "short_text",
+            "label": "完成後交給誰"
+          }
+        ],
+        "live_calc": {
+          "enabled": true,
+          "formula": "annual_hours",
+          "display": "你一年花在這件事上約 {value} 小時"
+        }
+      }
+    ]
+  }
+}
