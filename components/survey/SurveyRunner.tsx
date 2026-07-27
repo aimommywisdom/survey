@@ -39,13 +39,15 @@ export function SurveyRunner({
   surveyId,
   projectName,
   definition,
+  proxyMode = false,
 }: {
   surveyId: string;
   projectName: string;
   definition: SurveyDefinition;
+  proxyMode?: boolean; // 代填模式：跳過同意、標記 is_proxy、可連續鍵入、不暫存
 }) {
   const storageKey = `mwform:${surveyId}`;
-  const consentNeeded = definition.privacy?.consent_required ?? false;
+  const consentNeeded = !proxyMode && (definition.privacy?.consent_required ?? false);
 
   const [step, setStep] = useState<Step>(consentNeeded ? 'consent' : 'sections');
   const [consent, setConsent] = useState(false);
@@ -55,11 +57,16 @@ export function SurveyRunner({
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResult | null>(null);
+  const [proxyNote, setProxyNote] = useState('');
   const startedAt = useRef<number>(Date.now());
   const restored = useRef(false);
 
-  // 還原暫存
+  // 還原暫存（代填模式不暫存，每張紙本都是全新一筆）
   useEffect(() => {
+    if (proxyMode) {
+      restored.current = true;
+      return;
+    }
     try {
       const raw = localStorage.getItem(storageKey);
       if (raw) {
@@ -84,7 +91,7 @@ export function SurveyRunner({
 
   // 暫存（不含任何身分欄位；本問卷不蒐集姓名）
   useEffect(() => {
-    if (!restored.current) return;
+    if (!restored.current || proxyMode) return;
     try {
       localStorage.setItem(
         storageKey,
@@ -168,16 +175,20 @@ export function SurveyRunner({
           survey_id: surveyId,
           answers,
           duration_sec: Math.round((Date.now() - startedAt.current) / 1000),
+          is_proxy: proxyMode,
+          proxy_note: proxyMode ? proxyNote || null : null,
         }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? '送出失敗');
       setResult(data.summary as SubmitResult);
       setStep('done');
-      try {
-        localStorage.removeItem(storageKey);
-      } catch {
-        /* noop */
+      if (!proxyMode) {
+        try {
+          localStorage.removeItem(storageKey);
+        } catch {
+          /* noop */
+        }
       }
       window.scrollTo({ top: 0 });
     } catch (e) {
@@ -233,6 +244,32 @@ export function SurveyRunner({
 
   // ── 完成步驟 ──────────────────────────────────
   if (step === 'done') {
+    // 代填模式：完成一筆後可直接鍵入下一筆
+    if (proxyMode) {
+      return (
+        <Shell title="這一筆已鍵入 ✓">
+          <p className="mb-6 text-ink">
+            已成功記錄{proxyNote ? `（紙本編號：${proxyNote}）` : ''}。可以接著鍵入下一張紙本。
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setAnswers({});
+              setSectionIdx(0);
+              setErrors({});
+              setResult(null);
+              setProxyNote('');
+              startedAt.current = Date.now();
+              setStep('sections');
+              window.scrollTo({ top: 0 });
+            }}
+            className="min-h-[52px] w-full rounded-lg bg-ink px-6 text-lg font-medium text-paper"
+          >
+            鍵入下一筆
+          </button>
+        </Shell>
+      );
+    }
     return (
       <Shell title="謝謝你的填答！">
         <div className="mb-6 rounded-lg border border-amber/40 bg-amber/5 px-5 py-6 text-center">
@@ -266,6 +303,20 @@ export function SurveyRunner({
 
   return (
     <div className="mx-auto w-full max-w-[600px] px-5 pb-16">
+      {proxyMode && (
+        <div className="mt-4 mb-2 rounded-lg border border-ink/30 bg-ink/5 px-4 py-3 text-[0.95rem] text-ink">
+          代填模式（紙本鍵入）
+          {idx === 0 && (
+            <input
+              type="text"
+              value={proxyNote}
+              onChange={(e) => setProxyNote(e.target.value)}
+              placeholder="紙本編號（選填）"
+              className="mt-2 min-h-[44px] w-full rounded-lg border border-rule bg-white px-3 py-2"
+            />
+          )}
+        </div>
+      )}
       <ProgressBar current={idx + 1} total={total} minutesLeft={minutesLeft} />
       <h2 className="mb-6 mt-4 text-xl font-bold text-ink">{section.title}</h2>
 
