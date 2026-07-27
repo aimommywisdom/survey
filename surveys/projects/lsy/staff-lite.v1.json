@@ -5,6 +5,11 @@
   "extends": "templates/ai-readiness-tna-staff-lite.v1",
   "title": "工作狀況與課程需求調查",
   "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+  "privacy": {
+    "notice": "這份問卷不記名，僅用於了解大家的工作狀況、規劃教育訓練課程，不會用於個人考核。感謝你的協助。",
+    "consent_required": true,
+    "consent_label": "我瞭解並同意開始填答"
+  },
   "notes": "發放對象：照服員、司機、庇護農場現場人員。建議以紙本為主、QR Code 為輔。",
   "overrides": {
     "q_dept.options": [
