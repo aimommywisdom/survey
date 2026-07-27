@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
+/* ── §9 設計 token（唯一色盤，勿自行加色/漸層/陰影）────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #16233a; /* 主文字、標題（深靛藍） */
+  --paper: #fbfaf7; /* 背景（微暖紙白） */
+  --rule: #ddd9d0; /* 分隔線、邊框 */
+  --amber: #c8791e; /* 僅用於年工時計數器與進度條 */
+  --muted: #6b7280; /* 輔助說明文字 */
+  --focus: #2f6fb0; /* 鍵盤焦點框 */
 }
 
+/* 讓 Tailwind utility（bg-paper / text-ink …）可用這組色 */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-rule: var(--rule);
+  --color-amber: var(--amber);
+  --color-muted: var(--muted);
+  --color-focus: var(--focus);
+  --font-sans: var(--font-noto-sans-tc), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 此問卷刻意只做單一淺色主題（紙白），不做深色模式（§9 色盤已定調） */
+html {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-noto-sans-tc), system-ui, sans-serif;
+  /* 對象偏年長、手機為主：最小字級 17px（§9 硬性要求） */
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* 數字用 tabular-nums，計數器跳動時不位移（§9） */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 鍵盤焦點必須可見（§9） */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 尊重 prefers-reduced-motion（§9） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
