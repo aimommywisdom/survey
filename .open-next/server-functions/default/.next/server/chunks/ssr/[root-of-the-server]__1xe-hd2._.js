@@ -1,0 +1,3 @@
+module.exports=[41931,a=>{a.v({className:"noto_sans_tc_46a873f3-module__RFmvvG__className",variable:"noto_sans_tc_46a873f3-module__RFmvvG__variable"})},33290,a=>{"use strict";var b=a.i(7997),c=a.i(41931);let d={className:c.default.className,style:{fontFamily:"'Noto Sans TC', 'Noto Sans TC Fallback'",fontStyle:"normal"}};null!=c.default.variable&&(d.variable=c.default.variable),a.s(["default",0,function({children:a}){return(0,b.jsx)("html",{lang:"zh-Hant",className:`${d.variable} h-full antialiased`,children:(0,b.jsx)("body",{className:"min-h-full flex flex-col",children:a})})},"metadata",0,{title:"問卷診斷",description:"由智慧媽咪國際有限公司之診斷平台提供",robots:{index:!1,follow:!1}}],33290)},70864,a=>{a.n(a.i(33290))}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__1xe-hd2._.js.map

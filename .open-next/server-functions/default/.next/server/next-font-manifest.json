@@ -1,0 +1,28 @@
+{
+  "app": {
+    "[project]/app/_not-found/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/dev/fields/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/dev/pain/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/entry/[projectSlug]/[surveySlug]/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/s/[projectSlug]/[surveySlug]/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ],
+    "[project]/app/s/[projectSlug]/[surveySlug]/print/page": [
+      "static/media/fb4edce8a3cbfef3-s.p.3ep0ejxd-rul1.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

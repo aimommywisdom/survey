@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mwform",
+  "account_id": "86e28a4ac02bab6c0599d99f50afb5f1",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://fqvozltpemtnshtwxqri.supabase.co"
+  },
+  "routes": [
+    { "pattern": "survey.aimommywisdom.com", "custom_domain": true }
+  ]
+  // 敏感值用 wrangler secret 設定（不寫進檔案）：
+  //   NEXT_PUBLIC_SUPABASE_ANON_KEY  ← 也可放 vars，但一併用 secret 較整齊
+  //   SUPABASE_SERVICE_ROLE_KEY       ← 一定要 secret
+  //   CRON_SECRET                     ← 一定要 secret
+}
