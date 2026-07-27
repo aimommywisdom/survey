@@ -176,39 +176,67 @@ function ClassificationView({ surveys }: { surveys: SurveyRow[] }) {
     setCopied(tag);
     setTimeout(() => setCopied(''), 1500);
   };
+
+  // 依公司（專案）分組：一間公司一組，底下掛多份問卷。
+  const groups = useMemo(() => {
+    const m = new Map<string, { name: string; items: SurveyRow[] }>();
+    for (const s of surveys) {
+      if (!m.has(s.projectSlug)) m.set(s.projectSlug, { name: s.projectName, items: [] });
+      m.get(s.projectSlug)!.items.push(s);
+    }
+    return [...m.entries()].map(([slug, g]) => ({ slug, ...g }));
+  }, [surveys]);
+
   return (
     <>
       <H1>問卷分類</H1>
-      <div className="flex flex-col gap-3">
-        {surveys.map((s) => {
-          const key = `${s.projectSlug}/${s.surveySlug}`;
+      {groups.length === 0 && <p className="text-muted">目前沒有任何公司／問卷。</p>}
+      <div className="flex flex-col gap-8">
+        {groups.map((g) => {
+          const total = g.items.reduce((n, s) => n + s.responseCount, 0);
           return (
-            <div key={key} className="rounded-lg border border-rule bg-white p-4">
-              <div className="font-bold text-ink">{s.title}</div>
-              <div className="mb-2 text-[0.9rem] text-muted">
-                {s.projectName}｜已回收 {s.responseCount} 筆
-                {s.estimatedMinutes ? `｜約 ${s.estimatedMinutes} 分鐘` : ''}
+            <section key={g.slug}>
+              {/* 公司群組標題 */}
+              <div className="mb-3 flex items-baseline gap-3 border-b-2 border-ink pb-2">
+                <h2 className="text-lg font-bold text-ink">{g.name}</h2>
+                <span className="text-[0.85rem] text-muted">
+                  {g.items.length} 份問卷｜共 {total} 筆回收
+                </span>
               </div>
-              <div className="mb-2 flex flex-wrap gap-1.5">
-                {[...s.audience, ...s.purpose, ...(s.complexity ? [s.complexity] : [])].map((t, i) => (
-                  <span key={i} className="rounded-full border border-rule px-2 py-0.5 text-[0.8rem] text-muted">{t}</span>
-                ))}
+              <div className="flex flex-col gap-3">
+                {g.items.map((s) => {
+                  const key = `${s.projectSlug}/${s.surveySlug}`;
+                  return (
+                    <div key={key} className="rounded-lg border border-rule bg-white p-4">
+                      <div className="font-bold text-ink">{s.title}</div>
+                      <div className="mb-2 text-[0.9rem] text-muted">
+                        已回收 {s.responseCount} 筆
+                        {s.estimatedMinutes ? `｜約 ${s.estimatedMinutes} 分鐘` : ''}
+                      </div>
+                      <div className="mb-2 flex flex-wrap gap-1.5">
+                        {[...s.audience, ...s.purpose, ...(s.complexity ? [s.complexity] : [])].map((t, i) => (
+                          <span key={i} className="rounded-full border border-rule px-2 py-0.5 text-[0.8rem] text-muted">{t}</span>
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <a href={s.link} target="_blank" rel="noreferrer" className="truncate text-[0.85rem] text-focus underline">{s.link}</a>
+                        <button onClick={() => copy(s.link, key)} className="shrink-0 text-[0.85rem] text-muted underline">
+                          {copied === key ? '已複製' : '複製連結'}
+                        </button>
+                        {s.responseCount > 0 && (
+                          <a
+                            href={`/api/admin/export?project=${s.projectSlug}&survey=${s.surveySlug}`}
+                            className="shrink-0 rounded-lg border border-rule px-3 py-1 text-[0.85rem] font-medium text-ink hover:bg-ink/5"
+                          >
+                            ⬇ 匯出資料
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              <div className="flex items-center gap-3">
-                <a href={s.link} target="_blank" rel="noreferrer" className="truncate text-[0.85rem] text-focus underline">{s.link}</a>
-                <button onClick={() => copy(s.link, key)} className="shrink-0 text-[0.85rem] text-muted underline">
-                  {copied === key ? '已複製' : '複製連結'}
-                </button>
-                {s.responseCount > 0 && (
-                  <a
-                    href={`/api/admin/export?project=${s.projectSlug}&survey=${s.surveySlug}`}
-                    className="shrink-0 rounded-lg border border-rule px-3 py-1 text-[0.85rem] font-medium text-ink hover:bg-ink/5"
-                  >
-                    ⬇ 匯出資料
-                  </a>
-                )}
-              </div>
-            </div>
+            </section>
           );
         })}
       </div>
