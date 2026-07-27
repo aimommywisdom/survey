@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "tsx supabase/seed.ts"
+    "seed": "tsx supabase/seed.ts",
+    "api-key": "tsx supabase/create-api-key.ts",
+    "seed-synthetic": "tsx supabase/seed-synthetic.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.8",
