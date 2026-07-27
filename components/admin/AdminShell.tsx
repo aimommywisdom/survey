@@ -34,12 +34,19 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'access', label: '權限', icon: '🔑' },
 ];
 
+export interface ProjectRow {
+  slug: string;
+  name: string;
+}
+
 export function AdminShell({
   surveys,
   dashboard,
+  projects,
 }: {
   surveys: SurveyRow[];
   dashboard: DashboardData;
+  projects: ProjectRow[];
 }) {
   const router = useRouter();
   const [tab, setTab] = useState<Tab>('dashboard');
@@ -81,7 +88,7 @@ export function AdminShell({
       {/* 內容 */}
       <main className="flex-1 px-5 py-6">
         {tab === 'dashboard' && <DashboardView d={dashboard} surveys={surveys} />}
-        {tab === 'classification' && <ClassificationView surveys={surveys} />}
+        {tab === 'classification' && <ClassificationView surveys={surveys} projects={projects} />}
         {tab === 'planning' && <PlanningView surveys={surveys} />}
         {tab === 'howto' && <HowToView />}
         {tab === 'access' && <AccessView onLogout={logout} />}
@@ -169,7 +176,14 @@ function Stat({ label, value, unit, amber }: { label: string; value: string | nu
 }
 
 // ── 2. 問卷分類 ───────────────────────────────────
-function ClassificationView({ surveys }: { surveys: SurveyRow[] }) {
+function ClassificationView({
+  surveys,
+  projects,
+}: {
+  surveys: SurveyRow[];
+  projects: ProjectRow[];
+}) {
+  const router = useRouter();
   const [copied, setCopied] = useState('');
   const copy = (text: string, tag: string) => {
     navigator.clipboard?.writeText(text);
@@ -177,20 +191,88 @@ function ClassificationView({ surveys }: { surveys: SurveyRow[] }) {
     setTimeout(() => setCopied(''), 1500);
   };
 
-  // 依公司（專案）分組：一間公司一組，底下掛多份問卷。
-  const groups = useMemo(() => {
-    const m = new Map<string, { name: string; items: SurveyRow[] }>();
-    for (const s of surveys) {
-      if (!m.has(s.projectSlug)) m.set(s.projectSlug, { name: s.projectName, items: [] });
-      m.get(s.projectSlug)!.items.push(s);
+  // 新增公司表單
+  const [showForm, setShowForm] = useState(false);
+  const [name, setName] = useState('');
+  const [slug, setSlug] = useState('');
+  const [formErr, setFormErr] = useState('');
+  const [saving, setSaving] = useState(false);
+  const createProject = async () => {
+    setSaving(true);
+    setFormErr('');
+    try {
+      const res = await fetch('/api/admin/projects', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ name, slug }),
+      });
+      const d = await res.json();
+      if (!res.ok) throw new Error(d.error ?? '建立失敗');
+      setShowForm(false);
+      setName('');
+      setSlug('');
+      router.refresh();
+    } catch (e) {
+      setFormErr((e as Error).message);
+    } finally {
+      setSaving(false);
     }
-    return [...m.entries()].map(([slug, g]) => ({ slug, ...g }));
-  }, [surveys]);
+  };
+
+  // 依公司（專案）分組：以 projects 為主（含尚無問卷的公司），掛上各自的問卷。
+  const groups = useMemo(() => {
+    const byProj = new Map<string, SurveyRow[]>();
+    for (const s of surveys) {
+      if (!byProj.has(s.projectSlug)) byProj.set(s.projectSlug, []);
+      byProj.get(s.projectSlug)!.push(s);
+    }
+    return projects.map((p) => ({ slug: p.slug, name: p.name, items: byProj.get(p.slug) ?? [] }));
+  }, [surveys, projects]);
 
   return (
     <>
-      <H1>問卷分類</H1>
-      {groups.length === 0 && <p className="text-muted">目前沒有任何公司／問卷。</p>}
+      <div className="mb-5 flex items-center justify-between">
+        <H1>問卷分類</H1>
+        <button
+          onClick={() => setShowForm((v) => !v)}
+          className="min-h-[40px] shrink-0 rounded-lg bg-ink px-4 font-medium text-paper"
+        >
+          ＋ 新增公司
+        </button>
+      </div>
+
+      {showForm && (
+        <div className="mb-6 rounded-lg border border-rule bg-white p-4">
+          <h2 className="mb-3 font-bold text-ink">新增公司</h2>
+          <div className="flex flex-col gap-3">
+            <label className="flex flex-col gap-1">
+              <span className="text-[0.9rem] text-muted">公司名稱</span>
+              <input value={name} onChange={(e) => setName(e.target.value)}
+                placeholder="例如：晶華科技股份有限公司"
+                className="min-h-[44px] rounded-lg border border-rule bg-white px-3" />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-[0.9rem] text-muted">代號（網址用，小寫英數字/連字號）</span>
+              <input value={slug} onChange={(e) => setSlug(e.target.value)}
+                placeholder="例如：jinghua"
+                className="min-h-[44px] rounded-lg border border-rule bg-white px-3" />
+            </label>
+            {formErr && <p className="text-amber">{formErr}</p>}
+            <div className="flex items-center gap-3">
+              <button onClick={createProject} disabled={saving || !name || !slug}
+                className="min-h-[44px] rounded-lg bg-ink px-5 font-medium text-paper disabled:opacity-40">
+                {saving ? '建立中…' : '建立'}
+              </button>
+              <button onClick={() => setShowForm(false)} className="text-muted underline">取消</button>
+            </div>
+            <p className="text-[0.85rem] text-muted">
+              建立後會出現一個空的公司群組。問卷內容目前仍由維護者以範本建立後上架。
+            </p>
+          </div>
+        </div>
+      )}
+
+      {groups.length === 0 && <p className="text-muted">目前沒有任何公司。按右上角「新增公司」開始。</p>}
       <div className="flex flex-col gap-8">
         {groups.map((g) => {
           const total = g.items.reduce((n, s) => n + s.responseCount, 0);
@@ -204,6 +286,11 @@ function ClassificationView({ surveys }: { surveys: SurveyRow[] }) {
                 </span>
               </div>
               <div className="flex flex-col gap-3">
+                {g.items.length === 0 && (
+                  <p className="rounded-lg border border-dashed border-rule bg-white p-4 text-[0.9rem] text-muted">
+                    這間公司還沒有問卷。把要調查的內容告訴維護者，即可從範本上架問卷。
+                  </p>
+                )}
                 {g.items.map((s) => {
                   const key = `${s.projectSlug}/${s.surveySlug}`;
                   return (

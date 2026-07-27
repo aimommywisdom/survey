@@ -88,5 +88,7 @@ export default async function AdminPage() {
     skillSample,
   };
 
-  return <AdminShell surveys={rows} dashboard={dashboard} />;
+  const projectList = (projects ?? []).map((p) => ({ slug: p.slug, name: p.name }));
+
+  return <AdminShell surveys={rows} dashboard={dashboard} projects={projectList} />;
 }
