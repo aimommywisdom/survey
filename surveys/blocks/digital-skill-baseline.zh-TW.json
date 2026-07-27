@@ -1,0 +1,35 @@
+{
+  "code": "digital-skill-baseline",
+  "title": "數位能力基線（行為式自評）",
+  "version": 1,
+  "purpose": ["tna", "digital_maturity"],
+  "industry": ["general"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "以具體行為取代自我評分，避免高估。L1–L4 加權見 §7（total ≤4 entry／5-11 basic／≥12 advanced）。option.value 為正式 item_code，一旦交付不得改語意。",
+  "section": {
+    "id": "sec_skill",
+    "title": "電腦與手機操作",
+    "questions": [
+      {
+        "id": "q_skill",
+        "type": "behavior_check",
+        "label": "以下這些事，你「實際做得到」哪些？",
+        "help": "請勾選你自己做得到的，沒做過的就別勾。這不是考試，據實勾就好。",
+        "required": false,
+        "options": [
+          { "value": "skill_photo_transfer", "label": "把手機拍的照片傳到電腦", "level": 1, "weight": 1 },
+          { "value": "skill_zhuyin", "label": "用注音（或其他輸入法）打字", "level": 1, "weight": 1 },
+          { "value": "skill_search", "label": "自己上網 Google 找資料", "level": 1, "weight": 1 },
+          { "value": "skill_gdrive_save", "label": "把檔案存到 Google 雲端硬碟", "level": 2, "weight": 2 },
+          { "value": "skill_gdrive_share", "label": "把雲端檔案分享連結給別人", "level": 2, "weight": 2 },
+          { "value": "skill_excel_sort", "label": "用 Excel 排序、篩選資料", "level": 3, "weight": 3 },
+          { "value": "skill_excel_pivot", "label": "用 Excel 做樞紐分析或函式", "level": 3, "weight": 3 },
+          { "value": "skill_ai_used", "label": "用過 ChatGPT 之類的 AI 工具並完成一件工作", "level": 4, "weight": 4 }
+        ]
+      }
+    ]
+  }
+}

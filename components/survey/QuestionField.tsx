@@ -9,6 +9,7 @@ import { TextField } from './fields/TextField';
 import { NumberField } from './fields/NumberField';
 import { BehaviorCheckField } from './fields/BehaviorCheckField';
 import { PainRepeaterField } from './fields/PainRepeaterField';
+import { AvailabilityField } from './fields/AvailabilityField';
 
 // 依 question.type 分派到對應題型元件。
 // 新增題型 = 在此加一個 case + 一個 fields/ 元件，不動其他地方。
@@ -89,11 +90,13 @@ export function QuestionField({
         />
       );
     case 'availability':
-      // Day 4 實作（受訓時段矩陣）
       return (
-        <div className="rounded-lg border border-dashed border-rule bg-white p-4 text-muted">
-          （availability 題型稍後實作）
-        </div>
+        <AvailabilityField
+          question={question}
+          value={value as never}
+          onChange={onChange}
+          error={error}
+        />
       );
     default: {
       question satisfies never;

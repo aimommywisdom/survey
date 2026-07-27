@@ -45,6 +45,37 @@
       "notes": "只問去識別化的分群欄位（單位/職務/年資），不問姓名、員工編號。q_dept 的 options 各專案用 overrides 覆寫成該機構實際單位。role_group 由 q_role 的 value 在計分時對應（admin_mgmt/professional/frontline）。"
     },
     {
+      "code": "digital-skill-baseline",
+      "title": "數位能力基線（行為式自評）",
+      "version": 1,
+      "purpose": [
+        "tna",
+        "digital_maturity"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 1,
+      "item_codes": [
+        "skill_photo_transfer",
+        "skill_zhuyin",
+        "skill_search",
+        "skill_gdrive_save",
+        "skill_gdrive_share",
+        "skill_excel_sort",
+        "skill_excel_pivot",
+        "skill_ai_used"
+      ],
+      "notes": "以具體行為取代自我評分，避免高估。L1–L4 加權見 §7（total ≤4 entry／5-11 basic／≥12 advanced）。option.value 為正式 item_code，一旦交付不得改語意。"
+    },
+    {
       "code": "pain-repeater-nonprofit",
       "title": "重複性文書工作痛點盤點（社福版）",
       "version": 1,

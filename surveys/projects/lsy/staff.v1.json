@@ -29,6 +29,9 @@
     },
     {
       "$block": "blocks/pain-repeater-nonprofit.zh-TW"
+    },
+    {
+      "$block": "blocks/digital-skill-baseline.zh-TW"
     }
   ]
 }

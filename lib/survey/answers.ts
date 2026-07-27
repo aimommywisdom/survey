@@ -29,11 +29,18 @@ export interface PainItemValue {
   deliver_to?: string;
 }
 
+// 受訓時段：可配合的時段 + 最多可離崗時長
+export interface AvailabilityValue {
+  slots: string[];
+  offsite?: string;
+}
+
 export type AnswerValue =
   | SingleValue
   | MultiValue
   | BehaviorValue
   | PainItemValue[]
+  | AvailabilityValue
   | number
   | string
   | null;
@@ -48,6 +55,7 @@ export function isEmpty(v: AnswerValue | undefined): boolean {
   if (typeof v === 'object') {
     if ('value' in v) return !v.value;
     if ('values' in v) return v.values.length === 0;
+    if ('slots' in v) return (v as { slots: string[] }).slots.length === 0;
   }
   return false;
 }
