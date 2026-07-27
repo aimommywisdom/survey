@@ -206,18 +206,24 @@ export function SurveyRunner({
         {definition.intro && (
           <p className="mb-6 leading-relaxed text-ink">{definition.intro}</p>
         )}
-        {p && (
+        {p?.notice ? (
+          // 簡短說明版
+          <p className="mb-6 rounded-lg border border-rule bg-white p-5 text-[0.98rem] leading-relaxed text-ink">
+            {p.notice}
+          </p>
+        ) : p ? (
+          // 完整個資告知版
           <div className="mb-6 rounded-lg border border-rule bg-white p-5 text-[0.98rem] leading-relaxed">
             <h2 className="mb-3 font-bold text-ink">個人資料蒐集告知</h2>
             <dl className="flex flex-col gap-2 text-ink">
-              <Row k="蒐集目的" v={p.purpose} />
-              <Row k="蒐集項目" v={p.items} />
-              <Row k="保存期限" v={p.retention} />
-              <Row k="資料處理者" v={p.processor} />
-              <Row k="您的權利" v={p.rights} />
+              {p.purpose && <Row k="蒐集目的" v={p.purpose} />}
+              {p.items && <Row k="蒐集項目" v={p.items} />}
+              {p.retention && <Row k="保存期限" v={p.retention} />}
+              {p.processor && <Row k="資料處理者" v={p.processor} />}
+              {p.rights && <Row k="您的權利" v={p.rights} />}
             </dl>
           </div>
-        )}
+        ) : null}
         <label className="mb-6 flex cursor-pointer items-start gap-3">
           <input
             type="checkbox"

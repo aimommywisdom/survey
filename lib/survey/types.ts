@@ -134,11 +134,13 @@ export interface Section {
 }
 
 export interface PrivacyNotice {
-  purpose: string;
-  items: string;
-  retention: string;
-  processor: string;
-  rights: string;
+  // notice 有值時，同意頁只顯示這句簡短說明（不列下面五欄）。
+  notice?: string;
+  purpose?: string;
+  items?: string;
+  retention?: string;
+  processor?: string;
+  rights?: string;
   consent_required: boolean;
 }
 
