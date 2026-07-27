@@ -1,0 +1,55 @@
+{
+  "code": "ai-readiness-tna-manager",
+  "title": "AI 導入與訓練需求調查（主管決策版）",
+  "version": 1,
+  "purpose": [
+    "ai_readiness",
+    "tna",
+    "org_baseline"
+  ],
+  "industry": [
+    "nonprofit",
+    "general"
+  ],
+  "audience": [
+    "executive",
+    "middle_mgmt"
+  ],
+  "ttqs_stage": "P",
+  "kirkpatrick": "L3",
+  "complexity": "deep",
+  "estimated_minutes": 15,
+  "notes": "建議搭配 60 分鐘面談使用，問卷作為前置作業，讓主管先想過，面談才問得深。單獨發放效果有限。",
+  "intro": "這份問卷用來了解機構的現況、資源條件與期待成果，作為後續診斷與規劃的基礎。\n\n部分題目若不確定，可填「不清楚」，我們會在後續訪談中一起確認。全部約需 15 分鐘。",
+  "privacy": {
+    "purpose": "組織現況診斷、流程改善規劃與教育訓練設計",
+    "items": "組織目標、資訊系統現況、法規遵循現況、訓練期待與資源條件",
+    "retention": "本專案結束後 6 個月內刪除",
+    "processor": "智慧媽咪國際有限公司",
+    "rights": "您可隨時要求查詢、更正或刪除您的填答資料",
+    "consent_required": true,
+    "consent_label": "我已閱讀並瞭解上述說明，同意開始填答"
+  },
+  "sections": [
+    {
+      "$block": "blocks/org-goals-manager"
+    },
+    {
+      "$block": "blocks/it-continuity-manager"
+    },
+    {
+      "$block": "blocks/system-audit-manager"
+    },
+    {
+      "$block": "blocks/compliance-risk-manager"
+    },
+    {
+      "$block": "blocks/kirkpatrick-l3-manager"
+    }
+  ],
+  "closing": {
+    "title": "填答完成，謝謝您",
+    "body": "我們會在彙整第一線同仁的填答結果後，安排一次面談，一起確認診斷方向與後續規劃。",
+    "show_personal_summary": false
+  }
+}

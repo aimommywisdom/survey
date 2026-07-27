@@ -1,0 +1,100 @@
+{
+  "code": "compliance-risk-manager",
+  "title": "個資與法規風險（主管版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "org_baseline"],
+  "industry": ["general"],
+  "audience": ["executive", "middle_mgmt"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "standard",
+  "notes": "若 q_sensitive_data 勾選 health 或 disability，屬個資法特種個資，導入方案不得將原始資料送往公有雲 LLM，須先去識別化或採本地部署。此結論應寫入提案的風險章節，是專業度的重要展現。",
+  "sections": [
+    {
+      "id": "sec_compliance",
+      "title": "資料與法規",
+      "questions": [
+        {
+          "id": "q_sensitive_data",
+          "type": "multi",
+          "label": "機構日常作業會處理到哪些類型的資料？（可複選）",
+          "required": true,
+          "options": [
+            { "value": "basic",      "label": "姓名、聯絡方式等基本資料" },
+            { "value": "health",     "label": "健康或醫療紀錄" },
+            { "value": "disability", "label": "身心障礙狀況或評估" },
+            { "value": "family",     "label": "家庭狀況與經濟狀況" },
+            { "value": "financial",  "label": "捐款人資料與金流" },
+            { "value": "hr",         "label": "員工人事與薪資" }
+          ]
+        },
+        {
+          "id": "q_data_location",
+          "type": "single",
+          "label": "服務對象的個人資料主要存放在？",
+          "required": true,
+          "options": [
+            { "value": "paper",   "label": "紙本檔案為主" },
+            { "value": "system",  "label": "內部系統" },
+            { "value": "excel",   "label": "個人電腦的 Excel 檔" },
+            { "value": "cloud",   "label": "雲端硬碟" },
+            { "value": "mixed",   "label": "以上皆有，分散各處" }
+          ]
+        },
+        {
+          "id": "q_access_control",
+          "type": "single",
+          "label": "誰可以查看服務對象的完整資料？",
+          "required": true,
+          "options": [
+            { "value": "strict",  "label": "有明確權限分級，僅特定人員" },
+            { "value": "loose",   "label": "同部門大多可以看" },
+            { "value": "all",     "label": "幾乎所有同仁都看得到" },
+            { "value": "unknown", "label": "沒有明確規定" }
+          ]
+        },
+        {
+          "id": "q_policy_docs",
+          "type": "multi",
+          "label": "機構目前已有哪些管理規範文件？（可複選）",
+          "required": false,
+          "options": [
+            { "value": "privacy",   "label": "個人資料保護管理規範" },
+            { "value": "infosec",   "label": "資訊安全管理規範" },
+            { "value": "ai_policy", "label": "AI 使用相關規定" },
+            { "value": "sop",       "label": "各項作業標準流程 SOP" },
+            { "value": "none",      "label": "都沒有", "exclusive": true }
+          ]
+        },
+        {
+          "id": "q_audit_frequency",
+          "type": "single",
+          "label": "一年大約要面對幾次評鑑、督導或核銷查核？",
+          "required": true,
+          "options": [
+            { "value": "1to2",  "label": "1–2 次" },
+            { "value": "3to5",  "label": "3–5 次" },
+            { "value": "6to12", "label": "6–12 次" },
+            { "value": "gt12",  "label": "12 次以上" }
+          ]
+        },
+        {
+          "id": "q_audit_docs",
+          "type": "long_text",
+          "label": "這些查核主要需要產出哪些文件？由誰負責？",
+          "required": false,
+          "placeholder": "例如：服務成果統計表（社工組）、核銷明細（會計）"
+        },
+        {
+          "id": "q_audit_hours",
+          "type": "number",
+          "label": "每次查核準備，全機構大約投入多少工時？",
+          "unit": "小時",
+          "required": false,
+          "min": 0,
+          "help": "估算即可，不需精確。"
+        }
+      ]
+    }
+  ]
+}

@@ -30,6 +30,7 @@ export function TextField({
         <textarea
           rows={4}
           value={value ?? ''}
+          placeholder={question.placeholder}
           onChange={(e) => onChange(e.target.value)}
           className={`${cls} min-h-[96px] resize-y`}
         />
@@ -37,6 +38,7 @@ export function TextField({
         <input
           type="text"
           value={value ?? ''}
+          placeholder={question.placeholder}
           onChange={(e) => onChange(e.target.value)}
           className={`${cls} min-h-[48px]`}
         />

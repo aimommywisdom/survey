@@ -19,11 +19,24 @@ export function MultiField({
   const atMax =
     question.max_select != null && values.length >= question.max_select;
 
+  const exclusiveVals = new Set(
+    question.options.filter((o) => o.exclusive).map((o) => o.value)
+  );
+
   const toggle = (v: string) => {
     const has = values.includes(v);
-    if (!has && atMax) return; // 已達上限，不再加選
-    const next = has ? values.filter((x) => x !== v) : [...values, v];
-    onChange({ values: next, text: value?.text });
+    if (has) {
+      onChange({ values: values.filter((x) => x !== v), text: value?.text });
+      return;
+    }
+    // 選了 exclusive 選項 → 只剩它；選一般選項 → 先清掉所有 exclusive 選項
+    if (exclusiveVals.has(v)) {
+      onChange({ values: [v], text: value?.text });
+      return;
+    }
+    const kept = values.filter((x) => !exclusiveVals.has(x));
+    if (question.max_select != null && kept.length >= question.max_select) return;
+    onChange({ values: [...kept, v], text: value?.text });
   };
 
   return (

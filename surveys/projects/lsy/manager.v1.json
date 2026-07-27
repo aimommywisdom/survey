@@ -1,0 +1,39 @@
+{
+  "project": "lsy",
+  "slug": "manager",
+  "version": 1,
+  "extends": "templates/ai-readiness-tna-manager.v1",
+  "title": "機構現況與訓練需求調查（主管版）",
+  "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+  "notes": "客製點：q_modules_active 改為蓮心園實際系統模組（依後台畫面）；新增 q_ai_policy_existing 確認後台既有的「管理規定-AI」項目內容。",
+  "overrides": {
+    "q_modules_active.options": [
+      { "value": "m_public",    "label": "公用資訊（行事曆、值班表、登記表等）" },
+      { "value": "m_admin",     "label": "行政管理" },
+      { "value": "m_case",      "label": "個案管理" },
+      { "value": "m_meal",      "label": "老人送餐" },
+      { "value": "m_community", "label": "社區家園" },
+      { "value": "m_farm",      "label": "庇護農場" },
+      { "value": "m_inventory", "label": "庫存資料" },
+      { "value": "m_asset",     "label": "固定資產" },
+      { "value": "m_order",     "label": "訂單資料" },
+      { "value": "m_donor",     "label": "友善名冊" },
+      { "value": "m_receipt",   "label": "義賣收據" }
+    ]
+  },
+  "append_questions": [
+    {
+      "section_id": "sec_audit",
+      "questions": [
+        {
+          "id": "q_ai_policy_existing",
+          "type": "long_text",
+          "label": "系統後台「公用資訊」中已有一項「管理規定-AI」，目前內容是什麼？",
+          "required": false,
+          "placeholder": "若不清楚請填「不清楚」",
+          "help": "此題用於確認機構是否已有相關內部規定，避免重複制定。"
+        }
+      ]
+    }
+  ]
+}

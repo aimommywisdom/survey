@@ -1,0 +1,83 @@
+{
+  "code": "ai-concern-safety",
+  "title": "對新工具的看法與顧慮",
+  "version": 1,
+  "purpose": ["ai_readiness", "tna"],
+  "industry": ["general"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "「怕被取代」的恐懼必須給它一個出口，否則會轉為消極抵抗。q_concerns 若 replaced 選項比例偏高，導入前必須先由高層對全體說明，不可跳過。這題的統計結果本身就是給主管看的證據。",
+  "sections": [
+    {
+      "id": "sec_attitude",
+      "title": "你的想法",
+      "description": "這一段沒有標準答案，請照真實感受回答。",
+      "questions": [
+        {
+          "id": "q_ai_tools_used",
+          "type": "multi",
+          "label": "你使用過下列哪些工具？（可複選）",
+          "required": false,
+          "options": [
+            { "value": "chatgpt",  "label": "ChatGPT" },
+            { "value": "claude",   "label": "Claude" },
+            { "value": "gemini",   "label": "Gemini" },
+            { "value": "copilot",  "label": "Copilot" },
+            { "value": "line_ai",  "label": "LINE 裡的 AI 功能" },
+            { "value": "gforms",   "label": "Google 表單" },
+            { "value": "gsheets",  "label": "Google 試算表" },
+            { "value": "none",     "label": "都沒有用過", "exclusive": true }
+          ]
+        },
+        {
+          "id": "q_ai_feeling",
+          "type": "single",
+          "label": "如果機構要引進工具，幫忙自動整理紀錄、產出報表，你的感覺比較接近？",
+          "required": true,
+          "options": [
+            { "value": "excited",  "label": "很期待" },
+            { "value": "open",     "label": "可以試試看" },
+            { "value": "worried",  "label": "有點擔心" },
+            { "value": "unneeded", "label": "覺得不需要" }
+          ]
+        },
+        {
+          "id": "q_concerns",
+          "type": "multi",
+          "label": "你最擔心的是什麼？（可複選）",
+          "required": false,
+          "options": [
+            { "value": "cant_learn",  "label": "怕自己學不會" },
+            { "value": "responsible", "label": "怕出錯要自己扛責任" },
+            { "value": "privacy",     "label": "怕個案資料外洩" },
+            { "value": "replaced",    "label": "怕自己的工作被取代" },
+            { "value": "more_work",   "label": "怕反而變得更麻煩" },
+            { "value": "no_support",  "label": "怕沒人可以問" },
+            { "value": "none",        "label": "不太擔心", "exclusive": true }
+          ]
+        },
+        {
+          "id": "q_training_willing",
+          "type": "single",
+          "label": "如果安排 2 小時的教育訓練，你願意參加嗎？",
+          "required": true,
+          "options": [
+            { "value": "yes",     "label": "願意" },
+            { "value": "depends", "label": "要看時間" },
+            { "value": "no",      "label": "不願意" }
+          ]
+        },
+        {
+          "id": "q_free_comment",
+          "type": "long_text",
+          "label": "還有什麼想讓我們知道的嗎？",
+          "required": false,
+          "placeholder": "沒有的話可以直接送出",
+          "max_length": 500
+        }
+      ]
+    }
+  ]
+}

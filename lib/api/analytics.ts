@@ -22,9 +22,16 @@ export async function resolveProject(slug: string): Promise<ProjectRef | null> {
   if (!project) return null;
   const { data: surveys } = await supabaseAdmin
     .from('surveys')
-    .select('id, slug')
+    .select('id, slug, title')
     .eq('project_id', project.id);
   return { ...project, surveys: surveys ?? [] };
+}
+
+// 把 ProjectRef 縮到只含一份問卷，讓所有聚合函式自然過濾到該問卷。
+export function scopeToSurvey(p: ProjectRef, surveySlug: string): ProjectRef | null {
+  const s = p.surveys.find((x) => x.slug === surveySlug);
+  if (!s) return null;
+  return { ...p, surveys: [s] };
 }
 
 function surveyIds(p: ProjectRef) {

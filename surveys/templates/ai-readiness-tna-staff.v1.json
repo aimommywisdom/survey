@@ -1,0 +1,59 @@
+{
+  "code": "ai-readiness-tna-staff",
+  "title": "AI 導入與訓練需求調查（第一線同仁版）",
+  "version": 1,
+  "purpose": [
+    "ai_readiness",
+    "tna"
+  ],
+  "industry": [
+    "nonprofit",
+    "general"
+  ],
+  "audience": [
+    "professional",
+    "admin"
+  ],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "standard",
+  "estimated_minutes": 12,
+  "notes": "行政、社工、教保等需操作系統的職務適用。第一線現場人員請改用 ai-readiness-tna-staff-lite。全文刻意避免以「AI」為主軸語彙，改以「工作流程」框架提問，降低填答者防衛心。",
+  "intro": "為了解大家日常工作中最花時間、最重複的事項，作為未來簡化流程與安排教育訓練的參考。\n\n本問卷不記名，也不會作為個人考核用途，請安心依實際情況填答。全部約需 12 分鐘。",
+  "privacy": {
+    "purpose": "分析組織流程改善需求與教育訓練規劃",
+    "items": "服務單位、職務類別、年資、工作型態、數位能力自評與受訓條件",
+    "retention": "本專案結束後 6 個月內刪除",
+    "processor": "智慧媽咪國際有限公司",
+    "rights": "您可隨時要求查詢、更正或刪除您的填答資料",
+    "no_collect": "本問卷不蒐集姓名、員工編號、IP 位址",
+    "consent_required": true,
+    "consent_label": "我已閱讀並瞭解上述說明，同意開始填答"
+  },
+  "sections": [
+    {
+      "$block": "blocks/basic-profile"
+    },
+    {
+      "$block": "blocks/pain-repeater-nonprofit"
+    },
+    {
+      "$block": "blocks/system-health-staff"
+    },
+    {
+      "$block": "blocks/digital-skill-baseline"
+    },
+    {
+      "$block": "blocks/training-availability"
+    },
+    {
+      "$block": "blocks/ai-concern-safety"
+    }
+  ],
+  "closing": {
+    "title": "填答完成，謝謝你",
+    "body": "你的回答會與其他同仁的意見一起彙整分析，用來規劃真正幫得上忙的改善方案與課程。",
+    "show_personal_summary": true,
+    "summary_template": "依你的填答估算，你一年花在文書作業上大約 {total_annual_hours} 小時。"
+  }
+}

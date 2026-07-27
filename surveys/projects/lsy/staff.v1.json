@@ -1,33 +1,31 @@
 {
-  "_note": "蓮心園 同仁版 — Day 1 最小骨架，用來驗證引擎（$block 引用 + overrides + 發布快照）。完整題目內容於後續獨立 session 補完（§16）。",
+  "project": "lsy",
   "slug": "staff",
   "version": 1,
+  "extends": "templates/ai-readiness-tna-staff.v1",
   "title": "工作流程與訓練需求調查",
-  "subtitle": "財團法人蓮心園社會福利慈善事業基金會",
-  "intro": "為了解大家日常工作中最花時間、最重複的事項，作為未來流程改善與教育訓練規劃的依據。本問卷不記名，請安心填答。",
-  "estimated_minutes": 8,
-  "privacy": {
-    "notice": "這份問卷不記名，僅用於了解大家的工作流程與規劃教育訓練課程，不會用於考核。感謝你的協助。",
-    "consent_required": true
-  },
-  "sections": [
-    {
-      "$block": "blocks/basic-profile.zh-TW",
-      "overrides": {
-        "q_dept.options": [
-          { "value": "residential", "label": "全日型住宿服務" },
-          { "value": "day_care", "label": "日間照顧服務" },
-          { "value": "home_care", "label": "居家服務" },
-          { "value": "admin", "label": "行政／會計／人資" },
-          { "value": "other", "label": "其他", "allow_text": true }
-        ]
-      }
-    },
-    {
-      "$block": "blocks/pain-repeater-nonprofit.zh-TW"
-    },
-    {
-      "$block": "blocks/digital-skill-baseline.zh-TW"
-    }
-  ]
+  "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+  "notes": "客製點：q_dept 改為蓮心園六條服務線；q_system_help 加入「資訊人員已離職」情境選項；痛點清單保留 route_plan（送餐路線）。",
+  "overrides": {
+    "q_dept.options": [
+      { "value": "residential", "label": "全日型住宿服務" },
+      { "value": "day_work",    "label": "日間作業設施" },
+      { "value": "day_care",    "label": "日間照顧服務" },
+      { "value": "home_care",   "label": "居家服務" },
+      { "value": "meal",        "label": "失能長者送餐服務" },
+      { "value": "farm",        "label": "庇護性農場" },
+      { "value": "community",   "label": "社區家園" },
+      { "value": "admin",       "label": "行政／會計／人資" },
+      { "value": "pr",          "label": "公關募款" },
+      { "value": "other",       "label": "其他", "allow_text": true }
+    ],
+    "q_system_help.options": [
+      { "value": "it_staff",  "label": "資訊人員" },
+      { "value": "manager",   "label": "主管" },
+      { "value": "colleague", "label": "比較會電腦的同事" },
+      { "value": "vendor",    "label": "外面的廠商" },
+      { "value": "self",      "label": "自己想辦法" },
+      { "value": "give_up",   "label": "不知道找誰，就先擱著或改用紙本" }
+    ]
+  }
 }

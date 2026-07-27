@@ -1,0 +1,69 @@
+{
+  "code": "system-health-staff",
+  "title": "現有系統使用現況（員工視角）",
+  "version": 1,
+  "purpose": ["ai_readiness", "org_baseline", "digital_maturity"],
+  "industry": ["general"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "q_system_help 是診斷金礦：若多數人答「不知道找誰」或「自己想辦法」，代表資訊維運已斷鏈，此時任何新系統導入都會失敗，應優先處理維運而非導入 AI。",
+  "sections": [
+    {
+      "id": "sec_system",
+      "title": "現有系統",
+      "questions": [
+        {
+          "id": "q_use_system",
+          "type": "single",
+          "label": "你有使用機構現有的內部系統嗎？",
+          "required": true,
+          "options": [
+            { "value": "daily",     "label": "每天用" },
+            { "value": "sometimes", "label": "偶爾用" },
+            { "value": "rarely",    "label": "幾乎不用" },
+            { "value": "unaware",   "label": "不知道有這個系統" }
+          ]
+        },
+        {
+          "id": "q_system_usability",
+          "type": "scale",
+          "label": "整體來說，現有系統好用嗎？",
+          "required": true,
+          "min": 1, "max": 5,
+          "min_label": "很難用", "max_label": "很好用",
+          "show_if": { "q_use_system": ["daily", "sometimes", "rarely"], "mode": "any" }
+        },
+        {
+          "id": "q_system_best",
+          "type": "short_text",
+          "label": "系統裡你最常用的功能是？",
+          "required": false,
+          "show_if": { "q_use_system": ["daily", "sometimes"], "mode": "any" }
+        },
+        {
+          "id": "q_system_worst",
+          "type": "short_text",
+          "label": "系統裡有沒有哪個功能你不會用、或用了很痛苦？",
+          "required": false,
+          "show_if": { "q_use_system": ["daily", "sometimes", "rarely"], "mode": "any" }
+        },
+        {
+          "id": "q_system_help",
+          "type": "single",
+          "label": "系統壞掉或你不會用的時候，現在會找誰？",
+          "required": true,
+          "options": [
+            { "value": "it_staff",  "label": "資訊人員" },
+            { "value": "manager",   "label": "主管" },
+            { "value": "colleague", "label": "比較會電腦的同事" },
+            { "value": "vendor",    "label": "外面的廠商" },
+            { "value": "self",      "label": "自己想辦法" },
+            { "value": "give_up",   "label": "不知道找誰，就先擱著或改用紙本" }
+          ]
+        }
+      ]
+    }
+  ]
+}

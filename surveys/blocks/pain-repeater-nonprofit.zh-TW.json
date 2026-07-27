@@ -1,81 +1,268 @@
 {
   "code": "pain-repeater-nonprofit",
-  "title": "重複性文書工作痛點盤點（社福版）",
+  "title": "重複性文書工作盤點（社福機構版）",
   "version": 1,
-  "purpose": ["ai_readiness", "tna", "org_baseline"],
-  "industry": ["nonprofit"],
-  "audience": ["frontline", "professional", "admin"],
+  "purpose": [
+    "tna",
+    "ai_readiness",
+    "org_baseline"
+  ],
+  "industry": [
+    "nonprofit"
+  ],
+  "audience": [
+    "frontline",
+    "professional",
+    "admin"
+  ],
   "ttqs_stage": "P",
   "kirkpatrick": null,
   "complexity": "standard",
-  "notes": "招牌題型。preset_items 的 item_code 一旦用於正式交付即不得變更語意（§13 治理鐵律）；要改語意請開 _v2。live_calc 即時年工時是本產品靈魂（§5），數字跳動不可造成版面位移。",
-  "section": {
-    "id": "sec_pain",
-    "title": "最花時間的重複工作",
-    "questions": [
-      {
-        "id": "q_pain",
-        "type": "pain_repeater",
-        "label": "請選出你每天或每週一定要做的重複性文書工作",
-        "help": "先勾選項目，勾了才會展開細項。最多選 5 項。",
-        "required": true,
-        "max_items": 5,
-        "min_items": 1,
-        "preset_items": [
-          { "code": "record_writing", "label": "撰寫服務紀錄／個案紀錄" },
-          { "code": "monthly_report", "label": "月報表／季報表製作" },
-          { "code": "reimburse", "label": "核銷單據整理" },
-          { "code": "shift_table", "label": "排班表製作" },
-          { "code": "signoff_sheet", "label": "簽收單／簽到表整理" },
-          { "code": "meeting_notes", "label": "會議紀錄" },
-          { "code": "official_doc", "label": "公文／簽呈撰寫" },
-          { "code": "purchase", "label": "請購單／領用單" },
-          { "code": "inventory", "label": "物資盤點與登記" },
-          { "code": "donor_ack", "label": "捐款徵信／感謝函" },
-          { "code": "photo_org", "label": "活動照片整理與上傳" },
-          { "code": "duplicate_entry", "label": "同一份資料重複填到不同地方" },
-          { "code": "eval_doc", "label": "評鑑／督導資料準備" },
-          { "code": "custom", "label": "其他（請說明）", "allow_text": true }
-        ],
-        "fields": [
-          {
-            "id": "frequency",
-            "type": "single",
-            "label": "多久做一次",
-            "options": ["daily", "weekly", "biweekly", "monthly", "quarterly", "yearly"]
+  "notes": "preset_items 的 code 即為正式 item_code，發布後語意永不得變更（見規格書 §13 治理規則）。刻意不問「幾個人做」，改由跨份加總得出組織總量。",
+  "sections": [
+    {
+      "id": "sec_pain",
+      "title": "你的一天",
+      "description": "這一段是本問卷最重要的部分，請盡量依實際情況填寫。",
+      "questions": [
+        {
+          "id": "q_doc_time_daily",
+          "type": "single",
+          "label": "平均每天，你花多少時間在「寫紀錄、填表單、做報表」？",
+          "required": true,
+          "options": [
+            {
+              "value": "lt30",
+              "label": "30 分鐘以內"
+            },
+            {
+              "value": "30to60",
+              "label": "30 分鐘到 1 小時"
+            },
+            {
+              "value": "1to2",
+              "label": "1 到 2 小時"
+            },
+            {
+              "value": "2to3",
+              "label": "2 到 3 小時"
+            },
+            {
+              "value": "gt3",
+              "label": "3 小時以上"
+            }
+          ]
+        },
+        {
+          "id": "q_pain",
+          "type": "pain_repeater",
+          "label": "請選出你每天或每週一定要做的重複性文書工作",
+          "help": "先勾選項目，勾了之後才會展開細項。最多選 3 項，請挑最花時間的。",
+          "required": true,
+          "min_items": 1,
+          "max_items": 3,
+          "preset_items": [
+            {
+              "code": "record_writing",
+              "label": "撰寫服務紀錄／個案紀錄"
+            },
+            {
+              "code": "monthly_report",
+              "label": "月報表／季報表製作"
+            },
+            {
+              "code": "reimburse",
+              "label": "核銷單據整理"
+            },
+            {
+              "code": "shift_table",
+              "label": "排班表製作"
+            },
+            {
+              "code": "signoff_sheet",
+              "label": "簽收單／簽到表整理"
+            },
+            {
+              "code": "meeting_notes",
+              "label": "會議紀錄"
+            },
+            {
+              "code": "official_doc",
+              "label": "公文／簽呈撰寫"
+            },
+            {
+              "code": "purchase",
+              "label": "請購單／領用單填寫"
+            },
+            {
+              "code": "inventory",
+              "label": "物資盤點與登記"
+            },
+            {
+              "code": "donor_ack",
+              "label": "捐款徵信／感謝函處理"
+            },
+            {
+              "code": "photo_org",
+              "label": "活動照片整理與上傳"
+            },
+            {
+              "code": "duplicate_entry",
+              "label": "同一份資料重複填到不同地方"
+            },
+            {
+              "code": "eval_doc",
+              "label": "評鑑／督導資料準備"
+            },
+            {
+              "code": "route_plan",
+              "label": "送餐或訪視路線安排"
+            },
+            {
+              "code": "custom",
+              "label": "其他（請說明）",
+              "allow_text": true
+            }
+          ],
+          "fields": [
+            {
+              "id": "frequency",
+              "type": "single",
+              "label": "多久做一次？",
+              "required": true,
+              "options": [
+                {
+                  "value": "daily",
+                  "label": "每天"
+                },
+                {
+                  "value": "weekly",
+                  "label": "每週"
+                },
+                {
+                  "value": "biweekly",
+                  "label": "每兩週"
+                },
+                {
+                  "value": "monthly",
+                  "label": "每月"
+                },
+                {
+                  "value": "quarterly",
+                  "label": "每季"
+                },
+                {
+                  "value": "yearly",
+                  "label": "每年"
+                }
+              ]
+            },
+            {
+              "id": "minutes",
+              "type": "number",
+              "label": "每次大約花多久？",
+              "unit": "分鐘",
+              "required": true,
+              "min": 1,
+              "max": 960
+            },
+            {
+              "id": "format",
+              "type": "single",
+              "label": "目前用什麼方式做？",
+              "required": true,
+              "options": [
+                {
+                  "value": "paper",
+                  "label": "紙本手寫"
+                },
+                {
+                  "value": "excel",
+                  "label": "Excel"
+                },
+                {
+                  "value": "word",
+                  "label": "Word"
+                },
+                {
+                  "value": "system",
+                  "label": "機構現有系統"
+                },
+                {
+                  "value": "line",
+                  "label": "LINE 群組回報"
+                },
+                {
+                  "value": "verbal",
+                  "label": "口頭回報"
+                }
+              ]
+            },
+            {
+              "id": "needs_sign",
+              "type": "single",
+              "label": "需要簽名或蓋章嗎？",
+              "required": true,
+              "options": [
+                {
+                  "value": "yes",
+                  "label": "需要"
+                },
+                {
+                  "value": "no",
+                  "label": "不需要"
+                }
+              ]
+            },
+            {
+              "id": "deliver_to",
+              "type": "short_text",
+              "label": "完成後交給誰？",
+              "required": false,
+              "placeholder": "例如：組長、會計、社會局",
+              "help": "不確定可以留白。"
+            }
+          ],
+          "live_calc": {
+            "enabled": true,
+            "formula": "annual_hours",
+            "display": "你一年花在這件事上約 {value} 小時",
+            "summary_display": "你一年花在文書工作上，總共約 {total} 小時"
           },
-          {
-            "id": "minutes",
-            "type": "number",
-            "label": "每次大約花",
-            "unit": "分鐘",
-            "min": 1,
-            "max": 960
-          },
-          {
-            "id": "format",
-            "type": "single",
-            "label": "目前用什麼方式做",
-            "options": ["paper", "excel", "word", "system", "line", "verbal"]
-          },
-          {
-            "id": "needs_sign",
-            "type": "single",
-            "label": "需要簽名或蓋章嗎",
-            "options": ["yes", "no"]
-          },
-          {
-            "id": "deliver_to",
-            "type": "short_text",
-            "label": "完成後交給誰"
-          }
-        ],
-        "live_calc": {
-          "enabled": true,
-          "formula": "annual_hours",
-          "display": "你一年花在這件事上約 {value} 小時"
+          "version_note": "v1.1：max_items 由 5 降為 3。第 4、5 項多為隨意填答，會拉低年工時統計品質。"
+        },
+        {
+          "id": "q_find_time",
+          "type": "single",
+          "label": "當你要找過去的資料（例如去年的紀錄、某張單據），通常要花多久？",
+          "required": true,
+          "options": [
+            {
+              "value": "lt1",
+              "label": "1 分鐘內就找得到"
+            },
+            {
+              "value": "lt5",
+              "label": "5 分鐘內"
+            },
+            {
+              "value": "gt10",
+              "label": "10 分鐘以上"
+            },
+            {
+              "value": "ask",
+              "label": "常常找不到，要問別人"
+            }
+          ]
+        },
+        {
+          "id": "q_drop_one",
+          "type": "short_text",
+          "label": "如果明天有一件例行工作可以不用再做，你最想拿掉哪一件？",
+          "required": false,
+          "placeholder": "請簡短寫出項目名稱即可"
         }
-      }
-    ]
-  }
+      ]
+    }
+  ]
 }

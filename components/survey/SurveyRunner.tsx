@@ -231,7 +231,9 @@ export function SurveyRunner({
             checked={consent}
             onChange={(e) => setConsent(e.target.checked)}
           />
-          <span className="text-ink">我已閱讀並了解上述說明，同意填寫本問卷。</span>
+          <span className="text-ink">
+            {p?.consent_label ?? '我已閱讀並了解上述說明，同意填寫本問卷。'}
+          </span>
         </label>
         <button
           type="button"
@@ -276,24 +278,43 @@ export function SurveyRunner({
         </Shell>
       );
     }
+    const closing = definition.closing;
+    const showSummary =
+      closing?.show_personal_summary !== false &&
+      !!result &&
+      result.total_annual_hours > 0;
+    const summaryText = closing?.summary_template
+      ? closing.summary_template.replace(
+          '{total_annual_hours}',
+          String(result?.total_annual_hours ?? 0)
+        )
+      : null;
     return (
-      <Shell title="謝謝你的填答！">
-        <div className="mb-6 rounded-lg border border-amber/40 bg-amber/5 px-5 py-6 text-center">
-          {result && result.total_annual_hours > 0 ? (
-            <p className="text-ink">
-              根據你填的內容，你每年花在這些重複工作上約
-              <br />
-              <span className="tnum text-4xl font-bold text-amber">
-                {result.total_annual_hours.toLocaleString()}
-              </span>{' '}
-              小時
-            </p>
-          ) : (
-            <p className="text-ink">你的回覆已經送出，謝謝！</p>
-          )}
-        </div>
+      <Shell title={closing?.title ?? '謝謝你的填答！'}>
+        {showSummary && (
+          <div className="mb-6 rounded-lg border border-amber/40 bg-amber/5 px-5 py-6 text-center">
+            {summaryText ? (
+              <p className="text-ink">
+                {summaryText.split(String(result!.total_annual_hours))[0]}
+                <span className="tnum text-4xl font-bold text-amber">
+                  {result!.total_annual_hours.toLocaleString()}
+                </span>
+                {summaryText.split(String(result!.total_annual_hours))[1] ?? ''}
+              </p>
+            ) : (
+              <p className="text-ink">
+                根據你填的內容，你每年花在這些重複工作上約
+                <br />
+                <span className="tnum text-4xl font-bold text-amber">
+                  {result!.total_annual_hours.toLocaleString()}
+                </span>{' '}
+                小時
+              </p>
+            )}
+          </div>
+        )}
         <p className="text-center text-muted">
-          你的回覆已匿名記錄，可以關閉這個頁面了。
+          {closing?.body ?? '你的回覆已匿名記錄，可以關閉這個頁面了。'}
         </p>
       </Shell>
     );
@@ -324,7 +345,13 @@ export function SurveyRunner({
         </div>
       )}
       <ProgressBar current={idx + 1} total={total} minutesLeft={minutesLeft} />
-      <h2 className="mb-6 mt-4 text-xl font-bold text-ink">{section.title}</h2>
+      <h2 className="mb-2 mt-4 text-xl font-bold text-ink">{section.title}</h2>
+      {section.description && (
+        <p className="mb-6 text-[0.95rem] leading-relaxed text-muted">
+          {section.description}
+        </p>
+      )}
+      {!section.description && <div className="mb-4" />}
 
       <div className="flex flex-col gap-6">
         {vqs.map((q) => (

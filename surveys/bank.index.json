@@ -2,11 +2,57 @@
   "_note": "由 seed script 自動產生，勿手改",
   "blocks": [
     {
+      "code": "ai-concern-safety",
+      "title": "對新工具的看法與顧慮",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "tna"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 5,
+      "item_codes": [
+        "chatgpt",
+        "claude",
+        "gemini",
+        "copilot",
+        "line_ai",
+        "gforms",
+        "gsheets",
+        "none",
+        "excited",
+        "open",
+        "worried",
+        "unneeded",
+        "cant_learn",
+        "responsible",
+        "privacy",
+        "replaced",
+        "more_work",
+        "no_support",
+        "none",
+        "yes",
+        "depends",
+        "no"
+      ],
+      "notes": "「怕被取代」的恐懼必須給它一個出口，否則會轉為消極抵抗。q_concerns 若 replaced 選項比例偏高，導入前必須先由高層對全體說明，不可跳過。這題的統計結果本身就是給主管看的證據。"
+    },
+    {
       "code": "basic-profile",
       "title": "關於你（基本資料）",
       "version": 1,
       "purpose": [
         "tna",
+        "ai_readiness",
         "org_baseline"
       ],
       "industry": [
@@ -19,30 +65,78 @@
       ],
       "ttqs_stage": "P",
       "kirkpatrick": null,
-      "question_count": 3,
+      "question_count": 4,
       "item_codes": [
-        "residential",
-        "day_work",
-        "day_care",
-        "home_care",
-        "meal",
-        "farm",
+        "ops_a",
+        "ops_b",
         "admin",
-        "pr",
         "other",
         "manager",
+        "admin_staff",
+        "accountant",
         "social_worker",
         "educator",
         "caregiver",
         "driver",
-        "admin_staff",
-        "other",
+        "field_worker",
+        "other_role",
         "lt1",
         "1to3",
         "3to5",
-        "gt5"
+        "gt5",
+        "desktop",
+        "laptop",
+        "tablet",
+        "phone",
+        "none"
       ],
-      "notes": "只問去識別化的分群欄位（單位/職務/年資），不問姓名、員工編號。q_dept 的 options 各專案用 overrides 覆寫成該機構實際單位。role_group 由 q_role 的 value 在計分時對應（admin_mgmt/professional/frontline）。"
+      "notes": "不蒐集姓名與員工編號。q_role 的 options.meta.role_group 是分班依據，覆寫選項時務必保留 meta。"
+    },
+    {
+      "code": "compliance-risk-manager",
+      "title": "個資與法規風險（主管版）",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "org_baseline"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "executive",
+        "middle_mgmt"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 7,
+      "item_codes": [
+        "basic",
+        "health",
+        "disability",
+        "family",
+        "financial",
+        "hr",
+        "paper",
+        "system",
+        "excel",
+        "cloud",
+        "mixed",
+        "strict",
+        "loose",
+        "all",
+        "unknown",
+        "privacy",
+        "infosec",
+        "ai_policy",
+        "sop",
+        "none",
+        "1to2",
+        "3to5",
+        "6to12",
+        "gt12"
+      ],
+      "notes": "若 q_sensitive_data 勾選 health 或 disability，屬個資法特種個資，導入方案不得將原始資料送往公有雲 LLM，須先去識別化或採本地部署。此結論應寫入提案的風險章節，是專業度的重要展現。"
     },
     {
       "code": "digital-skill-baseline",
@@ -62,26 +156,149 @@
       ],
       "ttqs_stage": "P",
       "kirkpatrick": null,
-      "question_count": 1,
+      "question_count": 3,
       "item_codes": [
-        "skill_photo_transfer",
-        "skill_zhuyin",
-        "skill_search",
-        "skill_gdrive_save",
-        "skill_gdrive_share",
-        "skill_excel_sort",
-        "skill_excel_pivot",
-        "skill_ai_used"
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_excel_pivot",
+        "s_ai_tried",
+        "s_ai_work",
+        "s_ai_prompt",
+        "zhuyin",
+        "pinyin",
+        "handwrite",
+        "voice",
+        "seldom"
       ],
-      "notes": "以具體行為取代自我評分，避免高估。L1–L4 加權見 §7（total ≤4 entry／5-11 basic／≥12 advanced）。option.value 為正式 item_code，一旦交付不得改語意。"
+      "notes": "以具體行為取代自我評分，避免高估或低估。分級門檻以 taxonomy.json 的 scoring.digital_skill_tier 為準（滿分 30）。此區塊決定課程級別，不可省略。"
     },
     {
-      "code": "pain-repeater-nonprofit",
-      "title": "重複性文書工作痛點盤點（社福版）",
+      "code": "it-continuity-manager",
+      "title": "資訊維運斷點盤點（主管版）",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "org_baseline"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "executive",
+        "middle_mgmt"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 3,
+      "item_codes": [
+        "yes_full",
+        "yes_part",
+        "outsource",
+        "none",
+        "system_maint",
+        "backup",
+        "account",
+        "hardware",
+        "website",
+        "network",
+        "shop",
+        "social",
+        "none"
+      ],
+      "notes": "專為「資訊人員離職」情境設計。若 q_it_gaps 勾選 backup 或 account，屬高風險項目，應在任何 AI 專案之前先處理，並在提案中獨立列為前置條件。"
+    },
+    {
+      "code": "kirkpatrick-l3-manager",
+      "title": "訓後期待與驗收指標（主管版）",
+      "version": 1,
+      "purpose": [
+        "tna",
+        "training_l3",
+        "training_l4"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "executive",
+        "middle_mgmt"
+      ],
+      "ttqs_stage": "D1",
+      "kirkpatrick": "L3",
+      "question_count": 6,
+      "item_codes": [
+        "doc_hours",
+        "overtime",
+        "error_rate",
+        "report_days",
+        "audit_prep",
+        "turnover",
+        "none",
+        "yes",
+        "informal",
+        "no",
+        "yes",
+        "written",
+        "unsure",
+        "no"
+      ],
+      "notes": "本區塊直接對應 TTQS 指標 14 的 Evaluation Outcome（Kirkpatrick L3 行為／L4 成果）。沒有這幾題，課程結束就沒有下一張訂單；有了這幾題，驗收標準與續約條件在專案啟動前就談定。q_kickoff_announce 是專案成敗的隱形關鍵。"
+    },
+    {
+      "code": "org-goals-manager",
+      "title": "組織目標與資源（主管版）",
       "version": 1,
       "purpose": [
         "ai_readiness",
         "tna",
+        "org_baseline"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "executive",
+        "middle_mgmt"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 6,
+      "item_codes": [
+        "staff_left",
+        "overtime",
+        "audit",
+        "error_rate",
+        "cost",
+        "trend",
+        "funder",
+        "none",
+        "lt10",
+        "10to30",
+        "30to50",
+        "gt50",
+        "subsidy",
+        "labor_ministry",
+        "mohw",
+        "local_gov",
+        "csr",
+        "foundation",
+        "unknown"
+      ],
+      "notes": "q_past_failure 是最有價值的一題：過去導入失敗的原因通常會原封不動地再發生一次。提案時把它講出來，主管會知道你有在聽。"
+    },
+    {
+      "code": "pain-repeater-nonprofit",
+      "title": "重複性文書工作盤點（社福機構版）",
+      "version": 1,
+      "purpose": [
+        "tna",
+        "ai_readiness",
         "org_baseline"
       ],
       "industry": [
@@ -94,8 +311,13 @@
       ],
       "ttqs_stage": "P",
       "kirkpatrick": null,
-      "question_count": 1,
+      "question_count": 4,
       "item_codes": [
+        "lt30",
+        "30to60",
+        "1to2",
+        "2to3",
+        "gt3",
         "record_writing",
         "monthly_report",
         "reimburse",
@@ -109,9 +331,158 @@
         "photo_org",
         "duplicate_entry",
         "eval_doc",
-        "custom"
+        "route_plan",
+        "custom",
+        "lt1",
+        "lt5",
+        "gt10",
+        "ask"
       ],
-      "notes": "招牌題型。preset_items 的 item_code 一旦用於正式交付即不得變更語意（§13 治理鐵律）；要改語意請開 _v2。live_calc 即時年工時是本產品靈魂（§5），數字跳動不可造成版面位移。"
+      "notes": "preset_items 的 code 即為正式 item_code，發布後語意永不得變更（見規格書 §13 治理規則）。刻意不問「幾個人做」，改由跨份加總得出組織總量。"
+    },
+    {
+      "code": "system-audit-manager",
+      "title": "現有系統體檢（主管版）",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "org_baseline",
+        "digital_maturity"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "executive",
+        "middle_mgmt"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 10,
+      "item_codes": [
+        "active",
+        "expired",
+        "never",
+        "unknown",
+        "onprem",
+        "vendor",
+        "cloud",
+        "unknown",
+        "yes_all",
+        "yes_partial",
+        "no",
+        "unknown",
+        "yes",
+        "no",
+        "unknown",
+        "m_admin",
+        "m_case",
+        "m_inventory",
+        "m_asset",
+        "m_order",
+        "exec",
+        "admin",
+        "vendor",
+        "ex_staff",
+        "unknown",
+        "auto_daily",
+        "manual",
+        "none",
+        "unknown"
+      ],
+      "notes": "q_data_export 與 q_api 兩題決定整個專案的技術可行性。若兩題皆為「否」，任何自動化方案都必須從人工匯出或重新建置起算，成本與時程要重新評估。這兩題答案不明時，務必在面談中當場確認。"
+    },
+    {
+      "code": "system-health-staff",
+      "title": "現有系統使用現況（員工視角）",
+      "version": 1,
+      "purpose": [
+        "ai_readiness",
+        "org_baseline",
+        "digital_maturity"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "P",
+      "kirkpatrick": null,
+      "question_count": 5,
+      "item_codes": [
+        "daily",
+        "sometimes",
+        "rarely",
+        "unaware",
+        "it_staff",
+        "manager",
+        "colleague",
+        "vendor",
+        "self",
+        "give_up"
+      ],
+      "notes": "q_system_help 是診斷金礦：若多數人答「不知道找誰」或「自己想辦法」，代表資訊維運已斷鏈，此時任何新系統導入都會失敗，應優先處理維運而非導入 AI。"
+    },
+    {
+      "code": "training-availability",
+      "title": "受訓條件與學習偏好",
+      "version": 1,
+      "purpose": [
+        "tna"
+      ],
+      "industry": [
+        "general"
+      ],
+      "audience": [
+        "frontline",
+        "professional",
+        "admin"
+      ],
+      "ttqs_stage": "D1",
+      "kirkpatrick": null,
+      "question_count": 8,
+      "item_codes": [
+        "fixed",
+        "rotating",
+        "flexible",
+        "wd_am",
+        "wd_pm",
+        "wd_eve",
+        "weekend",
+        "depends",
+        "60",
+        "120",
+        "240",
+        "480",
+        "own",
+        "shared",
+        "none",
+        "unknown",
+        "stable",
+        "unstable",
+        "none",
+        "unknown",
+        "yes",
+        "reluctant",
+        "no",
+        "no_phone",
+        "lecture",
+        "handson",
+        "one_on_one",
+        "video",
+        "none",
+        "forgot",
+        "no_time",
+        "no_tool",
+        "too_hard",
+        "not_related",
+        "no_support",
+        "never"
+      ],
+      "notes": "輪班型機構（住宿、長照、餐飲、製造）必用。q_computer_access 與 q_own_phone 決定教材要做電腦版還是手機版，是排課前最關鍵的兩題。"
     }
   ]
 }

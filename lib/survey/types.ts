@@ -36,10 +36,13 @@ export interface Option {
   allow_text?: boolean; // 「其他」自填
   level?: 1 | 2 | 3 | 4; // behavior_check 專用
   weight?: number; // behavior_check 專用
+  exclusive?: boolean; // multi 專用：選了它就取消其他
+  meta?: { role_group?: string; [k: string]: unknown }; // 分班等衍生資訊
 }
 
-// 條件邏輯：show_if = { 另一題id: [符合才顯示的值...] }
-export type ShowIf = Record<string, string[]>;
+// 條件邏輯：show_if = { 另一題id: [符合才顯示的值...], mode?: 'any'|'all' }
+// mode 決定「多個條件」之間是 AND(all，預設) 還是 OR(any)。
+export type ShowIf = Record<string, string[] | string>;
 
 interface BaseQuestion {
   id: string;
@@ -47,6 +50,7 @@ interface BaseQuestion {
   label: string;
   help?: string;
   required?: boolean;
+  placeholder?: string;
   show_if?: ShowIf;
 }
 
@@ -130,6 +134,7 @@ export type Question =
 export interface Section {
   id: string;
   title: string;
+  description?: string;
   questions: Question[];
 }
 
@@ -141,10 +146,30 @@ export interface PrivacyNotice {
   retention?: string;
   processor?: string;
   rights?: string;
+  no_collect?: string;
+  consent_label?: string; // 同意勾選的文字
   consent_required: boolean;
 }
 
+// 結尾頁設定
+export interface ClosingConfig {
+  title?: string;
+  body?: string;
+  show_personal_summary?: boolean;
+  summary_template?: string; // 含 {total_annual_hours}
+}
+
 // 完全展開後的問卷定義（寫入 surveys.definition 的快照形態）
+// 分類標籤（§14 taxonomy）
+export interface SurveyTags {
+  purpose?: string[];
+  industry?: string[];
+  audience?: string[];
+  ttqs_stage?: string;
+  kirkpatrick?: string | null;
+  complexity?: string;
+}
+
 export interface SurveyDefinition {
   slug: string;
   version: number;
@@ -153,12 +178,15 @@ export interface SurveyDefinition {
   intro?: string;
   privacy?: PrivacyNotice;
   estimated_minutes?: number;
+  tags?: SurveyTags;
+  closing?: ClosingConfig;
   sections: Section[];
 }
 
 // ── 題庫（未展開）形態 ──────────────────────────
 
 // /surveys/blocks/*.json 的一個題組
+// 一個 block 可含一或多個 section（sections 陣列）；舊格式的單數 section 仍相容。
 export interface Block {
   code: string;
   title: string;
@@ -170,23 +198,42 @@ export interface Block {
   kirkpatrick?: string | null;
   complexity?: string;
   notes?: string;
-  section: Section; // 一個 block 展開成一個 section
+  sections?: Section[];
+  section?: Section; // 舊格式相容
 }
 
 // 覆寫規則：以 dot-path 覆寫展開後的欄位，例如 "q_dept.options"
 export type Overrides = Record<string, unknown>;
 
+// 往指定段落追加題目
+export interface AppendSpec {
+  section_id: string;
+  questions: Question[];
+}
+
 // /surveys/projects/<proj>/*.json 或 /templates/*.json 的來源檔（未展開）
 export interface SurveySource {
   slug: string;
+  project?: string;
   version?: number;
   title?: string;
   subtitle?: string;
   intro?: string;
   privacy?: PrivacyNotice;
   estimated_minutes?: number;
+  purpose?: string[];
+  industry?: string[];
+  audience?: string[];
+  ttqs_stage?: string;
+  kirkpatrick?: string | null;
+  complexity?: string;
+  closing?: ClosingConfig;
   extends?: string; // 'templates/ai-readiness-tna-staff.v1'
-  sections: (Section | BlockRef)[];
+  sections?: (Section | BlockRef)[];
+  // 頂層覆寫：dot-path（跨所有展開後的題目），例如 "q_dept.options"
+  overrides?: Overrides;
+  // 往某段落追加題目
+  append_questions?: AppendSpec[];
 }
 
 // section 位置上的 $block 引用

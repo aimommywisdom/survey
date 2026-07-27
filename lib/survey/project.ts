@@ -48,13 +48,26 @@ export interface Projections {
   skill: SkillRow | null;
 }
 
-function deriveDeptRole(answers: Answers): {
-  dept: string | null;
-  role_group: string | null;
-} {
+function deriveDeptRole(
+  def: SurveyDefinition,
+  answers: Answers
+): { dept: string | null; role_group: string | null } {
   const dept = (answers['q_dept'] as SingleValue | undefined)?.value ?? null;
   const roleVal = (answers['q_role'] as SingleValue | undefined)?.value;
-  const role_group = roleVal ? (ROLE_GROUP[roleVal] ?? null) : null;
+
+  // 優先讀選項自帶的 meta.role_group（schema-driven）；找不到才退回舊對照表。
+  let role_group: string | null = null;
+  if (roleVal) {
+    for (const s of def.sections) {
+      const rq = s.questions.find((q) => q.id === 'q_role');
+      if (rq && 'options' in rq) {
+        const opt = rq.options.find((o) => o.value === roleVal);
+        if (opt?.meta?.role_group) role_group = opt.meta.role_group;
+        break;
+      }
+    }
+    if (!role_group) role_group = ROLE_GROUP[roleVal] ?? null;
+  }
   return { dept, role_group };
 }
 
@@ -62,7 +75,7 @@ export function buildProjections(
   def: SurveyDefinition,
   answers: Answers
 ): Projections {
-  const { dept, role_group } = deriveDeptRole(answers);
+  const { dept, role_group } = deriveDeptRole(def, answers);
   const pain: PainRow[] = [];
   let skill: SkillRow | null = null;
 
@@ -102,7 +115,7 @@ export function buildProjections(
           skill.l4_ai += s.l4_ai;
           skill.total += s.total;
           skill.tier =
-            skill.total <= 4 ? 'entry' : skill.total <= 11 ? 'basic' : 'advanced';
+            skill.total <= 7 ? 'entry' : skill.total <= 15 ? 'basic' : 'advanced';
         }
       }
     }

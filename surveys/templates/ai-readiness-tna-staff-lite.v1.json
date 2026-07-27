@@ -1,0 +1,51 @@
+{
+  "code": "ai-readiness-tna-staff-lite",
+  "title": "AI 導入與訓練需求調查（第一線現場版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "tna"],
+  "industry": ["nonprofit", "general"],
+  "audience": ["frontline"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "estimated_minutes": 7,
+  "notes": "照服員、司機、現場作業人員適用。此族群多半不操作內部系統，故整段 system-health-staff 移除；能力題保留 q_skill_check 與 q_typing_method（分班必需），移除延伸追問。完全以現有題組組裝，未新增任何題目，未修改任何 block。",
+  "intro": "為了解大家平常工作中最花時間的事情，作為未來簡化流程與安排課程的參考。\n\n本問卷不記名，也不會拿來考核任何人，請放心照實際狀況填。全部大約 7 分鐘，不會的題目可以跳過。",
+  "privacy": {
+    "purpose": "分析組織流程改善需求與教育訓練規劃",
+    "items": "服務單位、職務類別、年資、工作型態、數位能力自評與受訓條件",
+    "retention": "本專案結束後 6 個月內刪除",
+    "processor": "智慧媽咪國際有限公司",
+    "rights": "您可隨時要求查詢、更正或刪除您的填答資料",
+    "no_collect": "本問卷不蒐集姓名、員工編號、IP 位址",
+    "consent_required": true,
+    "consent_label": "我知道了，開始填寫"
+  },
+  "sections": [
+    {
+      "$block": "blocks/basic-profile"
+    },
+    {
+      "$block": "blocks/pain-repeater-nonprofit",
+      "exclude": ["q_find_time", "q_pain.deliver_to"]
+    },
+    {
+      "$block": "blocks/digital-skill-baseline",
+      "exclude": ["q_ai_used_for"]
+    },
+    {
+      "$block": "blocks/training-availability",
+      "exclude": ["q_wifi", "q_past_training_fail"]
+    },
+    {
+      "$block": "blocks/ai-concern-safety",
+      "exclude": ["q_ai_tools_used", "q_free_comment"]
+    }
+  ],
+  "closing": {
+    "title": "填好了，謝謝你",
+    "body": "你的回答會跟其他同事的意見一起整理，用來規劃真的幫得上忙的改善方式。",
+    "show_personal_summary": true,
+    "summary_template": "照你填的估算，你一年花在寫紀錄、填表單上面大約 {total_annual_hours} 小時。"
+  }
+}

@@ -23,10 +23,18 @@ function answerValues(v: AnswerValue | undefined): string[] {
 
 export function isVisible(question: Question, answers: Answers): boolean {
   if (!question.show_if) return true;
-  return Object.entries(question.show_if).every(([qid, allowed]) => {
+  const entries = Object.entries(question.show_if);
+  // 取出 mode（any=OR / all=AND，預設 all），其餘才是真正的條件。
+  const mode = (question.show_if.mode as string) === 'any' ? 'any' : 'all';
+  const conditions = entries.filter(
+    ([qid, allowed]) => qid !== 'mode' && Array.isArray(allowed)
+  );
+  if (conditions.length === 0) return true;
+  const test = ([qid, allowed]: [string, string[] | string]) => {
     const vals = answerValues(answers[qid]);
-    return vals.some((v) => allowed.includes(v));
-  });
+    return vals.some((v) => (allowed as string[]).includes(v));
+  };
+  return mode === 'any' ? conditions.some(test) : conditions.every(test);
 }
 
 export function visibleQuestions(section: Section, answers: Answers): Question[] {

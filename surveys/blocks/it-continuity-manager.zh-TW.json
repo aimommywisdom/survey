@@ -1,0 +1,59 @@
+{
+  "code": "it-continuity-manager",
+  "title": "資訊維運斷點盤點（主管版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "org_baseline"],
+  "industry": ["general"],
+  "audience": ["executive", "middle_mgmt"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "專為「資訊人員離職」情境設計。若 q_it_gaps 勾選 backup 或 account，屬高風險項目，應在任何 AI 專案之前先處理，並在提案中獨立列為前置條件。",
+  "sections": [
+    {
+      "id": "sec_it_gap",
+      "title": "資訊維運現況",
+      "description": "這一段是為了釐清「哪些事現在沒人管」，與 AI 導入是兩件事，但會影響可行性。",
+      "questions": [
+        {
+          "id": "q_has_it_staff",
+          "type": "single",
+          "label": "目前機構內有專責的資訊人員嗎？",
+          "required": true,
+          "options": [
+            { "value": "yes_full",  "label": "有，專職" },
+            { "value": "yes_part",  "label": "有，但是兼任" },
+            { "value": "outsource", "label": "沒有，委外廠商處理" },
+            { "value": "none",      "label": "沒有，目前無人負責" }
+          ]
+        },
+        {
+          "id": "q_it_gaps",
+          "type": "multi",
+          "label": "以下哪些事情目前沒有明確的負責人？（可複選）",
+          "required": true,
+          "options": [
+            { "value": "system_maint", "label": "內部系統維護與修改" },
+            { "value": "backup",       "label": "資料備份" },
+            { "value": "account",      "label": "帳號與權限管理" },
+            { "value": "hardware",     "label": "電腦與設備報修" },
+            { "value": "website",      "label": "官方網站更新" },
+            { "value": "network",      "label": "網路與監視設備" },
+            { "value": "shop",         "label": "線上商城／義賣平台" },
+            { "value": "social",       "label": "社群媒體經營" },
+            { "value": "none",         "label": "都有人負責", "exclusive": true }
+          ]
+        },
+        {
+          "id": "q_it_urgency",
+          "type": "scale",
+          "label": "上述缺口對日常營運造成的影響程度？",
+          "required": true,
+          "min": 1, "max": 5,
+          "min_label": "幾乎沒影響", "max_label": "嚴重影響",
+          "show_if": { "q_it_gaps": ["none"], "mode": "none" }
+        }
+      ]
+    }
+  ]
+}

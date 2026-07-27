@@ -1,43 +1,62 @@
 {
-  "_note": "固定五維度分類法（§14）。不允許自由標籤——自由標籤三個月後就變成無法查詢的爛泥。新增值請在此檔擴充。",
-  "purpose": {
-    "ai_readiness": "AI 導入需求診斷",
-    "tna": "訓練需求調查",
-    "org_baseline": "組織現況與流程盤點",
-    "digital_maturity": "數位成熟度評估",
-    "training_l1": "訓後反應（滿意度）",
-    "training_l2": "訓後學習成效",
-    "training_l3": "訓後行為追蹤",
-    "training_l4": "訓練成果驗收",
-    "client_feedback": "顧問服務回饋"
+  "version": 1,
+  "updated_at": "2026-07-27",
+  "note": "固定分類法，不允許自由標籤。新增分類需修改本檔並提版本。",
+  "dimensions": {
+    "purpose": [
+      { "code": "ai_readiness",    "label": "AI 導入需求診斷" },
+      { "code": "tna",             "label": "訓練需求調查" },
+      { "code": "org_baseline",    "label": "組織現況與流程盤點" },
+      { "code": "digital_maturity","label": "數位成熟度評估" },
+      { "code": "training_l1",     "label": "訓後反應（滿意度）" },
+      { "code": "training_l2",     "label": "訓後學習成效" },
+      { "code": "training_l3",     "label": "訓後行為追蹤" },
+      { "code": "training_l4",     "label": "訓練成果驗收" },
+      { "code": "client_feedback", "label": "顧問服務回饋" }
+    ],
+    "industry": [
+      { "code": "nonprofit",             "label": "社福／NPO" },
+      { "code": "manufacturing",         "label": "製造業" },
+      { "code": "retail_ec",             "label": "零售／電商" },
+      { "code": "food_bev",              "label": "餐飲" },
+      { "code": "education",             "label": "教育" },
+      { "code": "professional_services", "label": "專業服務" },
+      { "code": "government",            "label": "政府／公部門" },
+      { "code": "general",               "label": "通用" }
+    ],
+    "audience": [
+      { "code": "executive",   "label": "決策層",   "role_group": "admin_mgmt" },
+      { "code": "middle_mgmt", "label": "中階主管", "role_group": "admin_mgmt" },
+      { "code": "professional","label": "專業人員", "role_group": "professional" },
+      { "code": "frontline",   "label": "第一線",   "role_group": "frontline" },
+      { "code": "admin",       "label": "行政支援", "role_group": "admin_mgmt" }
+    ],
+    "ttqs_stage": [
+      { "code": "P",  "label": "Plan 計畫" },
+      { "code": "D1", "label": "Design 設計" },
+      { "code": "D2", "label": "Do 執行" },
+      { "code": "R",  "label": "Review 查核" },
+      { "code": "O",  "label": "Outcome 成果" }
+    ],
+    "complexity": [
+      { "code": "quick",    "label": "5 分鐘以內" },
+      { "code": "standard", "label": "6–12 分鐘" },
+      { "code": "deep",     "label": "12 分鐘以上" }
+    ]
   },
-  "industry": {
-    "nonprofit": "社福／NPO",
-    "manufacturing": "製造",
-    "retail_ec": "零售／電商",
-    "food_bev": "餐飲",
-    "education": "教育",
-    "professional_services": "專業服務",
-    "government": "政府",
-    "general": "通用"
-  },
-  "audience": {
-    "executive": "決策層",
-    "middle_mgmt": "中階主管",
-    "professional": "專業人員",
-    "frontline": "第一線",
-    "admin": "行政支援"
-  },
-  "ttqs_stage": {
-    "P": "計畫",
-    "D1": "設計",
-    "D2": "執行",
-    "R": "查核",
-    "O": "成果"
-  },
-  "complexity": {
-    "quick": "≤5 分鐘",
-    "standard": "6–12 分鐘",
-    "deep": "12 分鐘以上"
+  "scoring": {
+    "digital_skill_tier": {
+      "note": "本設定為權威值，取代規格書 §7 的暫定門檻。",
+      "max_score": 30,
+      "tiers": [
+        { "code": "entry",    "label": "入門", "min": 0,  "max": 7 },
+        { "code": "basic",    "label": "基礎", "min": 8,  "max": 15 },
+        { "code": "advanced", "label": "進階", "min": 16, "max": 30 }
+      ]
+    },
+    "frequency_multiplier": {
+      "daily": 250, "weekly": 52, "biweekly": 26,
+      "monthly": 12, "quarterly": 4, "yearly": 1
+    }
   }
 }

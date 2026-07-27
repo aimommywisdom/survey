@@ -1,0 +1,85 @@
+{
+  "code": "org-goals-manager",
+  "title": "組織目標與資源（主管版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "tna", "org_baseline"],
+  "industry": ["general"],
+  "audience": ["executive", "middle_mgmt"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "standard",
+  "notes": "q_past_failure 是最有價值的一題：過去導入失敗的原因通常會原封不動地再發生一次。提案時把它講出來，主管會知道你有在聽。",
+  "sections": [
+    {
+      "id": "sec_goals",
+      "title": "目標與資源",
+      "questions": [
+        {
+          "id": "q_top_goal",
+          "type": "long_text",
+          "label": "半年內，你最希望看到哪一件事情改善？請盡量具體。",
+          "required": true,
+          "placeholder": "例如：月報表製作從 3 天縮短到 1 天；服務紀錄不用再手抄兩次",
+          "help": "越具體，後續規劃越能對準。避免寫「提升效率」這類概括描述。"
+        },
+        {
+          "id": "q_trigger",
+          "type": "multi",
+          "label": "促使你現在考慮導入的原因是？（可複選）",
+          "required": true,
+          "options": [
+            { "value": "staff_left",  "label": "關鍵人員離職，工作無人承接" },
+            { "value": "overtime",    "label": "同仁加班過多" },
+            { "value": "audit",       "label": "評鑑或督導壓力" },
+            { "value": "error_rate",  "label": "資料常出錯或漏件" },
+            { "value": "cost",        "label": "人力成本考量" },
+            { "value": "trend",       "label": "看到別的機構在做" },
+            { "value": "funder",      "label": "補助單位或捐款人期待" }
+          ]
+        },
+        {
+          "id": "q_budget_range",
+          "type": "single",
+          "label": "這件事目前可動用的預算範圍？",
+          "required": true,
+          "options": [
+            { "value": "none",     "label": "目前沒有編列預算" },
+            { "value": "lt10",     "label": "10 萬以下" },
+            { "value": "10to30",   "label": "10–30 萬" },
+            { "value": "30to50",   "label": "30–50 萬" },
+            { "value": "gt50",     "label": "50 萬以上" },
+            { "value": "subsidy",  "label": "需申請補助或爭取捐贈才有可能" }
+          ]
+        },
+        {
+          "id": "q_subsidy_channel",
+          "type": "multi",
+          "label": "有意願嘗試哪些外部資源？（可複選）",
+          "required": false,
+          "options": [
+            { "value": "labor_ministry", "label": "勞動部訓練相關補助" },
+            { "value": "mohw",           "label": "衛福部相關計畫" },
+            { "value": "local_gov",      "label": "地方政府專案" },
+            { "value": "csr",            "label": "企業 CSR 捐贈" },
+            { "value": "foundation",     "label": "其他基金會補助" },
+            { "value": "unknown",        "label": "不清楚有哪些管道" }
+          ]
+        },
+        {
+          "id": "q_decision_maker",
+          "type": "short_text",
+          "label": "這類決策最終由誰拍板？決策流程為何？",
+          "required": true,
+          "placeholder": "例如：執行長核定，須經董事會報備"
+        },
+        {
+          "id": "q_past_failure",
+          "type": "long_text",
+          "label": "機構過去有沒有導入系統或工具但沒成功的經驗？當時卡在哪裡？",
+          "required": false,
+          "placeholder": "沒有的話請填「無」"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "code": "system-audit-manager",
+  "title": "現有系統體檢（主管版）",
+  "version": 1,
+  "purpose": ["ai_readiness", "org_baseline", "digital_maturity"],
+  "industry": ["general"],
+  "audience": ["executive", "middle_mgmt"],
+  "ttqs_stage": "P",
+  "kirkpatrick": null,
+  "complexity": "standard",
+  "notes": "q_data_export 與 q_api 兩題決定整個專案的技術可行性。若兩題皆為「否」，任何自動化方案都必須從人工匯出或重新建置起算，成本與時程要重新評估。這兩題答案不明時，務必在面談中當場確認。",
+  "sections": [
+    {
+      "id": "sec_audit",
+      "title": "現有系統體檢",
+      "description": "若有部分項目不確定，可填「不清楚」，我們會在後續訪談中一起確認。",
+      "questions": [
+        {
+          "id": "q_vendor",
+          "type": "short_text",
+          "label": "內部系統的建置廠商是？",
+          "required": false,
+          "placeholder": "不清楚請填「不清楚」"
+        },
+        {
+          "id": "q_maintenance_contract",
+          "type": "single",
+          "label": "目前還有維護合約嗎？",
+          "required": true,
+          "options": [
+            { "value": "active",  "label": "有，仍在合約期間" },
+            { "value": "expired", "label": "已到期未續約" },
+            { "value": "never",   "label": "從未簽過維護合約" },
+            { "value": "unknown", "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_annual_fee",
+          "type": "number",
+          "label": "每年維護費用約多少？",
+          "unit": "元",
+          "required": false,
+          "min": 0,
+          "show_if": { "q_maintenance_contract": ["active"], "mode": "any" }
+        },
+        {
+          "id": "q_hosting",
+          "type": "single",
+          "label": "系統資料庫放在哪裡？",
+          "required": true,
+          "options": [
+            { "value": "onprem",  "label": "機構自己的機房或伺服器" },
+            { "value": "vendor",  "label": "廠商代管" },
+            { "value": "cloud",   "label": "雲端服務" },
+            { "value": "unknown", "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_data_export",
+          "type": "single",
+          "label": "系統裡的資料能不能匯出成 Excel 或 CSV？",
+          "required": true,
+          "help": "這題對後續規劃影響很大，若不確定請選「不清楚」。",
+          "options": [
+            { "value": "yes_all",     "label": "可以，大部分資料都能匯出" },
+            { "value": "yes_partial", "label": "只有部分報表可以" },
+            { "value": "no",          "label": "不行" },
+            { "value": "unknown",     "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_api",
+          "type": "single",
+          "label": "系統有沒有提供 API（讓其他程式讀取資料的介面）？",
+          "required": true,
+          "options": [
+            { "value": "yes",     "label": "有" },
+            { "value": "no",      "label": "沒有" },
+            { "value": "unknown", "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_modules_active",
+          "type": "multi",
+          "label": "系統中哪些功能模組目前「實際還在使用」？（可複選）",
+          "required": false,
+          "help": "已停用的模組不用勾。這題可以看出系統實際被使用的程度。",
+          "options": [
+            { "value": "m_admin",     "label": "行政管理" },
+            { "value": "m_case",      "label": "個案管理" },
+            { "value": "m_inventory", "label": "庫存資料" },
+            { "value": "m_asset",     "label": "固定資產" },
+            { "value": "m_order",     "label": "訂單資料" }
+          ]
+        },
+        {
+          "id": "q_admin_account",
+          "type": "single",
+          "label": "系統管理員帳號密碼目前由誰保管？",
+          "required": true,
+          "options": [
+            { "value": "exec",      "label": "執行長或高階主管" },
+            { "value": "admin",     "label": "行政人員" },
+            { "value": "vendor",    "label": "廠商" },
+            { "value": "ex_staff",  "label": "已離職人員手上（尚未交接）" },
+            { "value": "unknown",   "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_backup",
+          "type": "single",
+          "label": "目前資料備份的頻率？",
+          "required": true,
+          "options": [
+            { "value": "auto_daily", "label": "每天自動備份" },
+            { "value": "manual",     "label": "人工不定期備份" },
+            { "value": "none",       "label": "沒有在備份" },
+            { "value": "unknown",    "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_backup_location",
+          "type": "short_text",
+          "label": "備份資料存放在哪裡？",
+          "required": false,
+          "show_if": { "q_backup": ["auto_daily", "manual"], "mode": "any" }
+        }
+      ]
+    }
+  ]
+}

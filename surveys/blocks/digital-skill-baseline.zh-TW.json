@@ -8,28 +8,56 @@
   "ttqs_stage": "P",
   "kirkpatrick": null,
   "complexity": "quick",
-  "notes": "以具體行為取代自我評分，避免高估。L1–L4 加權見 §7（total ≤4 entry／5-11 basic／≥12 advanced）。option.value 為正式 item_code，一旦交付不得改語意。",
-  "section": {
-    "id": "sec_skill",
-    "title": "電腦與手機操作",
-    "questions": [
-      {
-        "id": "q_skill",
-        "type": "behavior_check",
-        "label": "以下這些事，你「實際做得到」哪些？",
-        "help": "請勾選你自己做得到的，沒做過的就別勾。這不是考試，據實勾就好。",
-        "required": false,
-        "options": [
-          { "value": "skill_photo_transfer", "label": "把手機拍的照片傳到電腦", "level": 1, "weight": 1 },
-          { "value": "skill_zhuyin", "label": "用注音（或其他輸入法）打字", "level": 1, "weight": 1 },
-          { "value": "skill_search", "label": "自己上網 Google 找資料", "level": 1, "weight": 1 },
-          { "value": "skill_gdrive_save", "label": "把檔案存到 Google 雲端硬碟", "level": 2, "weight": 2 },
-          { "value": "skill_gdrive_share", "label": "把雲端檔案分享連結給別人", "level": 2, "weight": 2 },
-          { "value": "skill_excel_sort", "label": "用 Excel 排序、篩選資料", "level": 3, "weight": 3 },
-          { "value": "skill_excel_pivot", "label": "用 Excel 做樞紐分析或函式", "level": 3, "weight": 3 },
-          { "value": "skill_ai_used", "label": "用過 ChatGPT 之類的 AI 工具並完成一件工作", "level": 4, "weight": 4 }
-        ]
-      }
-    ]
-  }
+  "notes": "以具體行為取代自我評分，避免高估或低估。分級門檻以 taxonomy.json 的 scoring.digital_skill_tier 為準（滿分 30）。此區塊決定課程級別，不可省略。",
+  "sections": [
+    {
+      "id": "sec_skill",
+      "title": "你會做的事",
+      "description": "以下是一些電腦與手機的常見操作，請勾選你「自己一個人就做得到」的項目。沒勾選完全沒有關係，這不是考試。",
+      "questions": [
+        {
+          "id": "q_skill_check",
+          "type": "behavior_check",
+          "label": "請勾選你自己一個人就做得到的事（可複選）",
+          "required": false,
+          "options": [
+            { "value": "s_login",     "label": "自己開機並登入公司電腦",                       "level": 1, "weight": 1 },
+            { "value": "s_typing",    "label": "用注音或手寫輸入完成一段文字",                 "level": 1, "weight": 1 },
+            { "value": "s_photo",     "label": "把手機拍的照片傳給同事或存到電腦",             "level": 1, "weight": 1 },
+            { "value": "s_folder",    "label": "在電腦裡建資料夾，並找得回自己存過的檔案",     "level": 2, "weight": 2 },
+            { "value": "s_drive",     "label": "把檔案上傳到 Google 雲端硬碟並分享給同事",     "level": 2, "weight": 2 },
+            { "value": "s_qrcode",    "label": "用手機掃 QR Code 開啟網頁",                    "level": 2, "weight": 2 },
+            { "value": "s_excel_sort","label": "在 Excel 裡做排序或篩選",                      "level": 3, "weight": 3 },
+            { "value": "s_excel_fx",  "label": "在 Excel 裡用公式（例如加總、平均）",          "level": 3, "weight": 3 },
+            { "value": "s_excel_pivot","label": "做樞紐分析表或圖表",                          "level": 3, "weight": 3 },
+            { "value": "s_ai_tried",  "label": "用過 ChatGPT、Claude 或 Gemini 這類 AI 工具",  "level": 4, "weight": 4 },
+            { "value": "s_ai_work",   "label": "曾經用 AI 工具實際完成過工作上的事",           "level": 4, "weight": 4 },
+            { "value": "s_ai_prompt", "label": "知道怎麼調整問法，讓 AI 給出更好的答案",       "level": 4, "weight": 4 }
+          ]
+        },
+        {
+          "id": "q_typing_method",
+          "type": "single",
+          "label": "你打字時主要用哪一種方式？",
+          "required": true,
+          "help": "這題會影響我們建議的工具類型。",
+          "options": [
+            { "value": "zhuyin",  "label": "注音輸入" },
+            { "value": "pinyin",  "label": "拼音輸入" },
+            { "value": "handwrite","label": "手寫輸入" },
+            { "value": "voice",   "label": "語音輸入" },
+            { "value": "seldom",  "label": "我很少打字，多半用寫的" }
+          ]
+        },
+        {
+          "id": "q_ai_used_for",
+          "type": "short_text",
+          "label": "你用 AI 工具做過什麼事？",
+          "required": false,
+          "placeholder": "例如：查資料、寫文案、翻譯",
+          "show_if": { "q_skill_check": ["s_ai_tried", "s_ai_work", "s_ai_prompt"], "mode": "any" }
+        }
+      ]
+    }
+  ]
 }

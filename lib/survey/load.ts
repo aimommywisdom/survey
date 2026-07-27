@@ -16,18 +16,27 @@ import {
 // repo 內 /surveys 根目錄
 export const SURVEYS_DIR = join(process.cwd(), 'surveys');
 
-function readJson<T>(relPath: string): T {
-  // 允許帶或不帶 .json 副檔名
+function tryRead<T>(relPath: string): T | null {
   const withExt = relPath.endsWith('.json') ? relPath : `${relPath}.json`;
-  const abs = join(SURVEYS_DIR, withExt);
   try {
-    return JSON.parse(readFileSync(abs, 'utf8')) as T;
-  } catch (err) {
-    throw new Error(`讀取問卷檔失敗：${withExt}（${(err as Error).message}）`);
+    return JSON.parse(readFileSync(join(SURVEYS_DIR, withExt), 'utf8')) as T;
+  } catch {
+    return null;
   }
 }
 
-// 'blocks/basic-profile' → surveys/blocks/basic-profile.json
+// 依序嘗試候選路徑（支援 ref 省略 .zh-TW 語系後綴）
+function readJson<T>(ref: string): T {
+  const base = ref.endsWith('.json') ? ref.slice(0, -5) : ref;
+  const candidates = [base, `${base}.zh-TW`];
+  for (const c of candidates) {
+    const data = tryRead<T>(c);
+    if (data) return data;
+  }
+  throw new Error(`讀取問卷檔失敗：找不到 ${ref}（試過 ${candidates.join('、')}）`);
+}
+
+// 'blocks/basic-profile' → surveys/blocks/basic-profile(.zh-TW).json
 export const resolveBlock: BlockResolver = (ref) => readJson<Block>(ref);
 
 // 'templates/ai-readiness-tna-staff.v1' → surveys/templates/...json

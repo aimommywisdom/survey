@@ -32,13 +32,19 @@ function loadEnv() {
 }
 
 // ── 題庫索引 ──────────────────────────────────────
+function blockSections(block: Block) {
+  return block.sections?.length ? block.sections : block.section ? [block.section] : [];
+}
+
 function collectItemCodes(block: Block): string[] {
   const codes: string[] = [];
-  for (const q of block.section.questions) {
-    if (q.type === 'pain_repeater') {
-      codes.push(...q.preset_items.map((it) => it.code));
-    } else if ('options' in q && Array.isArray((q as { options: Option[] }).options)) {
-      codes.push(...(q as { options: Option[] }).options.map((o) => o.value));
+  for (const s of blockSections(block)) {
+    for (const q of s.questions) {
+      if (q.type === 'pain_repeater') {
+        codes.push(...q.preset_items.map((it) => it.code));
+      } else if ('options' in q && Array.isArray((q as { options: Option[] }).options)) {
+        codes.push(...(q as { options: Option[] }).options.map((o) => o.value));
+      }
     }
   }
   return codes;
@@ -58,7 +64,7 @@ function buildBankIndex() {
       audience: block.audience ?? [],
       ttqs_stage: block.ttqs_stage ?? null,
       kirkpatrick: block.kirkpatrick ?? null,
-      question_count: block.section.questions.length,
+      question_count: blockSections(block).reduce((n, s) => n + s.questions.length, 0),
       item_codes: collectItemCodes(block),
       notes: block.notes ?? null,
     };

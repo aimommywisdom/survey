@@ -1,0 +1,28 @@
+{
+  "project": "lsy",
+  "slug": "staff-lite",
+  "version": 1,
+  "extends": "templates/ai-readiness-tna-staff-lite.v1",
+  "title": "工作狀況與課程需求調查",
+  "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+  "notes": "發放對象：照服員、司機、庇護農場現場人員。建議以紙本為主、QR Code 為輔。",
+  "overrides": {
+    "q_dept.options": [
+      { "value": "residential", "label": "全日型住宿服務" },
+      { "value": "day_work",    "label": "日間作業設施" },
+      { "value": "day_care",    "label": "日間照顧服務" },
+      { "value": "home_care",   "label": "居家服務" },
+      { "value": "meal",        "label": "失能長者送餐服務" },
+      { "value": "farm",        "label": "庇護性農場" },
+      { "value": "community",   "label": "社區家園" },
+      { "value": "other",       "label": "其他", "allow_text": true }
+    ],
+    "q_role.options": [
+      { "value": "caregiver",    "label": "照服員",       "meta": { "role_group": "frontline" } },
+      { "value": "driver",       "label": "司機",         "meta": { "role_group": "frontline" } },
+      { "value": "field_worker", "label": "現場作業人員", "meta": { "role_group": "frontline" } },
+      { "value": "educator",     "label": "教保員",       "meta": { "role_group": "professional" } },
+      { "value": "other_role",   "label": "其他", "allow_text": true, "meta": { "role_group": "frontline" } }
+    ]
+  }
+}

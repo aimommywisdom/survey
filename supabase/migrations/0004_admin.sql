@@ -15,6 +15,7 @@ create table if not exists llm_settings (
 create table if not exists analyses (
   id           uuid primary key default gen_random_uuid(),
   project_id   uuid not null references projects(id) on delete cascade,
+  survey_id    uuid references surveys(id) on delete cascade,  -- 針對哪一份問卷
   provider     text,
   model        text,
   tna_snapshot jsonb,                -- 當下餵給 LLM 的數據，供追溯
@@ -22,6 +23,7 @@ create table if not exists analyses (
   created_at   timestamptz not null default now()
 );
 create index if not exists idx_analyses_project on analyses(project_id);
+create index if not exists idx_analyses_survey  on analyses(survey_id);
 
 alter table llm_settings enable row level security;
 alter table analyses     enable row level security;

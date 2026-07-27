@@ -40,7 +40,8 @@ export function computeSkill(
     total += w;
     if (opt.level) byLevel[opt.level] += w;
   }
-  const tier: SkillTier = total <= 4 ? 'entry' : total <= 11 ? 'basic' : 'advanced';
+  // 門檻依 taxonomy.json scoring.digital_skill_tier（滿分 30；取代 §7 暫定值）
+  const tier: SkillTier = total <= 7 ? 'entry' : total <= 15 ? 'basic' : 'advanced';
   return {
     l1_basic: byLevel[1],
     l2_cloud: byLevel[2],

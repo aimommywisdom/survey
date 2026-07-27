@@ -1,0 +1,121 @@
+{
+  "code": "training-availability",
+  "title": "受訓條件與學習偏好",
+  "version": 1,
+  "purpose": ["tna"],
+  "industry": ["general"],
+  "audience": ["frontline", "professional", "admin"],
+  "ttqs_stage": "D1",
+  "kirkpatrick": null,
+  "complexity": "quick",
+  "notes": "輪班型機構（住宿、長照、餐飲、製造）必用。q_computer_access 與 q_own_phone 決定教材要做電腦版還是手機版，是排課前最關鍵的兩題。",
+  "sections": [
+    {
+      "id": "sec_availability",
+      "title": "如果要上課",
+      "description": "以下問題是為了安排大家都方便的上課時間與方式。",
+      "questions": [
+        {
+          "id": "q_shift_type",
+          "type": "single",
+          "label": "你的工作型態是？",
+          "required": true,
+          "options": [
+            { "value": "fixed",   "label": "固定班（日班）" },
+            { "value": "rotating","label": "輪班" },
+            { "value": "flexible","label": "時間較彈性" }
+          ]
+        },
+        {
+          "id": "q_available_slots",
+          "type": "multi",
+          "label": "哪些時段你比較方便參加訓練？（可複選）",
+          "required": true,
+          "options": [
+            { "value": "wd_am",   "label": "平日上午" },
+            { "value": "wd_pm",   "label": "平日下午" },
+            { "value": "wd_eve",  "label": "平日晚上" },
+            { "value": "weekend", "label": "週末" },
+            { "value": "depends", "label": "完全看排班，無法固定", "exclusive": true }
+          ]
+        },
+        {
+          "id": "q_max_offsite",
+          "type": "single",
+          "label": "你一次最多能離開工作崗位多久？",
+          "required": true,
+          "options": [
+            { "value": "60",  "label": "1 小時" },
+            { "value": "120", "label": "2 小時" },
+            { "value": "240", "label": "半天" },
+            { "value": "480", "label": "一整天" }
+          ]
+        },
+        {
+          "id": "q_computer_access",
+          "type": "single",
+          "label": "你上班的地方，有沒有可以讓你上課練習的電腦？",
+          "required": true,
+          "options": [
+            { "value": "own",    "label": "有，而且是我自己專用的" },
+            { "value": "shared", "label": "有，但要跟同事共用" },
+            { "value": "none",   "label": "沒有" },
+            { "value": "unknown","label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_wifi",
+          "type": "single",
+          "label": "工作場所的網路狀況？",
+          "required": true,
+          "options": [
+            { "value": "stable",   "label": "穩定，可以順利上網" },
+            { "value": "unstable", "label": "有網路但常常不穩" },
+            { "value": "none",     "label": "沒有網路可用" },
+            { "value": "unknown",  "label": "不清楚" }
+          ]
+        },
+        {
+          "id": "q_own_phone",
+          "type": "single",
+          "label": "上課練習時，你願意用自己的智慧型手機嗎？",
+          "required": true,
+          "options": [
+            { "value": "yes",     "label": "願意" },
+            { "value": "reluctant","label": "可以，但希望機構提供設備" },
+            { "value": "no",      "label": "不願意" },
+            { "value": "no_phone","label": "我沒有智慧型手機" }
+          ]
+        },
+        {
+          "id": "q_past_training_best",
+          "type": "single",
+          "label": "過去參加過的訓練中，哪一種對你最有幫助？",
+          "required": true,
+          "options": [
+            { "value": "lecture",  "label": "老師講解為主" },
+            { "value": "handson",  "label": "現場實際操作練習" },
+            { "value": "one_on_one","label": "有人在旁邊一對一帶" },
+            { "value": "video",    "label": "看影片自己學" },
+            { "value": "none",     "label": "都沒什麼幫助" }
+          ]
+        },
+        {
+          "id": "q_past_training_fail",
+          "type": "multi",
+          "label": "有沒有上過課、但回來完全沒用上的經驗？原因是？（可複選）",
+          "required": false,
+          "options": [
+            { "value": "forgot",     "label": "上完就忘了" },
+            { "value": "no_time",    "label": "回來太忙，沒時間用" },
+            { "value": "no_tool",    "label": "工作上沒有那個工具或系統可以用" },
+            { "value": "too_hard",   "label": "太難，聽不懂" },
+            { "value": "not_related","label": "跟我的工作沒關係" },
+            { "value": "no_support", "label": "想用但沒人可以問" },
+            { "value": "never",      "label": "沒有這種經驗", "exclusive": true }
+          ]
+        }
+      ]
+    }
+  ]
+}

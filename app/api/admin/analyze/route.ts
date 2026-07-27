@@ -2,9 +2,15 @@ import { NextResponse } from 'next/server';
 import { isAdmin } from '@/lib/admin/auth';
 import { supabaseAdmin } from '@/lib/supabase/admin';
 import { decryptSecret } from '@/lib/admin/crypto';
-import { resolveProject, getTna } from '@/lib/api/analytics';
+import {
+  resolveProject,
+  scopeToSurvey,
+  getTna,
+  getRawResponses,
+} from '@/lib/api/analytics';
 import { callLLM, type Provider } from '@/lib/llm/client';
 import { buildCoursePrompt } from '@/lib/llm/coursePrompt';
+import type { SurveyDefinition } from '@/lib/survey/types';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 120;
@@ -13,12 +19,12 @@ export async function POST(req: Request) {
   if (!(await isAdmin())) {
     return NextResponse.json({ error: '未登入' }, { status: 401 });
   }
-  const { projectSlug } = await req.json().catch(() => ({}));
-  if (!projectSlug) {
-    return NextResponse.json({ error: '缺少 projectSlug' }, { status: 400 });
+  const { projectSlug, surveySlug } = await req.json().catch(() => ({}));
+  if (!projectSlug || !surveySlug) {
+    return NextResponse.json({ error: '缺少 projectSlug / surveySlug' }, { status: 400 });
   }
 
-  // 讀 LLM 設定 + 解密金鑰
+  // LLM 設定 + 解密金鑰
   const { data: s } = await supabaseAdmin
     .from('llm_settings')
     .select('provider, model, api_key_enc, api_key_iv')
@@ -29,13 +35,41 @@ export async function POST(req: Request) {
   }
   const apiKey = await decryptSecret(s.api_key_enc, s.api_key_iv);
 
-  // 拉精準 TNA 數據
+  // 縮到「這一份問卷」
   const project = await resolveProject(projectSlug);
   if (!project) return NextResponse.json({ error: '專案不存在' }, { status: 404 });
-  const tna = await getTna(project);
+  const scoped = scopeToSurvey(project, surveySlug);
+  if (!scoped) return NextResponse.json({ error: '問卷不存在' }, { status: 404 });
 
-  // 呼叫 LLM
-  const { system, user } = buildCoursePrompt(tna);
+  // 該問卷的 TNA + 原始作答 + 標籤（供 prompt 針對對象規劃）
+  const [tna, rawRows] = await Promise.all([
+    getTna(scoped),
+    getRawResponses(scoped),
+  ]);
+  const responseCount = rawRows.length;
+  if (responseCount === 0) {
+    return NextResponse.json({ error: '這份問卷尚無回收資料' }, { status: 400 });
+  }
+  const sampleAnswers = rawRows.slice(0, 40).map((r) => r.answers);
+
+  const { data: surveyRow } = await supabaseAdmin
+    .from('surveys')
+    .select('title, definition')
+    .eq('id', scoped.surveys[0].id)
+    .single();
+  const def = surveyRow?.definition as SurveyDefinition | undefined;
+
+  const { system, user } = buildCoursePrompt({
+    survey: {
+      title: surveyRow?.title ?? surveySlug,
+      audience: def?.tags?.audience,
+      purpose: def?.tags?.purpose,
+    },
+    tna,
+    sampleAnswers,
+    responseCount,
+  });
+
   let content: string;
   try {
     content = await callLLM({
@@ -49,18 +83,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: `LLM 呼叫失敗：${(e as Error).message}` }, { status: 502 });
   }
 
-  // 保存
-  const { data: saved } = await supabaseAdmin
-    .from('analyses')
-    .insert({
-      project_id: project.id,
-      provider: s.provider,
-      model: s.model,
-      tna_snapshot: tna,
-      content,
-    })
-    .select('id, created_at')
-    .single();
+  await supabaseAdmin.from('analyses').insert({
+    project_id: project.id,
+    survey_id: scoped.surveys[0].id,
+    provider: s.provider,
+    model: s.model,
+    tna_snapshot: tna,
+    content,
+  });
 
-  return NextResponse.json({ ok: true, content, analysis: saved });
+  return NextResponse.json({ ok: true, content });
 }
