@@ -8,6 +8,7 @@ import { ScaleField } from './fields/ScaleField';
 import { TextField } from './fields/TextField';
 import { NumberField } from './fields/NumberField';
 import { BehaviorCheckField } from './fields/BehaviorCheckField';
+import { PainRepeaterField } from './fields/PainRepeaterField';
 
 // 依 question.type 分派到對應題型元件。
 // 新增題型 = 在此加一個 case + 一個 fields/ 元件，不動其他地方。
@@ -79,11 +80,19 @@ export function QuestionField({
         />
       );
     case 'pain_repeater':
+      return (
+        <PainRepeaterField
+          question={question}
+          value={value as never}
+          onChange={onChange}
+          error={error}
+        />
+      );
     case 'availability':
-      // Day 3 實作
+      // Day 4 實作（受訓時段矩陣）
       return (
         <div className="rounded-lg border border-dashed border-rule bg-white p-4 text-muted">
-          （{question.type} 題型於 Day 3 實作）
+          （availability 題型稍後實作）
         </div>
       );
     default: {
