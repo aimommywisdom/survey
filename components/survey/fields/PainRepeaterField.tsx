@@ -169,13 +169,17 @@ function SubField({
       <div>
         <p className="mb-2 font-medium text-ink">{field.label}</p>
         <div className="flex flex-wrap gap-2">
-          {field.options.map((opt) => {
-            const isSel = value === opt;
+          {field.options.map((raw) => {
+            // 選項可能是字串（值）或 { value, label } 物件，兩種都要吃
+            const optValue = typeof raw === 'string' ? raw : raw.value;
+            const optLabel =
+              typeof raw === 'string' ? labelFor(field.id, raw) : raw.label;
+            const isSel = value === optValue;
             return (
               <button
-                key={opt}
+                key={optValue}
                 type="button"
-                onClick={() => onChange(opt)}
+                onClick={() => onChange(optValue)}
                 className={[
                   'min-h-[44px] rounded-lg border px-4 py-2 transition-colors',
                   isSel
@@ -183,7 +187,7 @@ function SubField({
                     : 'border-rule bg-white text-ink hover:border-ink/40',
                 ].join(' ')}
               >
-                {labelFor(field.id, opt)}
+                {optLabel}
               </button>
             );
           })}

@@ -98,7 +98,8 @@ export interface PainRepeaterField {
   unit?: string;
   min?: number;
   max?: number;
-  options?: string[]; // single 用：值清單（label 由前台字典對應）
+  // single 用：可為值清單（label 查字典）或 { value, label } 物件清單
+  options?: (string | { value: string; label: string })[];
 }
 
 export interface PainRepeaterQuestion extends BaseQuestion {
