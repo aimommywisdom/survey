@@ -1,0 +1,1957 @@
+[
+  {
+    "id": "a215cccf-1d02-4ad3-84e3-d33644fd44ec",
+    "survey_id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "answers": {
+      "q_api": {
+        "value": "unknown"
+      },
+      "q_backup": {
+        "value": "unknown"
+      },
+      "q_vendor": "資訊人員",
+      "q_hosting": {
+        "value": "unknown"
+      },
+      "q_it_gaps": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_metrics": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_trigger": {
+        "values": [
+          "staff_left",
+          "audit",
+          "error_rate"
+        ]
+      },
+      "q_top_goal": "服務相關的紀錄或資訊可以統計彙整，減少重複作業時間",
+      "q_audit_docs": "依照查核表會由行政、總務、財務、教保、社工、護理及營養膳食組分工負責",
+      "q_it_urgency": 2,
+      "q_audit_hours": 100,
+      "q_data_export": {
+        "value": "yes_all"
+      },
+      "q_policy_docs": {
+        "values": [
+          "privacy",
+          "sop"
+        ]
+      },
+      "q_budget_range": {
+        "value": "subsidy"
+      },
+      "q_has_it_staff": {
+        "value": "yes_full"
+      },
+      "q_past_failure": "有導入人資差勤系統，人員操作排班及系統常有異常",
+      "q_admin_account": {
+        "value": "unknown"
+      },
+      "q_data_location": {
+        "value": "system"
+      },
+      "q_access_control": {
+        "value": "strict"
+      },
+      "q_decision_maker": "執行長",
+      "q_modules_active": {
+        "values": [
+          "m_public",
+          "m_case",
+          "m_community",
+          "m_admin",
+          "m_inventory"
+        ]
+      },
+      "q_sensitive_data": {
+        "values": [
+          "health",
+          "basic",
+          "hr",
+          "disability",
+          "family",
+          "financial"
+        ]
+      },
+      "q_audit_frequency": {
+        "value": "6to12"
+      },
+      "q_subsidy_channel": {
+        "values": [
+          "mohw",
+          "foundation"
+        ]
+      },
+      "q_kickoff_announce": {
+        "value": "yes"
+      },
+      "q_expected_behavior": "善用工具縮減工作時間、避免因忙碌而忘記，造成工作的積累",
+      "q_ai_policy_existing": "透過將內部相關規章制度納入資料庫中，讓人員可至資料庫中依據現有規章制度搜尋相關資訊",
+      "q_maintenance_contract": {
+        "value": "unknown"
+      },
+      "q_verification_willing": {
+        "value": "informal"
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 905,
+    "submitted_at": "2026-07-29T06:36:38.049711+00:00"
+  },
+  {
+    "id": "5f7b309b-2a42-4ce0-b0b2-84ac977a0e42",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "shift_table",
+          "label": "排班表製作",
+          "format": "system",
+          "minutes": 180,
+          "frequency": "daily",
+          "is_custom": false,
+          "deliver_to": "組長",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "eval_doc",
+          "label": "評鑑／督導資料準備",
+          "format": "paper",
+          "minutes": 180,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "組長",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "educator"
+      },
+      "q_wifi": {
+        "value": "unstable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "gt5"
+      },
+      "q_concerns": {
+        "values": [
+          "privacy"
+        ]
+      },
+      "q_drop_one": "無",
+      "q_find_time": {
+        "value": "ask"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_max_offsite": {
+        "value": "120"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder"
+      ],
+      "q_system_best": "審核",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_free_comment": "無",
+      "q_system_worst": "不會用的會請教別人",
+      "q_ai_tools_used": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "gt3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "depends"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "no_tool"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 903,
+    "submitted_at": "2026-07-30T03:39:16.847693+00:00"
+  },
+  {
+    "id": "8344af54-0171-4ffa-bd26-21376051295f",
+    "survey_id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "answers": {
+      "q_api": {
+        "value": "unknown"
+      },
+      "q_backup": {
+        "value": "unknown"
+      },
+      "q_vendor": "不清楚",
+      "q_hosting": {
+        "value": "onprem"
+      },
+      "q_it_gaps": {
+        "values": [
+          "website"
+        ]
+      },
+      "q_metrics": {
+        "values": [
+          "report_days",
+          "audit_prep",
+          "doc_hours"
+        ]
+      },
+      "q_trigger": {
+        "values": [
+          "cost"
+        ]
+      },
+      "q_top_goal": "員工薪資計算可以從人工計算導入人資系統",
+      "q_audit_docs": "院動調查表,由會計提供",
+      "q_audit_hours": 2,
+      "q_data_export": {
+        "value": "unknown"
+      },
+      "q_policy_docs": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_seed_people": "資訊人員沈先生",
+      "q_budget_range": {
+        "value": "10to30"
+      },
+      "q_has_it_staff": {
+        "value": "yes_part"
+      },
+      "q_past_failure": "系統與實務無法配合",
+      "q_admin_account": {
+        "value": "admin"
+      },
+      "q_data_location": {
+        "value": "system"
+      },
+      "q_access_control": {
+        "value": "strict"
+      },
+      "q_decision_maker": "執行長核定",
+      "q_modules_active": {
+        "values": [
+          "m_public",
+          "m_admin",
+          "m_case",
+          "m_order",
+          "m_donor"
+        ]
+      },
+      "q_sensitive_data": {
+        "values": [
+          "financial",
+          "hr",
+          "basic",
+          "health",
+          "disability"
+        ]
+      },
+      "q_audit_frequency": {
+        "value": "3to5"
+      },
+      "q_subsidy_channel": {
+        "values": [
+          "foundation"
+        ]
+      },
+      "q_kickoff_announce": {
+        "value": "written"
+      },
+      "q_expected_behavior": "薪資計算可以系統產出,而不必人工計算",
+      "q_ai_policy_existing": "不清楚",
+      "q_maintenance_contract": {
+        "value": "unknown"
+      },
+      "q_verification_willing": {
+        "value": "no"
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 1499,
+    "submitted_at": "2026-07-29T06:53:22.146288+00:00"
+  },
+  {
+    "id": "7a429a27-5d1e-4a19-82bf-57aecff8be56",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "record_writing",
+          "label": "撰寫服務紀錄／個案紀錄",
+          "format": "system",
+          "minutes": 60,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "主管",
+          "needs_sign": "no"
+        },
+        {
+          "code": "eval_doc",
+          "label": "評鑑／督導資料準備",
+          "format": "system",
+          "minutes": 60,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "主管",
+          "needs_sign": "no"
+        }
+      ],
+      "q_role": {
+        "value": "social_worker"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "3to5"
+      },
+      "q_concerns": {
+        "values": [
+          "privacy"
+        ]
+      },
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "reluctant"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "查資料、寫文案",
+      "q_max_offsite": {
+        "value": "480"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_ai_tried",
+        "s_ai_work",
+        "s_ai_prompt"
+      ],
+      "q_system_best": "個案資料",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "line_ai",
+          "gforms"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "2to3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 4,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "never"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 339,
+    "submitted_at": "2026-07-29T08:35:48.729983+00:00"
+  },
+  {
+    "id": "0848a776-0b56-4c61-a965-c3497c341b89",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "record_writing",
+          "label": "撰寫服務紀錄／個案紀錄",
+          "format": "system",
+          "minutes": 60,
+          "frequency": "daily",
+          "is_custom": false,
+          "needs_sign": "yes"
+        },
+        {
+          "code": "eval_doc",
+          "label": "評鑑／督導資料準備",
+          "format": "word",
+          "minutes": 180,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "組長",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "meeting_notes",
+          "label": "會議紀錄",
+          "format": "word",
+          "minutes": 120,
+          "frequency": "biweekly",
+          "is_custom": false,
+          "deliver_to": "組長",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "educator"
+      },
+      "q_wifi": {
+        "value": "unstable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "gt5"
+      },
+      "q_concerns": {
+        "values": [
+          "privacy"
+        ]
+      },
+      "q_drop_one": "沒有",
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "查資料",
+      "q_max_offsite": {
+        "value": "60"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_ai_tried",
+        "s_ai_work",
+        "s_ai_prompt"
+      ],
+      "q_system_best": "檢視",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_free_comment": "無",
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt"
+        ]
+      },
+      "q_typing_method": {
+        "value": "pinyin"
+      },
+      "q_doc_time_daily": {
+        "value": "gt3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "depends"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "no_tool"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 955,
+    "submitted_at": "2026-07-30T03:30:22.166736+00:00"
+  },
+  {
+    "id": "656e9977-8cc1-433d-8788-0814e9923d17",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "photo_org",
+          "label": "活動照片整理與上傳",
+          "format": "excel",
+          "minutes": 60,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "主任",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "meeting_notes",
+          "label": "會議紀錄",
+          "format": "word",
+          "minutes": 45,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "不用",
+          "needs_sign": "no"
+        },
+        {
+          "code": "official_doc",
+          "label": "公文／簽呈撰寫",
+          "format": "word",
+          "minutes": 30,
+          "frequency": "biweekly",
+          "is_custom": false,
+          "deliver_to": "主任",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "admin_staff"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "1to3"
+      },
+      "q_concerns": {
+        "values": [
+          "privacy",
+          "responsible",
+          "more_work",
+          "no_support"
+        ]
+      },
+      "q_drop_one": "研習證書列印",
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "查資料、寫公文、寫文案",
+      "q_max_offsite": {
+        "value": "240"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_ai_tried"
+      ],
+      "q_system_best": "員工個人資料",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_system_worst": "員工個人資料",
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "gforms",
+          "gsheets"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "1to2"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am",
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "forgot",
+          "no_time",
+          "too_hard",
+          "not_related"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 498,
+    "submitted_at": "2026-07-29T06:16:27.084404+00:00"
+  },
+  {
+    "id": "06eadd19-3f02-4fc3-a6b6-2180f0a24d0d",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "monthly_report",
+          "label": "月報表／季報表製作",
+          "format": "excel",
+          "minutes": 10,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "社會局",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "reimburse",
+          "label": "核銷單據整理",
+          "format": "excel",
+          "minutes": 1440,
+          "frequency": "yearly",
+          "is_custom": false,
+          "deliver_to": "社會局",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "official_doc",
+          "label": "公文／簽呈撰寫",
+          "format": "word",
+          "minutes": 10,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "社會局",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "accountant"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop",
+          "phone"
+        ]
+      },
+      "q_tenure": {
+        "value": "gt5"
+      },
+      "q_concerns": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_find_time": {
+        "value": "lt5"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_max_offsite": {
+        "value": "240"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_excel_sort",
+        "s_qrcode",
+        "s_excel_fx"
+      ],
+      "q_system_best": "個案管理",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_system_worst": "沒有",
+      "q_ai_tools_used": {
+        "values": [
+          "gforms",
+          "gsheets"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "lt30"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 4,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "not_related",
+          "no_time"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 2003,
+    "submitted_at": "2026-07-29T07:05:52.106064+00:00"
+  },
+  {
+    "id": "02775cfb-322f-4dcf-8f57-7fe328a438e9",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "pr"
+      },
+      "q_pain": [
+        {
+          "code": "purchase",
+          "label": "請購單／領用單填寫",
+          "format": "paper",
+          "minutes": 10,
+          "frequency": "weekly",
+          "is_custom": false,
+          "deliver_to": "財務",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "photo_org",
+          "label": "活動照片整理與上傳",
+          "format": "line",
+          "minutes": 10,
+          "frequency": "weekly",
+          "is_custom": false,
+          "needs_sign": "no"
+        },
+        {
+          "code": "duplicate_entry",
+          "label": "同一份資料重複填到不同地方",
+          "format": "system",
+          "minutes": 120,
+          "frequency": "monthly",
+          "is_custom": false,
+          "needs_sign": "no"
+        }
+      ],
+      "q_role": {
+        "value": "other_role"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop",
+          "phone"
+        ]
+      },
+      "q_tenure": {
+        "value": "1to3"
+      },
+      "q_concerns": {
+        "values": [
+          "more_work",
+          "no_support"
+        ]
+      },
+      "q_drop_one": "臉書發文",
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "worried"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "寫文案、製圖",
+      "q_max_offsite": {
+        "value": "480"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_excel_pivot",
+        "s_ai_tried",
+        "s_ai_work"
+      ],
+      "q_system_best": "訂單統計/登打",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_free_comment": "自動整理紀錄，那文字等等的，會是使用AI生成嗎？這樣文字說明、報表會不會很生硬",
+      "q_system_worst": "統計金額不好用",
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "claude",
+          "gemini",
+          "gforms"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "lt30"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am",
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "video"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "never"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 608,
+    "submitted_at": "2026-07-29T11:22:53.006531+00:00"
+  },
+  {
+    "id": "1c0893b8-47b8-49dc-abf0-93d2c84f1e59",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "eval_doc",
+          "label": "評鑑／督導資料準備",
+          "format": "word",
+          "minutes": 320,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "主任",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "shift_table",
+          "label": "排班表製作",
+          "format": "system",
+          "minutes": 120,
+          "frequency": "weekly",
+          "is_custom": false,
+          "deliver_to": "無",
+          "needs_sign": "no"
+        },
+        {
+          "code": "reimburse",
+          "label": "核銷單據整理",
+          "format": "system",
+          "minutes": 480,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "主任",
+          "needs_sign": "no"
+        }
+      ],
+      "q_role": {
+        "value": "manager"
+      },
+      "q_wifi": {
+        "value": "unstable"
+      },
+      "q_device": {
+        "values": [
+          "desktop",
+          "phone"
+        ]
+      },
+      "q_tenure": {
+        "value": "gt5"
+      },
+      "q_concerns": {
+        "values": [
+          "cant_learn",
+          "more_work",
+          "no_support"
+        ]
+      },
+      "q_drop_one": "無",
+      "q_find_time": {
+        "value": "ask"
+      },
+      "q_own_phone": {
+        "value": "reluctant"
+      },
+      "q_ai_feeling": {
+        "value": "worried"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "查資料",
+      "q_max_offsite": {
+        "value": "480"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_qrcode",
+        "s_drive",
+        "s_ai_tried"
+      ],
+      "q_system_best": "Word",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_system_worst": "沒有",
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "gt3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am",
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "depends"
+      },
+      "q_past_training_best": {
+        "value": "one_on_one"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "too_hard",
+          "no_time",
+          "forgot",
+          "no_tool"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 1048,
+    "submitted_at": "2026-07-30T03:31:48.229917+00:00"
+  },
+  {
+    "id": "0fd07a92-c89c-4c8a-83e2-97c96cdb8cb2",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "duplicate_entry",
+          "label": "同一份資料重複填到不同地方",
+          "format": "line",
+          "minutes": 5,
+          "frequency": "daily",
+          "is_custom": false,
+          "needs_sign": "no"
+        }
+      ],
+      "q_role": {
+        "value": "caregiver"
+      },
+      "q_wifi": {
+        "value": "unstable"
+      },
+      "q_device": {
+        "values": [
+          "phone"
+        ]
+      },
+      "q_tenure": {
+        "value": "lt1"
+      },
+      "q_concerns": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_max_offsite": {
+        "value": "240"
+      },
+      "q_skill_check": [
+        "s_login"
+      ],
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "claude",
+          "gemini",
+          "copilot",
+          "gforms"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "1to2"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_eve",
+          "weekend"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 5,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "lecture"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "not_related"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 232,
+    "submitted_at": "2026-07-29T06:30:24.598115+00:00"
+  },
+  {
+    "id": "a4254725-5e78-47bd-941f-219f6e8f27c5",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "admin"
+      },
+      "q_pain": [
+        {
+          "code": "official_doc",
+          "label": "公文／簽呈撰寫",
+          "format": "word",
+          "minutes": 20,
+          "frequency": "weekly",
+          "is_custom": false,
+          "deliver_to": "執行長",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "meeting_notes",
+          "label": "會議紀錄",
+          "format": "word",
+          "minutes": 30,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "執行長",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "purchase",
+          "label": "請購單／領用單填寫",
+          "format": "excel",
+          "minutes": 30,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "出納",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "admin_staff"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "1to3"
+      },
+      "q_concerns": {
+        "values": [
+          "cant_learn"
+        ]
+      },
+      "q_drop_one": "沒有",
+      "q_find_time": {
+        "value": "lt5"
+      },
+      "q_own_phone": {
+        "value": "reluctant"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_max_offsite": {
+        "value": "480"
+      },
+      "q_skill_check": [
+        "s_excel_sort",
+        "s_login",
+        "s_photo",
+        "s_folder"
+      ],
+      "q_system_best": "內部系統",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_system_worst": "沒有",
+      "q_ai_tools_used": {
+        "values": [
+          "gforms",
+          "line_ai",
+          "chatgpt"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "lt30"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am",
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 5,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "lecture"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "never"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 459,
+    "submitted_at": "2026-07-29T06:30:42.116924+00:00"
+  },
+  {
+    "id": "7c0b03d1-e547-4f3b-aba2-71529a1ac631",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "admin"
+      },
+      "q_pain": [
+        {
+          "code": "reimburse",
+          "label": "核銷單據整理",
+          "format": "excel",
+          "minutes": 120,
+          "frequency": "daily",
+          "is_custom": false,
+          "needs_sign": "no"
+        },
+        {
+          "code": "donor_ack",
+          "label": "捐款徵信／感謝函處理",
+          "format": "system",
+          "minutes": 10,
+          "frequency": "daily",
+          "is_custom": false,
+          "needs_sign": "no"
+        },
+        {
+          "code": "custom",
+          "label": "其他（請說明）",
+          "minutes": 60,
+          "frequency": "daily",
+          "is_custom": true,
+          "needs_sign": "no",
+          "custom_text": "請款單審查"
+        }
+      ],
+      "q_role": {
+        "value": "accountant"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "1to3"
+      },
+      "q_concerns": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_drop_one": "審查請款單",
+      "q_find_time": {
+        "value": "lt5"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "open"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_max_offsite": {
+        "value": "60"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_ai_tried",
+        "s_excel_pivot",
+        "s_excel_fx",
+        "s_excel_sort",
+        "s_qrcode"
+      ],
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "gforms"
+        ]
+      },
+      "q_typing_method": {
+        "value": "zhuyin"
+      },
+      "q_doc_time_daily": {
+        "value": "2to3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am",
+          "wd_pm"
+        ]
+      },
+      "q_computer_access": {
+        "value": "own"
+      },
+      "q_system_usability": 4,
+      "q_training_willing": {
+        "value": "depends"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "never"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 881,
+    "submitted_at": "2026-07-29T07:47:18.246244+00:00"
+  },
+  {
+    "id": "fc371119-c5d6-40f8-ae7e-28fa23f3ecff",
+    "survey_id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "answers": {
+      "q_api": {
+        "value": "unknown"
+      },
+      "q_backup": {
+        "value": "manual"
+      },
+      "q_vendor": "資訊人員自行設計",
+      "q_hosting": {
+        "value": "onprem"
+      },
+      "q_it_gaps": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_metrics": {
+        "values": [
+          "doc_hours"
+        ]
+      },
+      "q_trigger": {
+        "values": [
+          "cost",
+          "audit"
+        ]
+      },
+      "q_top_goal": "薪資計算可從3天縮短成1天，建立系統自動核對勞健保差額\n教育訓練報告製作能整合並減少工序，協助進行課程前後測的比對",
+      "q_audit_docs": "政府有相關的查核表單內容，由各組各自負責不同項目",
+      "q_it_urgency": 3,
+      "q_audit_hours": 3,
+      "q_data_export": {
+        "value": "yes_all"
+      },
+      "q_policy_docs": {
+        "values": [
+          "privacy"
+        ]
+      },
+      "q_seed_people": "資訊、行政",
+      "q_budget_range": {
+        "value": "none"
+      },
+      "q_has_it_staff": {
+        "value": "yes_full"
+      },
+      "q_past_failure": "曾經導入人資系統，當時卡在排班上不夠彈性化，導致後續在運用上較不理想",
+      "q_admin_account": {
+        "value": "exec"
+      },
+      "q_data_location": {
+        "value": "system"
+      },
+      "q_access_control": {
+        "value": "strict"
+      },
+      "q_decision_maker": "由承辦人員協助整理相關資訊後，成交單位主管確認，最終交給執行長拍板定案",
+      "q_modules_active": {
+        "values": [
+          "m_public",
+          "m_admin",
+          "m_case",
+          "m_meal",
+          "m_community",
+          "m_farm",
+          "m_inventory",
+          "m_order"
+        ]
+      },
+      "q_sensitive_data": {
+        "values": [
+          "basic",
+          "health",
+          "disability",
+          "family",
+          "financial",
+          "hr"
+        ]
+      },
+      "q_audit_frequency": {
+        "value": "3to5"
+      },
+      "q_backup_location": "備份主機中",
+      "q_subsidy_channel": {
+        "values": [
+          "labor_ministry",
+          "mohw",
+          "local_gov",
+          "csr",
+          "foundation"
+        ]
+      },
+      "q_kickoff_announce": {
+        "value": "yes"
+      },
+      "q_expected_behavior": "薪資計算的時間於一天內便能完成\n教育訓練報告和前後測結果於課後3天內便能產出",
+      "q_ai_policy_existing": "查詢公司內部相關表單和規定",
+      "q_maintenance_contract": {
+        "value": "never"
+      },
+      "q_verification_willing": {
+        "value": "yes"
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 1032,
+    "submitted_at": "2026-08-03T02:33:31.174837+00:00"
+  },
+  {
+    "id": "36d89076-449a-480c-a747-1e4d712494d2",
+    "survey_id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "answers": {
+      "q_dept": {
+        "value": "residential"
+      },
+      "q_pain": [
+        {
+          "code": "reimburse",
+          "label": "核銷單據整理",
+          "format": "excel",
+          "minutes": 150,
+          "frequency": "monthly",
+          "is_custom": false,
+          "deliver_to": "會計",
+          "needs_sign": "yes"
+        },
+        {
+          "code": "shift_table",
+          "label": "排班表製作",
+          "format": "system",
+          "minutes": 60,
+          "frequency": "monthly",
+          "is_custom": false,
+          "needs_sign": "no"
+        },
+        {
+          "code": "photo_org",
+          "label": "活動照片整理與上傳",
+          "format": "word",
+          "minutes": 240,
+          "frequency": "quarterly",
+          "is_custom": false,
+          "deliver_to": "主任",
+          "needs_sign": "yes"
+        }
+      ],
+      "q_role": {
+        "value": "manager"
+      },
+      "q_wifi": {
+        "value": "stable"
+      },
+      "q_device": {
+        "values": [
+          "desktop"
+        ]
+      },
+      "q_tenure": {
+        "value": "3to5"
+      },
+      "q_concerns": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_find_time": {
+        "value": "gt10"
+      },
+      "q_own_phone": {
+        "value": "yes"
+      },
+      "q_ai_feeling": {
+        "value": "excited"
+      },
+      "q_shift_type": {
+        "value": "fixed"
+      },
+      "q_use_system": {
+        "value": "daily"
+      },
+      "q_ai_used_for": "查資料/教案",
+      "q_max_offsite": {
+        "value": "480"
+      },
+      "q_skill_check": [
+        "s_login",
+        "s_typing",
+        "s_photo",
+        "s_folder",
+        "s_drive",
+        "s_qrcode",
+        "s_excel_sort",
+        "s_excel_fx",
+        "s_excel_pivot",
+        "s_ai_tried",
+        "s_ai_work",
+        "s_ai_prompt"
+      ],
+      "q_system_best": "庫房管理",
+      "q_system_help": {
+        "value": "it_staff"
+      },
+      "q_system_worst": "沒有",
+      "q_ai_tools_used": {
+        "values": [
+          "chatgpt",
+          "gforms",
+          "gsheets",
+          "gemini"
+        ]
+      },
+      "q_typing_method": {
+        "value": "pinyin"
+      },
+      "q_doc_time_daily": {
+        "value": "gt3"
+      },
+      "q_available_slots": {
+        "values": [
+          "wd_am"
+        ]
+      },
+      "q_computer_access": {
+        "value": "none"
+      },
+      "q_system_usability": 3,
+      "q_training_willing": {
+        "value": "yes"
+      },
+      "q_past_training_best": {
+        "value": "handson"
+      },
+      "q_past_training_fail": {
+        "values": [
+          "not_related"
+        ]
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 575,
+    "submitted_at": "2026-07-30T03:46:48.348366+00:00"
+  },
+  {
+    "id": "71d458cb-8a29-4f3b-86e2-657c5a620c93",
+    "survey_id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "answers": {
+      "q_api": {
+        "value": "yes"
+      },
+      "q_backup": {
+        "value": "auto_daily"
+      },
+      "q_vendor": "不清楚",
+      "q_hosting": {
+        "value": "onprem"
+      },
+      "q_it_gaps": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_metrics": {
+        "values": [
+          "doc_hours",
+          "overtime",
+          "error_rate",
+          "report_days",
+          "audit_prep"
+        ]
+      },
+      "q_trigger": {
+        "values": [
+          "cost",
+          "staff_left",
+          "audit"
+        ]
+      },
+      "q_top_goal": "文件資料歸檔電子化，未來查調閱時可節省時間。工作報表數據化，針對損耗統計有效歸類，以利後續分析做為管理參考。",
+      "q_audit_docs": "各組皆有需負責項目，主責人員。",
+      "q_it_urgency": 3,
+      "q_audit_hours": 4,
+      "q_data_export": {
+        "value": "yes_all"
+      },
+      "q_policy_docs": {
+        "values": [
+          "privacy",
+          "infosec",
+          "sop"
+        ]
+      },
+      "q_seed_people": "資訊",
+      "q_budget_range": {
+        "value": "none"
+      },
+      "q_has_it_staff": {
+        "value": "yes_full"
+      },
+      "q_past_failure": "沒有人要處理",
+      "q_admin_account": {
+        "value": "admin"
+      },
+      "q_data_location": {
+        "value": "paper"
+      },
+      "q_access_control": {
+        "value": "strict"
+      },
+      "q_decision_maker": "主任級別以上決策",
+      "q_modules_active": {
+        "values": [
+          "m_public",
+          "m_admin",
+          "m_meal",
+          "m_farm",
+          "m_inventory",
+          "m_asset",
+          "m_order"
+        ]
+      },
+      "q_sensitive_data": {
+        "values": [
+          "hr",
+          "financial",
+          "basic"
+        ]
+      },
+      "q_audit_frequency": {
+        "value": "1to2"
+      },
+      "q_backup_location": "備用機組",
+      "q_subsidy_channel": {
+        "values": [
+          "foundation",
+          "mohw"
+        ]
+      },
+      "q_kickoff_announce": {
+        "value": "yes"
+      },
+      "q_expected_behavior": "面對事物正面態度",
+      "q_ai_policy_existing": "可用於查詢機構制定的各項規則，及工作準則",
+      "q_maintenance_contract": {
+        "value": "active"
+      },
+      "q_verification_willing": {
+        "value": "yes"
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 709,
+    "submitted_at": "2026-08-03T01:25:27.467274+00:00"
+  },
+  {
+    "id": "c88dc4ba-8593-4ecb-9efc-d04e65e814c9",
+    "survey_id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "answers": {
+      "q_api": {
+        "value": "unknown"
+      },
+      "q_backup": {
+        "value": "manual"
+      },
+      "q_vendor": "不清楚",
+      "q_hosting": {
+        "value": "onprem"
+      },
+      "q_it_gaps": {
+        "values": [
+          "none"
+        ]
+      },
+      "q_metrics": {
+        "values": [
+          "doc_hours",
+          "audit_prep",
+          "turnover",
+          "overtime",
+          "report_days"
+        ]
+      },
+      "q_trigger": {
+        "values": [
+          "error_rate",
+          "staff_left"
+        ]
+      },
+      "q_top_goal": "建置行政作業流程及相關表單之系統,如採購流程:申請 請款等等相關表單  零用金管理作業.",
+      "q_it_urgency": 3,
+      "q_data_export": {
+        "value": "unknown"
+      },
+      "q_policy_docs": {
+        "values": [
+          "privacy"
+        ]
+      },
+      "q_seed_people": "行政組同仁  資訊人員  社工人員  行銷企劃",
+      "q_budget_range": {
+        "value": "none"
+      },
+      "q_has_it_staff": {
+        "value": "yes_full"
+      },
+      "q_past_failure": "有導入人資系統,但因住宿機構之人力排班卡住,因此停掉.直到今年3月才又導人資系統,目前操作能是問題重重.",
+      "q_admin_account": {
+        "value": "exec"
+      },
+      "q_data_location": {
+        "value": "mixed"
+      },
+      "q_access_control": {
+        "value": "strict"
+      },
+      "q_decision_maker": "執行長核定",
+      "q_modules_active": {
+        "values": [
+          "m_public",
+          "m_admin",
+          "m_case",
+          "m_meal",
+          "m_community",
+          "m_farm",
+          "m_inventory",
+          "m_asset",
+          "m_donor",
+          "m_order",
+          "m_receipt"
+        ]
+      },
+      "q_sensitive_data": {
+        "values": [
+          "financial",
+          "hr",
+          "basic",
+          "health",
+          "disability",
+          "family"
+        ]
+      },
+      "q_audit_frequency": {
+        "value": "3to5"
+      },
+      "q_subsidy_channel": {
+        "values": [
+          "labor_ministry",
+          "csr",
+          "foundation",
+          "unknown"
+        ]
+      },
+      "q_kickoff_announce": {
+        "value": "yes"
+      },
+      "q_expected_behavior": "能接受使用ai工具來輔助工作且遵守資安規範",
+      "q_ai_policy_existing": "不清楚",
+      "q_maintenance_contract": {
+        "value": "unknown"
+      },
+      "q_verification_willing": {
+        "value": "yes"
+      }
+    },
+    "is_proxy": false,
+    "proxy_note": null,
+    "duration_sec": 804,
+    "submitted_at": "2026-08-04T08:55:06.114707+00:00"
+  }
+]

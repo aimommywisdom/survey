@@ -1,0 +1,2884 @@
+[
+  {
+    "id": "a67f2dfe-94db-4464-b03c-3b062104570f",
+    "project_id": "b1f91842-2c23-45c9-8309-e2c8e082a481",
+    "slug": "staff-lite",
+    "title": "工作狀況與課程需求調查",
+    "version": 1,
+    "definition": {
+      "slug": "staff-lite",
+      "tags": {
+        "purpose": [
+          "ai_readiness",
+          "tna"
+        ],
+        "audience": [
+          "frontline"
+        ],
+        "industry": [
+          "nonprofit",
+          "general"
+        ],
+        "complexity": "quick",
+        "ttqs_stage": "P",
+        "kirkpatrick": null
+      },
+      "intro": "為了解大家平常工作中最花時間的事情，作為未來簡化流程與安排課程的參考。\n\n本問卷不記名，也不會拿來考核任何人，請放心照實際狀況填。全部大約 7 分鐘，不會的題目可以跳過。",
+      "title": "工作狀況與課程需求調查",
+      "closing": {
+        "body": "你的回答會跟其他同事的意見一起整理，用來規劃真的幫得上忙的改善方式。",
+        "title": "填好了，謝謝你",
+        "summary_template": "照你填的估算，你一年花在寫紀錄、填表單上面大約 {total_annual_hours} 小時。",
+        "show_personal_summary": true
+      },
+      "privacy": {
+        "notice": "這份問卷不記名，僅用於了解大家的工作狀況、規劃教育訓練課程，不會用於個人考核。感謝你的協助。",
+        "consent_label": "我瞭解並同意開始填答",
+        "consent_required": true
+      },
+      "version": 1,
+      "sections": [
+        {
+          "id": "sec_basic",
+          "title": "關於你",
+          "questions": [
+            {
+              "id": "q_dept",
+              "type": "single",
+              "label": "你的服務單位是？",
+              "options": [
+                {
+                  "label": "全日型住宿服務",
+                  "value": "residential"
+                },
+                {
+                  "label": "日間作業設施",
+                  "value": "day_work"
+                },
+                {
+                  "label": "日間照顧服務",
+                  "value": "day_care"
+                },
+                {
+                  "label": "居家服務",
+                  "value": "home_care"
+                },
+                {
+                  "label": "失能長者送餐服務",
+                  "value": "meal"
+                },
+                {
+                  "label": "庇護性農場",
+                  "value": "farm"
+                },
+                {
+                  "label": "社區家園",
+                  "value": "community"
+                },
+                {
+                  "label": "其他",
+                  "value": "other",
+                  "allow_text": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_role",
+              "type": "single",
+              "label": "你的職務類別是？",
+              "options": [
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "照服員",
+                  "value": "caregiver"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "司機",
+                  "value": "driver"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "現場作業人員",
+                  "value": "field_worker"
+                },
+                {
+                  "meta": {
+                    "role_group": "professional"
+                  },
+                  "label": "教保員",
+                  "value": "educator"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "其他",
+                  "value": "other_role",
+                  "allow_text": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_tenure",
+              "type": "single",
+              "label": "在本機構服務多久了？",
+              "options": [
+                {
+                  "label": "未滿 1 年",
+                  "value": "lt1"
+                },
+                {
+                  "label": "1–3 年",
+                  "value": "1to3"
+                },
+                {
+                  "label": "3–5 年",
+                  "value": "3to5"
+                },
+                {
+                  "label": "5 年以上",
+                  "value": "gt5"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_device",
+              "type": "multi",
+              "label": "工作時你主要使用哪些設備？（可複選）",
+              "options": [
+                {
+                  "label": "辦公室桌上型電腦",
+                  "value": "desktop"
+                },
+                {
+                  "label": "筆記型電腦",
+                  "value": "laptop"
+                },
+                {
+                  "label": "平板",
+                  "value": "tablet"
+                },
+                {
+                  "label": "手機",
+                  "value": "phone"
+                },
+                {
+                  "label": "工作中幾乎不用電腦或手機",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            }
+          ],
+          "description": "本問卷不記名，以下資料僅供分組統計使用。"
+        },
+        {
+          "id": "sec_pain",
+          "title": "你的一天",
+          "questions": [
+            {
+              "id": "q_doc_time_daily",
+              "type": "single",
+              "label": "平均每天，你花多少時間在「寫紀錄、填表單、做報表」？",
+              "options": [
+                {
+                  "label": "30 分鐘以內",
+                  "value": "lt30"
+                },
+                {
+                  "label": "30 分鐘到 1 小時",
+                  "value": "30to60"
+                },
+                {
+                  "label": "1 到 2 小時",
+                  "value": "1to2"
+                },
+                {
+                  "label": "2 到 3 小時",
+                  "value": "2to3"
+                },
+                {
+                  "label": "3 小時以上",
+                  "value": "gt3"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_pain",
+              "help": "先勾選項目，勾了之後才會展開細項。最多選 3 項，請挑最花時間的。",
+              "type": "pain_repeater",
+              "label": "請選出你每天或每週一定要做的重複性文書工作",
+              "fields": [
+                {
+                  "id": "frequency",
+                  "type": "single",
+                  "label": "多久做一次？",
+                  "options": [
+                    {
+                      "label": "每天",
+                      "value": "daily"
+                    },
+                    {
+                      "label": "每週",
+                      "value": "weekly"
+                    },
+                    {
+                      "label": "每兩週",
+                      "value": "biweekly"
+                    },
+                    {
+                      "label": "每月",
+                      "value": "monthly"
+                    },
+                    {
+                      "label": "每季",
+                      "value": "quarterly"
+                    },
+                    {
+                      "label": "每年",
+                      "value": "yearly"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "minutes",
+                  "max": 960,
+                  "min": 1,
+                  "type": "number",
+                  "unit": "分鐘",
+                  "label": "每次大約花多久？",
+                  "required": true
+                },
+                {
+                  "id": "format",
+                  "type": "single",
+                  "label": "目前用什麼方式做？",
+                  "options": [
+                    {
+                      "label": "紙本手寫",
+                      "value": "paper"
+                    },
+                    {
+                      "label": "Excel",
+                      "value": "excel"
+                    },
+                    {
+                      "label": "Word",
+                      "value": "word"
+                    },
+                    {
+                      "label": "機構現有系統",
+                      "value": "system"
+                    },
+                    {
+                      "label": "LINE 群組回報",
+                      "value": "line"
+                    },
+                    {
+                      "label": "口頭回報",
+                      "value": "verbal"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "needs_sign",
+                  "type": "single",
+                  "label": "需要簽名或蓋章嗎？",
+                  "options": [
+                    {
+                      "label": "需要",
+                      "value": "yes"
+                    },
+                    {
+                      "label": "不需要",
+                      "value": "no"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "deliver_to",
+                  "help": "不確定可以留白。",
+                  "type": "short_text",
+                  "label": "完成後交給誰？",
+                  "required": false,
+                  "placeholder": "例如：組長、會計、社會局"
+                }
+              ],
+              "required": true,
+              "live_calc": {
+                "display": "你一年花在這件事上約 {value} 小時",
+                "enabled": true,
+                "formula": "annual_hours",
+                "summary_display": "你一年花在文書工作上，總共約 {total} 小時"
+              },
+              "max_items": 3,
+              "min_items": 1,
+              "preset_items": [
+                {
+                  "code": "record_writing",
+                  "label": "撰寫服務紀錄／個案紀錄"
+                },
+                {
+                  "code": "monthly_report",
+                  "label": "月報表／季報表製作"
+                },
+                {
+                  "code": "reimburse",
+                  "label": "核銷單據整理"
+                },
+                {
+                  "code": "shift_table",
+                  "label": "排班表製作"
+                },
+                {
+                  "code": "signoff_sheet",
+                  "label": "簽收單／簽到表整理"
+                },
+                {
+                  "code": "meeting_notes",
+                  "label": "會議紀錄"
+                },
+                {
+                  "code": "official_doc",
+                  "label": "公文／簽呈撰寫"
+                },
+                {
+                  "code": "purchase",
+                  "label": "請購單／領用單填寫"
+                },
+                {
+                  "code": "inventory",
+                  "label": "物資盤點與登記"
+                },
+                {
+                  "code": "donor_ack",
+                  "label": "捐款徵信／感謝函處理"
+                },
+                {
+                  "code": "photo_org",
+                  "label": "活動照片整理與上傳"
+                },
+                {
+                  "code": "duplicate_entry",
+                  "label": "同一份資料重複填到不同地方"
+                },
+                {
+                  "code": "eval_doc",
+                  "label": "評鑑／督導資料準備"
+                },
+                {
+                  "code": "route_plan",
+                  "label": "送餐或訪視路線安排"
+                },
+                {
+                  "code": "custom",
+                  "label": "其他（請說明）",
+                  "allow_text": true
+                }
+              ],
+              "version_note": "v1.1：max_items 由 5 降為 3。第 4、5 項多為隨意填答，會拉低年工時統計品質。"
+            },
+            {
+              "id": "q_find_time",
+              "type": "single",
+              "label": "當你要找過去的資料（例如去年的紀錄、某張單據），通常要花多久？",
+              "options": [
+                {
+                  "label": "1 分鐘內就找得到",
+                  "value": "lt1"
+                },
+                {
+                  "label": "5 分鐘內",
+                  "value": "lt5"
+                },
+                {
+                  "label": "10 分鐘以上",
+                  "value": "gt10"
+                },
+                {
+                  "label": "常常找不到，要問別人",
+                  "value": "ask"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_drop_one",
+              "type": "short_text",
+              "label": "如果明天有一件例行工作可以不用再做，你最想拿掉哪一件？",
+              "required": false,
+              "placeholder": "請簡短寫出項目名稱即可"
+            }
+          ],
+          "description": "這一段是本問卷最重要的部分，請盡量依實際情況填寫。"
+        },
+        {
+          "id": "sec_skill",
+          "title": "你會做的事",
+          "questions": [
+            {
+              "id": "q_skill_check",
+              "type": "behavior_check",
+              "label": "請勾選你自己一個人就做得到的事（可複選）",
+              "options": [
+                {
+                  "label": "自己開機並登入公司電腦",
+                  "level": 1,
+                  "value": "s_login",
+                  "weight": 1
+                },
+                {
+                  "label": "用注音或手寫輸入完成一段文字",
+                  "level": 1,
+                  "value": "s_typing",
+                  "weight": 1
+                },
+                {
+                  "label": "把手機拍的照片傳給同事或存到電腦",
+                  "level": 1,
+                  "value": "s_photo",
+                  "weight": 1
+                },
+                {
+                  "label": "在電腦裡建資料夾，並找得回自己存過的檔案",
+                  "level": 2,
+                  "value": "s_folder",
+                  "weight": 2
+                },
+                {
+                  "label": "把檔案上傳到 Google 雲端硬碟並分享給同事",
+                  "level": 2,
+                  "value": "s_drive",
+                  "weight": 2
+                },
+                {
+                  "label": "用手機掃 QR Code 開啟網頁",
+                  "level": 2,
+                  "value": "s_qrcode",
+                  "weight": 2
+                },
+                {
+                  "label": "在 Excel 裡做排序或篩選",
+                  "level": 3,
+                  "value": "s_excel_sort",
+                  "weight": 3
+                },
+                {
+                  "label": "在 Excel 裡用公式（例如加總、平均）",
+                  "level": 3,
+                  "value": "s_excel_fx",
+                  "weight": 3
+                },
+                {
+                  "label": "做樞紐分析表或圖表",
+                  "level": 3,
+                  "value": "s_excel_pivot",
+                  "weight": 3
+                },
+                {
+                  "label": "用過 ChatGPT、Claude 或 Gemini 這類 AI 工具",
+                  "level": 4,
+                  "value": "s_ai_tried",
+                  "weight": 4
+                },
+                {
+                  "label": "曾經用 AI 工具實際完成過工作上的事",
+                  "level": 4,
+                  "value": "s_ai_work",
+                  "weight": 4
+                },
+                {
+                  "label": "知道怎麼調整問法，讓 AI 給出更好的答案",
+                  "level": 4,
+                  "value": "s_ai_prompt",
+                  "weight": 4
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_typing_method",
+              "help": "這題會影響我們建議的工具類型。",
+              "type": "single",
+              "label": "你打字時主要用哪一種方式？",
+              "options": [
+                {
+                  "label": "注音輸入",
+                  "value": "zhuyin"
+                },
+                {
+                  "label": "拼音輸入",
+                  "value": "pinyin"
+                },
+                {
+                  "label": "手寫輸入",
+                  "value": "handwrite"
+                },
+                {
+                  "label": "語音輸入",
+                  "value": "voice"
+                },
+                {
+                  "label": "我很少打字，多半用寫的",
+                  "value": "seldom"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_ai_used_for",
+              "type": "short_text",
+              "label": "你用 AI 工具做過什麼事？",
+              "show_if": {
+                "mode": "any",
+                "q_skill_check": [
+                  "s_ai_tried",
+                  "s_ai_work",
+                  "s_ai_prompt"
+                ]
+              },
+              "required": false,
+              "placeholder": "例如：查資料、寫文案、翻譯"
+            }
+          ],
+          "description": "以下是一些電腦與手機的常見操作，請勾選你「自己一個人就做得到」的項目。沒勾選完全沒有關係，這不是考試。"
+        },
+        {
+          "id": "sec_availability",
+          "title": "如果要上課",
+          "questions": [
+            {
+              "id": "q_shift_type",
+              "type": "single",
+              "label": "你的工作型態是？",
+              "options": [
+                {
+                  "label": "固定班（日班）",
+                  "value": "fixed"
+                },
+                {
+                  "label": "輪班",
+                  "value": "rotating"
+                },
+                {
+                  "label": "時間較彈性",
+                  "value": "flexible"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_available_slots",
+              "type": "multi",
+              "label": "哪些時段你比較方便參加訓練？（可複選）",
+              "options": [
+                {
+                  "label": "平日上午",
+                  "value": "wd_am"
+                },
+                {
+                  "label": "平日下午",
+                  "value": "wd_pm"
+                },
+                {
+                  "label": "平日晚上",
+                  "value": "wd_eve"
+                },
+                {
+                  "label": "週末",
+                  "value": "weekend"
+                },
+                {
+                  "label": "完全看排班，無法固定",
+                  "value": "depends",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_max_offsite",
+              "type": "single",
+              "label": "你一次最多能離開工作崗位多久？",
+              "options": [
+                {
+                  "label": "1 小時",
+                  "value": "60"
+                },
+                {
+                  "label": "2 小時",
+                  "value": "120"
+                },
+                {
+                  "label": "半天",
+                  "value": "240"
+                },
+                {
+                  "label": "一整天",
+                  "value": "480"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_computer_access",
+              "type": "single",
+              "label": "你上班的地方，有沒有可以讓你上課練習的電腦？",
+              "options": [
+                {
+                  "label": "有，而且是我自己專用的",
+                  "value": "own"
+                },
+                {
+                  "label": "有，但要跟同事共用",
+                  "value": "shared"
+                },
+                {
+                  "label": "沒有",
+                  "value": "none"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_wifi",
+              "type": "single",
+              "label": "工作場所的網路狀況？",
+              "options": [
+                {
+                  "label": "穩定，可以順利上網",
+                  "value": "stable"
+                },
+                {
+                  "label": "有網路但常常不穩",
+                  "value": "unstable"
+                },
+                {
+                  "label": "沒有網路可用",
+                  "value": "none"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_own_phone",
+              "type": "single",
+              "label": "上課練習時，你願意用自己的智慧型手機嗎？",
+              "options": [
+                {
+                  "label": "願意",
+                  "value": "yes"
+                },
+                {
+                  "label": "可以，但希望機構提供設備",
+                  "value": "reluctant"
+                },
+                {
+                  "label": "不願意",
+                  "value": "no"
+                },
+                {
+                  "label": "我沒有智慧型手機",
+                  "value": "no_phone"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_past_training_best",
+              "type": "single",
+              "label": "過去參加過的訓練中，哪一種對你最有幫助？",
+              "options": [
+                {
+                  "label": "老師講解為主",
+                  "value": "lecture"
+                },
+                {
+                  "label": "現場實際操作練習",
+                  "value": "handson"
+                },
+                {
+                  "label": "有人在旁邊一對一帶",
+                  "value": "one_on_one"
+                },
+                {
+                  "label": "看影片自己學",
+                  "value": "video"
+                },
+                {
+                  "label": "都沒什麼幫助",
+                  "value": "none"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_past_training_fail",
+              "type": "multi",
+              "label": "有沒有上過課、但回來完全沒用上的經驗？原因是？（可複選）",
+              "options": [
+                {
+                  "label": "上完就忘了",
+                  "value": "forgot"
+                },
+                {
+                  "label": "回來太忙，沒時間用",
+                  "value": "no_time"
+                },
+                {
+                  "label": "工作上沒有那個工具或系統可以用",
+                  "value": "no_tool"
+                },
+                {
+                  "label": "太難，聽不懂",
+                  "value": "too_hard"
+                },
+                {
+                  "label": "跟我的工作沒關係",
+                  "value": "not_related"
+                },
+                {
+                  "label": "想用但沒人可以問",
+                  "value": "no_support"
+                },
+                {
+                  "label": "沒有這種經驗",
+                  "value": "never",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            }
+          ],
+          "description": "以下問題是為了安排大家都方便的上課時間與方式。"
+        },
+        {
+          "id": "sec_attitude",
+          "title": "你的想法",
+          "questions": [
+            {
+              "id": "q_ai_tools_used",
+              "type": "multi",
+              "label": "你使用過下列哪些工具？（可複選）",
+              "options": [
+                {
+                  "label": "ChatGPT",
+                  "value": "chatgpt"
+                },
+                {
+                  "label": "Claude",
+                  "value": "claude"
+                },
+                {
+                  "label": "Gemini",
+                  "value": "gemini"
+                },
+                {
+                  "label": "Copilot",
+                  "value": "copilot"
+                },
+                {
+                  "label": "LINE 裡的 AI 功能",
+                  "value": "line_ai"
+                },
+                {
+                  "label": "Google 表單",
+                  "value": "gforms"
+                },
+                {
+                  "label": "Google 試算表",
+                  "value": "gsheets"
+                },
+                {
+                  "label": "都沒有用過",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_ai_feeling",
+              "type": "single",
+              "label": "如果機構要引進工具，幫忙自動整理紀錄、產出報表，你的感覺比較接近？",
+              "options": [
+                {
+                  "label": "很期待",
+                  "value": "excited"
+                },
+                {
+                  "label": "可以試試看",
+                  "value": "open"
+                },
+                {
+                  "label": "有點擔心",
+                  "value": "worried"
+                },
+                {
+                  "label": "覺得不需要",
+                  "value": "unneeded"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_concerns",
+              "type": "multi",
+              "label": "你最擔心的是什麼？（可複選）",
+              "options": [
+                {
+                  "label": "怕自己學不會",
+                  "value": "cant_learn"
+                },
+                {
+                  "label": "怕出錯要自己扛責任",
+                  "value": "responsible"
+                },
+                {
+                  "label": "怕個案資料外洩",
+                  "value": "privacy"
+                },
+                {
+                  "label": "怕自己的工作被取代",
+                  "value": "replaced"
+                },
+                {
+                  "label": "怕反而變得更麻煩",
+                  "value": "more_work"
+                },
+                {
+                  "label": "怕沒人可以問",
+                  "value": "no_support"
+                },
+                {
+                  "label": "不太擔心",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_training_willing",
+              "type": "single",
+              "label": "如果安排 2 小時的教育訓練，你願意參加嗎？",
+              "options": [
+                {
+                  "label": "願意",
+                  "value": "yes"
+                },
+                {
+                  "label": "要看時間",
+                  "value": "depends"
+                },
+                {
+                  "label": "不願意",
+                  "value": "no"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_free_comment",
+              "type": "long_text",
+              "label": "還有什麼想讓我們知道的嗎？",
+              "required": false,
+              "max_length": 500,
+              "placeholder": "沒有的話可以直接送出"
+            }
+          ],
+          "description": "這一段沒有標準答案，請照真實感受回答。"
+        }
+      ],
+      "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+      "estimated_minutes": 7
+    },
+    "source_refs": {
+      "blocks": [
+        {
+          "ref": "blocks/basic-profile",
+          "code": "basic-profile",
+          "version": 1
+        },
+        {
+          "ref": "blocks/pain-repeater-nonprofit",
+          "code": "pain-repeater-nonprofit",
+          "version": 1
+        },
+        {
+          "ref": "blocks/digital-skill-baseline",
+          "code": "digital-skill-baseline",
+          "version": 1
+        },
+        {
+          "ref": "blocks/training-availability",
+          "code": "training-availability",
+          "version": 1
+        },
+        {
+          "ref": "blocks/ai-concern-safety",
+          "code": "ai-concern-safety",
+          "version": 1
+        }
+      ],
+      "template": {
+        "ref": "templates/ai-readiness-tna-staff-lite.v1"
+      }
+    },
+    "is_open": true,
+    "opens_at": null,
+    "closes_at": null,
+    "created_at": "2026-07-27T10:40:29.836776+00:00"
+  },
+  {
+    "id": "9da03ab2-2b7e-4298-8ac4-1e9dd969c618",
+    "project_id": "b1f91842-2c23-45c9-8309-e2c8e082a481",
+    "slug": "manager",
+    "title": "機構現況與訓練需求調查（主管版）",
+    "version": 1,
+    "definition": {
+      "slug": "manager",
+      "tags": {
+        "purpose": [
+          "ai_readiness",
+          "tna",
+          "org_baseline"
+        ],
+        "audience": [
+          "executive",
+          "middle_mgmt"
+        ],
+        "industry": [
+          "nonprofit",
+          "general"
+        ],
+        "complexity": "deep",
+        "ttqs_stage": "P",
+        "kirkpatrick": "L3"
+      },
+      "intro": "這份問卷用來了解機構的現況、資源條件與期待成果，作為後續診斷與規劃的基礎。\n\n部分題目若不確定，可填「不清楚」，我們會在後續訪談中一起確認。全部約需 15 分鐘。",
+      "title": "機構現況與訓練需求調查（主管版）",
+      "closing": {
+        "body": "我們會在彙整第一線同仁的填答結果後，安排一次面談，一起確認診斷方向與後續規劃。",
+        "title": "填答完成，謝謝您",
+        "show_personal_summary": false
+      },
+      "privacy": {
+        "notice": "這份問卷用於了解機構現況與訓練需求，作為後續診斷與課程規劃的基礎。部分題目若不確定可填「不清楚」，約需 15 分鐘。",
+        "consent_label": "我瞭解並同意開始填答",
+        "consent_required": true
+      },
+      "version": 1,
+      "sections": [
+        {
+          "id": "sec_goals",
+          "title": "目標與資源",
+          "questions": [
+            {
+              "id": "q_top_goal",
+              "help": "越具體，後續規劃越能對準。避免寫「提升效率」這類概括描述。",
+              "type": "long_text",
+              "label": "半年內，你最希望看到哪一件事情改善？請盡量具體。",
+              "required": true,
+              "placeholder": "例如：月報表製作從 3 天縮短到 1 天；服務紀錄不用再手抄兩次"
+            },
+            {
+              "id": "q_trigger",
+              "type": "multi",
+              "label": "促使你現在考慮導入的原因是？（可複選）",
+              "options": [
+                {
+                  "label": "關鍵人員離職，工作無人承接",
+                  "value": "staff_left"
+                },
+                {
+                  "label": "同仁加班過多",
+                  "value": "overtime"
+                },
+                {
+                  "label": "評鑑或督導壓力",
+                  "value": "audit"
+                },
+                {
+                  "label": "資料常出錯或漏件",
+                  "value": "error_rate"
+                },
+                {
+                  "label": "人力成本考量",
+                  "value": "cost"
+                },
+                {
+                  "label": "看到別的機構在做",
+                  "value": "trend"
+                },
+                {
+                  "label": "補助單位或捐款人期待",
+                  "value": "funder"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_budget_range",
+              "type": "single",
+              "label": "這件事目前可動用的預算範圍？",
+              "options": [
+                {
+                  "label": "目前沒有編列預算",
+                  "value": "none"
+                },
+                {
+                  "label": "10 萬以下",
+                  "value": "lt10"
+                },
+                {
+                  "label": "10–30 萬",
+                  "value": "10to30"
+                },
+                {
+                  "label": "30–50 萬",
+                  "value": "30to50"
+                },
+                {
+                  "label": "50 萬以上",
+                  "value": "gt50"
+                },
+                {
+                  "label": "需申請補助或爭取捐贈才有可能",
+                  "value": "subsidy"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_subsidy_channel",
+              "type": "multi",
+              "label": "有意願嘗試哪些外部資源？（可複選）",
+              "options": [
+                {
+                  "label": "勞動部訓練相關補助",
+                  "value": "labor_ministry"
+                },
+                {
+                  "label": "衛福部相關計畫",
+                  "value": "mohw"
+                },
+                {
+                  "label": "地方政府專案",
+                  "value": "local_gov"
+                },
+                {
+                  "label": "企業 CSR 捐贈",
+                  "value": "csr"
+                },
+                {
+                  "label": "其他基金會補助",
+                  "value": "foundation"
+                },
+                {
+                  "label": "不清楚有哪些管道",
+                  "value": "unknown"
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_decision_maker",
+              "type": "short_text",
+              "label": "這類決策最終由誰拍板？決策流程為何？",
+              "required": true,
+              "placeholder": "例如：執行長核定，須經董事會報備"
+            },
+            {
+              "id": "q_past_failure",
+              "type": "long_text",
+              "label": "機構過去有沒有導入系統或工具但沒成功的經驗？當時卡在哪裡？",
+              "required": false,
+              "placeholder": "沒有的話請填「無」"
+            }
+          ]
+        },
+        {
+          "id": "sec_it_gap",
+          "title": "資訊維運現況",
+          "questions": [
+            {
+              "id": "q_has_it_staff",
+              "type": "single",
+              "label": "目前機構內有專責的資訊人員嗎？",
+              "options": [
+                {
+                  "label": "有，專職",
+                  "value": "yes_full"
+                },
+                {
+                  "label": "有，但是兼任",
+                  "value": "yes_part"
+                },
+                {
+                  "label": "沒有，委外廠商處理",
+                  "value": "outsource"
+                },
+                {
+                  "label": "沒有，目前無人負責",
+                  "value": "none"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_it_gaps",
+              "type": "multi",
+              "label": "以下哪些事情目前沒有明確的負責人？（可複選）",
+              "options": [
+                {
+                  "label": "內部系統維護與修改",
+                  "value": "system_maint"
+                },
+                {
+                  "label": "資料備份",
+                  "value": "backup"
+                },
+                {
+                  "label": "帳號與權限管理",
+                  "value": "account"
+                },
+                {
+                  "label": "電腦與設備報修",
+                  "value": "hardware"
+                },
+                {
+                  "label": "官方網站更新",
+                  "value": "website"
+                },
+                {
+                  "label": "網路與監視設備",
+                  "value": "network"
+                },
+                {
+                  "label": "線上商城／義賣平台",
+                  "value": "shop"
+                },
+                {
+                  "label": "社群媒體經營",
+                  "value": "social"
+                },
+                {
+                  "label": "都有人負責",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_it_urgency",
+              "max": 5,
+              "min": 1,
+              "type": "scale",
+              "label": "上述缺口對日常營運造成的影響程度？",
+              "show_if": {
+                "mode": "none",
+                "q_it_gaps": [
+                  "none"
+                ]
+              },
+              "required": true,
+              "max_label": "嚴重影響",
+              "min_label": "幾乎沒影響"
+            }
+          ],
+          "description": "這一段是為了釐清「哪些事現在沒人管」，與 AI 導入是兩件事，但會影響可行性。"
+        },
+        {
+          "id": "sec_audit",
+          "title": "現有系統體檢",
+          "questions": [
+            {
+              "id": "q_vendor",
+              "type": "short_text",
+              "label": "內部系統的建置廠商是？",
+              "required": false,
+              "placeholder": "不清楚請填「不清楚」"
+            },
+            {
+              "id": "q_maintenance_contract",
+              "type": "single",
+              "label": "目前還有維護合約嗎？",
+              "options": [
+                {
+                  "label": "有，仍在合約期間",
+                  "value": "active"
+                },
+                {
+                  "label": "已到期未續約",
+                  "value": "expired"
+                },
+                {
+                  "label": "從未簽過維護合約",
+                  "value": "never"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_annual_fee",
+              "min": 0,
+              "type": "number",
+              "unit": "元",
+              "label": "每年維護費用約多少？",
+              "show_if": {
+                "mode": "any",
+                "q_maintenance_contract": [
+                  "active"
+                ]
+              },
+              "required": false
+            },
+            {
+              "id": "q_hosting",
+              "type": "single",
+              "label": "系統資料庫放在哪裡？",
+              "options": [
+                {
+                  "label": "機構自己的機房或伺服器",
+                  "value": "onprem"
+                },
+                {
+                  "label": "廠商代管",
+                  "value": "vendor"
+                },
+                {
+                  "label": "雲端服務",
+                  "value": "cloud"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_data_export",
+              "help": "這題對後續規劃影響很大，若不確定請選「不清楚」。",
+              "type": "single",
+              "label": "系統裡的資料能不能匯出成 Excel 或 CSV？",
+              "options": [
+                {
+                  "label": "可以，大部分資料都能匯出",
+                  "value": "yes_all"
+                },
+                {
+                  "label": "只有部分報表可以",
+                  "value": "yes_partial"
+                },
+                {
+                  "label": "不行",
+                  "value": "no"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_api",
+              "type": "single",
+              "label": "系統有沒有提供 API（讓其他程式讀取資料的介面）？",
+              "options": [
+                {
+                  "label": "有",
+                  "value": "yes"
+                },
+                {
+                  "label": "沒有",
+                  "value": "no"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_modules_active",
+              "help": "已停用的模組不用勾。這題可以看出系統實際被使用的程度。",
+              "type": "multi",
+              "label": "系統中哪些功能模組目前「實際還在使用」？（可複選）",
+              "options": [
+                {
+                  "label": "公用資訊（行事曆、值班表、登記表等）",
+                  "value": "m_public"
+                },
+                {
+                  "label": "行政管理",
+                  "value": "m_admin"
+                },
+                {
+                  "label": "個案管理",
+                  "value": "m_case"
+                },
+                {
+                  "label": "老人送餐",
+                  "value": "m_meal"
+                },
+                {
+                  "label": "社區家園",
+                  "value": "m_community"
+                },
+                {
+                  "label": "庇護農場",
+                  "value": "m_farm"
+                },
+                {
+                  "label": "庫存資料",
+                  "value": "m_inventory"
+                },
+                {
+                  "label": "固定資產",
+                  "value": "m_asset"
+                },
+                {
+                  "label": "訂單資料",
+                  "value": "m_order"
+                },
+                {
+                  "label": "友善名冊",
+                  "value": "m_donor"
+                },
+                {
+                  "label": "義賣收據",
+                  "value": "m_receipt"
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_admin_account",
+              "type": "single",
+              "label": "系統管理員帳號密碼目前由誰保管？",
+              "options": [
+                {
+                  "label": "執行長或高階主管",
+                  "value": "exec"
+                },
+                {
+                  "label": "行政人員",
+                  "value": "admin"
+                },
+                {
+                  "label": "廠商",
+                  "value": "vendor"
+                },
+                {
+                  "label": "已離職人員手上（尚未交接）",
+                  "value": "ex_staff"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_backup",
+              "type": "single",
+              "label": "目前資料備份的頻率？",
+              "options": [
+                {
+                  "label": "每天自動備份",
+                  "value": "auto_daily"
+                },
+                {
+                  "label": "人工不定期備份",
+                  "value": "manual"
+                },
+                {
+                  "label": "沒有在備份",
+                  "value": "none"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_backup_location",
+              "type": "short_text",
+              "label": "備份資料存放在哪裡？",
+              "show_if": {
+                "mode": "any",
+                "q_backup": [
+                  "auto_daily",
+                  "manual"
+                ]
+              },
+              "required": false
+            },
+            {
+              "id": "q_ai_policy_existing",
+              "help": "此題用於確認機構是否已有相關內部規定，避免重複制定。",
+              "type": "long_text",
+              "label": "系統後台「公用資訊」中已有一項「管理規定-AI」，目前內容是什麼？",
+              "required": false,
+              "placeholder": "若不清楚請填「不清楚」"
+            }
+          ],
+          "description": "若有部分項目不確定，可填「不清楚」，我們會在後續訪談中一起確認。"
+        },
+        {
+          "id": "sec_compliance",
+          "title": "資料與法規",
+          "questions": [
+            {
+              "id": "q_sensitive_data",
+              "type": "multi",
+              "label": "機構日常作業會處理到哪些類型的資料？（可複選）",
+              "options": [
+                {
+                  "label": "姓名、聯絡方式等基本資料",
+                  "value": "basic"
+                },
+                {
+                  "label": "健康或醫療紀錄",
+                  "value": "health"
+                },
+                {
+                  "label": "身心障礙狀況或評估",
+                  "value": "disability"
+                },
+                {
+                  "label": "家庭狀況與經濟狀況",
+                  "value": "family"
+                },
+                {
+                  "label": "捐款人資料與金流",
+                  "value": "financial"
+                },
+                {
+                  "label": "員工人事與薪資",
+                  "value": "hr"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_data_location",
+              "type": "single",
+              "label": "服務對象的個人資料主要存放在？",
+              "options": [
+                {
+                  "label": "紙本檔案為主",
+                  "value": "paper"
+                },
+                {
+                  "label": "內部系統",
+                  "value": "system"
+                },
+                {
+                  "label": "個人電腦的 Excel 檔",
+                  "value": "excel"
+                },
+                {
+                  "label": "雲端硬碟",
+                  "value": "cloud"
+                },
+                {
+                  "label": "以上皆有，分散各處",
+                  "value": "mixed"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_access_control",
+              "type": "single",
+              "label": "誰可以查看服務對象的完整資料？",
+              "options": [
+                {
+                  "label": "有明確權限分級，僅特定人員",
+                  "value": "strict"
+                },
+                {
+                  "label": "同部門大多可以看",
+                  "value": "loose"
+                },
+                {
+                  "label": "幾乎所有同仁都看得到",
+                  "value": "all"
+                },
+                {
+                  "label": "沒有明確規定",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_policy_docs",
+              "type": "multi",
+              "label": "機構目前已有哪些管理規範文件？（可複選）",
+              "options": [
+                {
+                  "label": "個人資料保護管理規範",
+                  "value": "privacy"
+                },
+                {
+                  "label": "資訊安全管理規範",
+                  "value": "infosec"
+                },
+                {
+                  "label": "AI 使用相關規定",
+                  "value": "ai_policy"
+                },
+                {
+                  "label": "各項作業標準流程 SOP",
+                  "value": "sop"
+                },
+                {
+                  "label": "都沒有",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_audit_frequency",
+              "type": "single",
+              "label": "一年大約要面對幾次評鑑、督導或核銷查核？",
+              "options": [
+                {
+                  "label": "1–2 次",
+                  "value": "1to2"
+                },
+                {
+                  "label": "3–5 次",
+                  "value": "3to5"
+                },
+                {
+                  "label": "6–12 次",
+                  "value": "6to12"
+                },
+                {
+                  "label": "12 次以上",
+                  "value": "gt12"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_audit_docs",
+              "type": "long_text",
+              "label": "這些查核主要需要產出哪些文件？由誰負責？",
+              "required": false,
+              "placeholder": "例如：服務成果統計表（社工組）、核銷明細（會計）"
+            },
+            {
+              "id": "q_audit_hours",
+              "min": 0,
+              "help": "估算即可，不需精確。",
+              "type": "number",
+              "unit": "小時",
+              "label": "每次查核準備，全機構大約投入多少工時？",
+              "required": false
+            }
+          ]
+        },
+        {
+          "id": "sec_l3",
+          "title": "訓練之後",
+          "questions": [
+            {
+              "id": "q_expected_behavior",
+              "help": "請描述「看得到的行為」，而非「態度提升」這類無法觀察的描述。",
+              "type": "long_text",
+              "label": "訓練結束三個月後，你希望看到同仁做出什麼不一樣的行為？",
+              "required": true,
+              "placeholder": "例如：社工能自己用語音把訪視紀錄轉成文字初稿，不再回辦公室重打一次"
+            },
+            {
+              "id": "q_metrics",
+              "type": "multi",
+              "label": "有哪些數字可以用來衡量成效？（可複選）",
+              "options": [
+                {
+                  "label": "文書作業時數",
+                  "value": "doc_hours"
+                },
+                {
+                  "label": "加班時數",
+                  "value": "overtime"
+                },
+                {
+                  "label": "資料錯誤或補件次數",
+                  "value": "error_rate"
+                },
+                {
+                  "label": "月報表產出天數",
+                  "value": "report_days"
+                },
+                {
+                  "label": "評鑑準備工時",
+                  "value": "audit_prep"
+                },
+                {
+                  "label": "人員流動率",
+                  "value": "turnover"
+                },
+                {
+                  "label": "目前沒有在追蹤這類數字",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_metric_baseline",
+              "help": "這是訓前基準值，會作為成效比較的起點。",
+              "type": "short_text",
+              "label": "上述指標目前的數值大約是多少？",
+              "show_if": {
+                "mode": "none",
+                "q_metrics": [
+                  "none"
+                ]
+              },
+              "required": false,
+              "placeholder": "例如：月報表目前約需 3 個工作天"
+            },
+            {
+              "id": "q_verification_willing",
+              "type": "single",
+              "label": "願意在訓練結束三個月後，安排一次成果檢視嗎？",
+              "options": [
+                {
+                  "label": "願意，並可提供數據",
+                  "value": "yes"
+                },
+                {
+                  "label": "願意，但只能做質性回饋",
+                  "value": "informal"
+                },
+                {
+                  "label": "不需要",
+                  "value": "no"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_seed_people",
+              "type": "short_text",
+              "label": "機構內有沒有比較會使用電腦、適合擔任種子人員的同仁？請列 1–3 位。",
+              "required": false,
+              "placeholder": "職稱即可，例如：行政組張組長、社工組李社工"
+            },
+            {
+              "id": "q_kickoff_announce",
+              "help": "多數導入案失敗不是技術問題，而是這一步沒做。",
+              "type": "single",
+              "label": "若同仁擔心工作被取代，機構是否願意在專案啟動前，由主管對全體說明立場？",
+              "options": [
+                {
+                  "label": "願意，可安排全體說明",
+                  "value": "yes"
+                },
+                {
+                  "label": "可以，但以書面公告方式",
+                  "value": "written"
+                },
+                {
+                  "label": "還沒想過",
+                  "value": "unsure"
+                },
+                {
+                  "label": "不打算特別說明",
+                  "value": "no"
+                }
+              ],
+              "required": true
+            }
+          ],
+          "description": "以下問題是為了在課程開始前，先講好「怎樣算成功」。"
+        }
+      ],
+      "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+      "estimated_minutes": 15
+    },
+    "source_refs": {
+      "blocks": [
+        {
+          "ref": "blocks/org-goals-manager",
+          "code": "org-goals-manager",
+          "version": 1
+        },
+        {
+          "ref": "blocks/it-continuity-manager",
+          "code": "it-continuity-manager",
+          "version": 1
+        },
+        {
+          "ref": "blocks/system-audit-manager",
+          "code": "system-audit-manager",
+          "version": 1
+        },
+        {
+          "ref": "blocks/compliance-risk-manager",
+          "code": "compliance-risk-manager",
+          "version": 1
+        },
+        {
+          "ref": "blocks/kirkpatrick-l3-manager",
+          "code": "kirkpatrick-l3-manager",
+          "version": 1
+        }
+      ],
+      "template": {
+        "ref": "templates/ai-readiness-tna-manager.v1"
+      }
+    },
+    "is_open": true,
+    "opens_at": null,
+    "closes_at": null,
+    "created_at": "2026-07-27T10:40:29.939777+00:00"
+  },
+  {
+    "id": "17761eb9-6c2d-43c8-b55b-b10ad3779fcf",
+    "project_id": "b1f91842-2c23-45c9-8309-e2c8e082a481",
+    "slug": "staff",
+    "title": "工作流程與訓練需求調查",
+    "version": 1,
+    "definition": {
+      "slug": "staff",
+      "tags": {
+        "purpose": [
+          "ai_readiness",
+          "tna"
+        ],
+        "audience": [
+          "professional",
+          "admin"
+        ],
+        "industry": [
+          "nonprofit",
+          "general"
+        ],
+        "complexity": "standard",
+        "ttqs_stage": "P",
+        "kirkpatrick": null
+      },
+      "intro": "為了解大家日常工作中最花時間、最重複的事項，作為未來簡化流程與安排教育訓練的參考。\n\n本問卷不記名，也不會作為個人考核用途，請安心依實際情況填答。全部約需 12 分鐘。",
+      "title": "工作流程與訓練需求調查",
+      "closing": {
+        "body": "你的回答會與其他同仁的意見一起彙整分析，用來規劃真正幫得上忙的改善方案與課程。",
+        "title": "填答完成，謝謝你",
+        "summary_template": "依你的填答估算，你一年花在文書作業上大約 {total_annual_hours} 小時。",
+        "show_personal_summary": true
+      },
+      "privacy": {
+        "notice": "這份問卷不記名，僅用於了解大家的工作狀況、規劃教育訓練課程，不會用於個人考核。感謝你的協助。",
+        "consent_label": "我瞭解並同意開始填答",
+        "consent_required": true
+      },
+      "version": 1,
+      "sections": [
+        {
+          "id": "sec_basic",
+          "title": "關於你",
+          "questions": [
+            {
+              "id": "q_dept",
+              "type": "single",
+              "label": "你的服務單位是？",
+              "options": [
+                {
+                  "label": "全日型住宿服務",
+                  "value": "residential"
+                },
+                {
+                  "label": "日間作業設施",
+                  "value": "day_work"
+                },
+                {
+                  "label": "日間照顧服務",
+                  "value": "day_care"
+                },
+                {
+                  "label": "居家服務",
+                  "value": "home_care"
+                },
+                {
+                  "label": "失能長者送餐服務",
+                  "value": "meal"
+                },
+                {
+                  "label": "庇護性農場",
+                  "value": "farm"
+                },
+                {
+                  "label": "社區家園",
+                  "value": "community"
+                },
+                {
+                  "label": "行政／會計／人資",
+                  "value": "admin"
+                },
+                {
+                  "label": "公關募款",
+                  "value": "pr"
+                },
+                {
+                  "label": "其他",
+                  "value": "other",
+                  "allow_text": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_role",
+              "type": "single",
+              "label": "你的職務類別是？",
+              "options": [
+                {
+                  "meta": {
+                    "role_group": "admin_mgmt"
+                  },
+                  "label": "組長以上主管",
+                  "value": "manager"
+                },
+                {
+                  "meta": {
+                    "role_group": "admin_mgmt"
+                  },
+                  "label": "行政人員",
+                  "value": "admin_staff"
+                },
+                {
+                  "meta": {
+                    "role_group": "admin_mgmt"
+                  },
+                  "label": "會計／人資",
+                  "value": "accountant"
+                },
+                {
+                  "meta": {
+                    "role_group": "professional"
+                  },
+                  "label": "社工",
+                  "value": "social_worker"
+                },
+                {
+                  "meta": {
+                    "role_group": "professional"
+                  },
+                  "label": "教保員",
+                  "value": "educator"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "照服員",
+                  "value": "caregiver"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "司機",
+                  "value": "driver"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "現場作業人員",
+                  "value": "field_worker"
+                },
+                {
+                  "meta": {
+                    "role_group": "frontline"
+                  },
+                  "label": "其他",
+                  "value": "other_role",
+                  "allow_text": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_tenure",
+              "type": "single",
+              "label": "在本機構服務多久了？",
+              "options": [
+                {
+                  "label": "未滿 1 年",
+                  "value": "lt1"
+                },
+                {
+                  "label": "1–3 年",
+                  "value": "1to3"
+                },
+                {
+                  "label": "3–5 年",
+                  "value": "3to5"
+                },
+                {
+                  "label": "5 年以上",
+                  "value": "gt5"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_device",
+              "type": "multi",
+              "label": "工作時你主要使用哪些設備？（可複選）",
+              "options": [
+                {
+                  "label": "辦公室桌上型電腦",
+                  "value": "desktop"
+                },
+                {
+                  "label": "筆記型電腦",
+                  "value": "laptop"
+                },
+                {
+                  "label": "平板",
+                  "value": "tablet"
+                },
+                {
+                  "label": "手機",
+                  "value": "phone"
+                },
+                {
+                  "label": "工作中幾乎不用電腦或手機",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            }
+          ],
+          "description": "本問卷不記名，以下資料僅供分組統計使用。"
+        },
+        {
+          "id": "sec_pain",
+          "title": "你的一天",
+          "questions": [
+            {
+              "id": "q_doc_time_daily",
+              "type": "single",
+              "label": "平均每天，你花多少時間在「寫紀錄、填表單、做報表」？",
+              "options": [
+                {
+                  "label": "30 分鐘以內",
+                  "value": "lt30"
+                },
+                {
+                  "label": "30 分鐘到 1 小時",
+                  "value": "30to60"
+                },
+                {
+                  "label": "1 到 2 小時",
+                  "value": "1to2"
+                },
+                {
+                  "label": "2 到 3 小時",
+                  "value": "2to3"
+                },
+                {
+                  "label": "3 小時以上",
+                  "value": "gt3"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_pain",
+              "help": "先勾選項目，勾了之後才會展開細項。最多選 3 項，請挑最花時間的。",
+              "type": "pain_repeater",
+              "label": "請選出你每天或每週一定要做的重複性文書工作",
+              "fields": [
+                {
+                  "id": "frequency",
+                  "type": "single",
+                  "label": "多久做一次？",
+                  "options": [
+                    {
+                      "label": "每天",
+                      "value": "daily"
+                    },
+                    {
+                      "label": "每週",
+                      "value": "weekly"
+                    },
+                    {
+                      "label": "每兩週",
+                      "value": "biweekly"
+                    },
+                    {
+                      "label": "每月",
+                      "value": "monthly"
+                    },
+                    {
+                      "label": "每季",
+                      "value": "quarterly"
+                    },
+                    {
+                      "label": "每年",
+                      "value": "yearly"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "minutes",
+                  "max": 960,
+                  "min": 1,
+                  "type": "number",
+                  "unit": "分鐘",
+                  "label": "每次大約花多久？",
+                  "required": true
+                },
+                {
+                  "id": "format",
+                  "type": "single",
+                  "label": "目前用什麼方式做？",
+                  "options": [
+                    {
+                      "label": "紙本手寫",
+                      "value": "paper"
+                    },
+                    {
+                      "label": "Excel",
+                      "value": "excel"
+                    },
+                    {
+                      "label": "Word",
+                      "value": "word"
+                    },
+                    {
+                      "label": "機構現有系統",
+                      "value": "system"
+                    },
+                    {
+                      "label": "LINE 群組回報",
+                      "value": "line"
+                    },
+                    {
+                      "label": "口頭回報",
+                      "value": "verbal"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "needs_sign",
+                  "type": "single",
+                  "label": "需要簽名或蓋章嗎？",
+                  "options": [
+                    {
+                      "label": "需要",
+                      "value": "yes"
+                    },
+                    {
+                      "label": "不需要",
+                      "value": "no"
+                    }
+                  ],
+                  "required": true
+                },
+                {
+                  "id": "deliver_to",
+                  "help": "不確定可以留白。",
+                  "type": "short_text",
+                  "label": "完成後交給誰？",
+                  "required": false,
+                  "placeholder": "例如：組長、會計、社會局"
+                }
+              ],
+              "required": true,
+              "live_calc": {
+                "display": "你一年花在這件事上約 {value} 小時",
+                "enabled": true,
+                "formula": "annual_hours",
+                "summary_display": "你一年花在文書工作上，總共約 {total} 小時"
+              },
+              "max_items": 3,
+              "min_items": 1,
+              "preset_items": [
+                {
+                  "code": "record_writing",
+                  "label": "撰寫服務紀錄／個案紀錄"
+                },
+                {
+                  "code": "monthly_report",
+                  "label": "月報表／季報表製作"
+                },
+                {
+                  "code": "reimburse",
+                  "label": "核銷單據整理"
+                },
+                {
+                  "code": "shift_table",
+                  "label": "排班表製作"
+                },
+                {
+                  "code": "signoff_sheet",
+                  "label": "簽收單／簽到表整理"
+                },
+                {
+                  "code": "meeting_notes",
+                  "label": "會議紀錄"
+                },
+                {
+                  "code": "official_doc",
+                  "label": "公文／簽呈撰寫"
+                },
+                {
+                  "code": "purchase",
+                  "label": "請購單／領用單填寫"
+                },
+                {
+                  "code": "inventory",
+                  "label": "物資盤點與登記"
+                },
+                {
+                  "code": "donor_ack",
+                  "label": "捐款徵信／感謝函處理"
+                },
+                {
+                  "code": "photo_org",
+                  "label": "活動照片整理與上傳"
+                },
+                {
+                  "code": "duplicate_entry",
+                  "label": "同一份資料重複填到不同地方"
+                },
+                {
+                  "code": "eval_doc",
+                  "label": "評鑑／督導資料準備"
+                },
+                {
+                  "code": "route_plan",
+                  "label": "送餐或訪視路線安排"
+                },
+                {
+                  "code": "custom",
+                  "label": "其他（請說明）",
+                  "allow_text": true
+                }
+              ],
+              "version_note": "v1.1：max_items 由 5 降為 3。第 4、5 項多為隨意填答，會拉低年工時統計品質。"
+            },
+            {
+              "id": "q_find_time",
+              "type": "single",
+              "label": "當你要找過去的資料（例如去年的紀錄、某張單據），通常要花多久？",
+              "options": [
+                {
+                  "label": "1 分鐘內就找得到",
+                  "value": "lt1"
+                },
+                {
+                  "label": "5 分鐘內",
+                  "value": "lt5"
+                },
+                {
+                  "label": "10 分鐘以上",
+                  "value": "gt10"
+                },
+                {
+                  "label": "常常找不到，要問別人",
+                  "value": "ask"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_drop_one",
+              "type": "short_text",
+              "label": "如果明天有一件例行工作可以不用再做，你最想拿掉哪一件？",
+              "required": false,
+              "placeholder": "請簡短寫出項目名稱即可"
+            }
+          ],
+          "description": "這一段是本問卷最重要的部分，請盡量依實際情況填寫。"
+        },
+        {
+          "id": "sec_system",
+          "title": "現有系統",
+          "questions": [
+            {
+              "id": "q_use_system",
+              "type": "single",
+              "label": "你有使用機構現有的內部系統嗎？",
+              "options": [
+                {
+                  "label": "每天用",
+                  "value": "daily"
+                },
+                {
+                  "label": "偶爾用",
+                  "value": "sometimes"
+                },
+                {
+                  "label": "幾乎不用",
+                  "value": "rarely"
+                },
+                {
+                  "label": "不知道有這個系統",
+                  "value": "unaware"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_system_usability",
+              "max": 5,
+              "min": 1,
+              "type": "scale",
+              "label": "整體來說，現有系統好用嗎？",
+              "show_if": {
+                "mode": "any",
+                "q_use_system": [
+                  "daily",
+                  "sometimes",
+                  "rarely"
+                ]
+              },
+              "required": true,
+              "max_label": "很好用",
+              "min_label": "很難用"
+            },
+            {
+              "id": "q_system_best",
+              "type": "short_text",
+              "label": "系統裡你最常用的功能是？",
+              "show_if": {
+                "mode": "any",
+                "q_use_system": [
+                  "daily",
+                  "sometimes"
+                ]
+              },
+              "required": false
+            },
+            {
+              "id": "q_system_worst",
+              "type": "short_text",
+              "label": "系統裡有沒有哪個功能你不會用、或用了很痛苦？",
+              "show_if": {
+                "mode": "any",
+                "q_use_system": [
+                  "daily",
+                  "sometimes",
+                  "rarely"
+                ]
+              },
+              "required": false
+            },
+            {
+              "id": "q_system_help",
+              "type": "single",
+              "label": "系統壞掉或你不會用的時候，現在會找誰？",
+              "options": [
+                {
+                  "label": "資訊人員",
+                  "value": "it_staff"
+                },
+                {
+                  "label": "主管",
+                  "value": "manager"
+                },
+                {
+                  "label": "比較會電腦的同事",
+                  "value": "colleague"
+                },
+                {
+                  "label": "外面的廠商",
+                  "value": "vendor"
+                },
+                {
+                  "label": "自己想辦法",
+                  "value": "self"
+                },
+                {
+                  "label": "不知道找誰，就先擱著或改用紙本",
+                  "value": "give_up"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "sec_skill",
+          "title": "你會做的事",
+          "questions": [
+            {
+              "id": "q_skill_check",
+              "type": "behavior_check",
+              "label": "請勾選你自己一個人就做得到的事（可複選）",
+              "options": [
+                {
+                  "label": "自己開機並登入公司電腦",
+                  "level": 1,
+                  "value": "s_login",
+                  "weight": 1
+                },
+                {
+                  "label": "用注音或手寫輸入完成一段文字",
+                  "level": 1,
+                  "value": "s_typing",
+                  "weight": 1
+                },
+                {
+                  "label": "把手機拍的照片傳給同事或存到電腦",
+                  "level": 1,
+                  "value": "s_photo",
+                  "weight": 1
+                },
+                {
+                  "label": "在電腦裡建資料夾，並找得回自己存過的檔案",
+                  "level": 2,
+                  "value": "s_folder",
+                  "weight": 2
+                },
+                {
+                  "label": "把檔案上傳到 Google 雲端硬碟並分享給同事",
+                  "level": 2,
+                  "value": "s_drive",
+                  "weight": 2
+                },
+                {
+                  "label": "用手機掃 QR Code 開啟網頁",
+                  "level": 2,
+                  "value": "s_qrcode",
+                  "weight": 2
+                },
+                {
+                  "label": "在 Excel 裡做排序或篩選",
+                  "level": 3,
+                  "value": "s_excel_sort",
+                  "weight": 3
+                },
+                {
+                  "label": "在 Excel 裡用公式（例如加總、平均）",
+                  "level": 3,
+                  "value": "s_excel_fx",
+                  "weight": 3
+                },
+                {
+                  "label": "做樞紐分析表或圖表",
+                  "level": 3,
+                  "value": "s_excel_pivot",
+                  "weight": 3
+                },
+                {
+                  "label": "用過 ChatGPT、Claude 或 Gemini 這類 AI 工具",
+                  "level": 4,
+                  "value": "s_ai_tried",
+                  "weight": 4
+                },
+                {
+                  "label": "曾經用 AI 工具實際完成過工作上的事",
+                  "level": 4,
+                  "value": "s_ai_work",
+                  "weight": 4
+                },
+                {
+                  "label": "知道怎麼調整問法，讓 AI 給出更好的答案",
+                  "level": 4,
+                  "value": "s_ai_prompt",
+                  "weight": 4
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_typing_method",
+              "help": "這題會影響我們建議的工具類型。",
+              "type": "single",
+              "label": "你打字時主要用哪一種方式？",
+              "options": [
+                {
+                  "label": "注音輸入",
+                  "value": "zhuyin"
+                },
+                {
+                  "label": "拼音輸入",
+                  "value": "pinyin"
+                },
+                {
+                  "label": "手寫輸入",
+                  "value": "handwrite"
+                },
+                {
+                  "label": "語音輸入",
+                  "value": "voice"
+                },
+                {
+                  "label": "我很少打字，多半用寫的",
+                  "value": "seldom"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_ai_used_for",
+              "type": "short_text",
+              "label": "你用 AI 工具做過什麼事？",
+              "show_if": {
+                "mode": "any",
+                "q_skill_check": [
+                  "s_ai_tried",
+                  "s_ai_work",
+                  "s_ai_prompt"
+                ]
+              },
+              "required": false,
+              "placeholder": "例如：查資料、寫文案、翻譯"
+            }
+          ],
+          "description": "以下是一些電腦與手機的常見操作，請勾選你「自己一個人就做得到」的項目。沒勾選完全沒有關係，這不是考試。"
+        },
+        {
+          "id": "sec_availability",
+          "title": "如果要上課",
+          "questions": [
+            {
+              "id": "q_shift_type",
+              "type": "single",
+              "label": "你的工作型態是？",
+              "options": [
+                {
+                  "label": "固定班（日班）",
+                  "value": "fixed"
+                },
+                {
+                  "label": "輪班",
+                  "value": "rotating"
+                },
+                {
+                  "label": "時間較彈性",
+                  "value": "flexible"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_available_slots",
+              "type": "multi",
+              "label": "哪些時段你比較方便參加訓練？（可複選）",
+              "options": [
+                {
+                  "label": "平日上午",
+                  "value": "wd_am"
+                },
+                {
+                  "label": "平日下午",
+                  "value": "wd_pm"
+                },
+                {
+                  "label": "平日晚上",
+                  "value": "wd_eve"
+                },
+                {
+                  "label": "週末",
+                  "value": "weekend"
+                },
+                {
+                  "label": "完全看排班，無法固定",
+                  "value": "depends",
+                  "exclusive": true
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_max_offsite",
+              "type": "single",
+              "label": "你一次最多能離開工作崗位多久？",
+              "options": [
+                {
+                  "label": "1 小時",
+                  "value": "60"
+                },
+                {
+                  "label": "2 小時",
+                  "value": "120"
+                },
+                {
+                  "label": "半天",
+                  "value": "240"
+                },
+                {
+                  "label": "一整天",
+                  "value": "480"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_computer_access",
+              "type": "single",
+              "label": "你上班的地方，有沒有可以讓你上課練習的電腦？",
+              "options": [
+                {
+                  "label": "有，而且是我自己專用的",
+                  "value": "own"
+                },
+                {
+                  "label": "有，但要跟同事共用",
+                  "value": "shared"
+                },
+                {
+                  "label": "沒有",
+                  "value": "none"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_wifi",
+              "type": "single",
+              "label": "工作場所的網路狀況？",
+              "options": [
+                {
+                  "label": "穩定，可以順利上網",
+                  "value": "stable"
+                },
+                {
+                  "label": "有網路但常常不穩",
+                  "value": "unstable"
+                },
+                {
+                  "label": "沒有網路可用",
+                  "value": "none"
+                },
+                {
+                  "label": "不清楚",
+                  "value": "unknown"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_own_phone",
+              "type": "single",
+              "label": "上課練習時，你願意用自己的智慧型手機嗎？",
+              "options": [
+                {
+                  "label": "願意",
+                  "value": "yes"
+                },
+                {
+                  "label": "可以，但希望機構提供設備",
+                  "value": "reluctant"
+                },
+                {
+                  "label": "不願意",
+                  "value": "no"
+                },
+                {
+                  "label": "我沒有智慧型手機",
+                  "value": "no_phone"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_past_training_best",
+              "type": "single",
+              "label": "過去參加過的訓練中，哪一種對你最有幫助？",
+              "options": [
+                {
+                  "label": "老師講解為主",
+                  "value": "lecture"
+                },
+                {
+                  "label": "現場實際操作練習",
+                  "value": "handson"
+                },
+                {
+                  "label": "有人在旁邊一對一帶",
+                  "value": "one_on_one"
+                },
+                {
+                  "label": "看影片自己學",
+                  "value": "video"
+                },
+                {
+                  "label": "都沒什麼幫助",
+                  "value": "none"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_past_training_fail",
+              "type": "multi",
+              "label": "有沒有上過課、但回來完全沒用上的經驗？原因是？（可複選）",
+              "options": [
+                {
+                  "label": "上完就忘了",
+                  "value": "forgot"
+                },
+                {
+                  "label": "回來太忙，沒時間用",
+                  "value": "no_time"
+                },
+                {
+                  "label": "工作上沒有那個工具或系統可以用",
+                  "value": "no_tool"
+                },
+                {
+                  "label": "太難，聽不懂",
+                  "value": "too_hard"
+                },
+                {
+                  "label": "跟我的工作沒關係",
+                  "value": "not_related"
+                },
+                {
+                  "label": "想用但沒人可以問",
+                  "value": "no_support"
+                },
+                {
+                  "label": "沒有這種經驗",
+                  "value": "never",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            }
+          ],
+          "description": "以下問題是為了安排大家都方便的上課時間與方式。"
+        },
+        {
+          "id": "sec_attitude",
+          "title": "你的想法",
+          "questions": [
+            {
+              "id": "q_ai_tools_used",
+              "type": "multi",
+              "label": "你使用過下列哪些工具？（可複選）",
+              "options": [
+                {
+                  "label": "ChatGPT",
+                  "value": "chatgpt"
+                },
+                {
+                  "label": "Claude",
+                  "value": "claude"
+                },
+                {
+                  "label": "Gemini",
+                  "value": "gemini"
+                },
+                {
+                  "label": "Copilot",
+                  "value": "copilot"
+                },
+                {
+                  "label": "LINE 裡的 AI 功能",
+                  "value": "line_ai"
+                },
+                {
+                  "label": "Google 表單",
+                  "value": "gforms"
+                },
+                {
+                  "label": "Google 試算表",
+                  "value": "gsheets"
+                },
+                {
+                  "label": "都沒有用過",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_ai_feeling",
+              "type": "single",
+              "label": "如果機構要引進工具，幫忙自動整理紀錄、產出報表，你的感覺比較接近？",
+              "options": [
+                {
+                  "label": "很期待",
+                  "value": "excited"
+                },
+                {
+                  "label": "可以試試看",
+                  "value": "open"
+                },
+                {
+                  "label": "有點擔心",
+                  "value": "worried"
+                },
+                {
+                  "label": "覺得不需要",
+                  "value": "unneeded"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_concerns",
+              "type": "multi",
+              "label": "你最擔心的是什麼？（可複選）",
+              "options": [
+                {
+                  "label": "怕自己學不會",
+                  "value": "cant_learn"
+                },
+                {
+                  "label": "怕出錯要自己扛責任",
+                  "value": "responsible"
+                },
+                {
+                  "label": "怕個案資料外洩",
+                  "value": "privacy"
+                },
+                {
+                  "label": "怕自己的工作被取代",
+                  "value": "replaced"
+                },
+                {
+                  "label": "怕反而變得更麻煩",
+                  "value": "more_work"
+                },
+                {
+                  "label": "怕沒人可以問",
+                  "value": "no_support"
+                },
+                {
+                  "label": "不太擔心",
+                  "value": "none",
+                  "exclusive": true
+                }
+              ],
+              "required": false
+            },
+            {
+              "id": "q_training_willing",
+              "type": "single",
+              "label": "如果安排 2 小時的教育訓練，你願意參加嗎？",
+              "options": [
+                {
+                  "label": "願意",
+                  "value": "yes"
+                },
+                {
+                  "label": "要看時間",
+                  "value": "depends"
+                },
+                {
+                  "label": "不願意",
+                  "value": "no"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "q_free_comment",
+              "type": "long_text",
+              "label": "還有什麼想讓我們知道的嗎？",
+              "required": false,
+              "max_length": 500,
+              "placeholder": "沒有的話可以直接送出"
+            }
+          ],
+          "description": "這一段沒有標準答案，請照真實感受回答。"
+        }
+      ],
+      "subtitle": "財團法人台南市私立蓮心園社會福利慈善事業基金會",
+      "estimated_minutes": 12
+    },
+    "source_refs": {
+      "blocks": [
+        {
+          "ref": "blocks/basic-profile",
+          "code": "basic-profile",
+          "version": 1
+        },
+        {
+          "ref": "blocks/pain-repeater-nonprofit",
+          "code": "pain-repeater-nonprofit",
+          "version": 1
+        },
+        {
+          "ref": "blocks/system-health-staff",
+          "code": "system-health-staff",
+          "version": 1
+        },
+        {
+          "ref": "blocks/digital-skill-baseline",
+          "code": "digital-skill-baseline",
+          "version": 1
+        },
+        {
+          "ref": "blocks/training-availability",
+          "code": "training-availability",
+          "version": 1
+        },
+        {
+          "ref": "blocks/ai-concern-safety",
+          "code": "ai-concern-safety",
+          "version": 1
+        }
+      ],
+      "template": {
+        "ref": "templates/ai-readiness-tna-staff.v1"
+      }
+    },
+    "is_open": true,
+    "opens_at": null,
+    "closes_at": null,
+    "created_at": "2026-07-27T08:08:20.300489+00:00"
+  }
+]
