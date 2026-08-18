@@ -1,0 +1,41 @@
+name: 每日備份與保活
+
+# 每天跑一次：查詢 Supabase 保持活躍（免費專案閒置 7 天會暫停），並把資料備份 commit 進 repo。
+on:
+  schedule:
+    - cron: '0 20 * * *' # 每天 UTC 20:00（台灣 04:00）
+  workflow_dispatch: {} # 也可在 GitHub 手動觸發
+
+permissions:
+  contents: write # 允許 commit 備份
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: npm install @supabase/supabase-js --no-save
+
+      - name: 備份 + 保活
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          BACKUP_TIME: ${{ github.event.repository.updated_at }}
+        run: node scripts/backup-db.mjs
+
+      - name: Commit 備份（若有變動）
+        run: |
+          git config user.name "mwform-backup-bot"
+          git config user.email "backup@aimommywisdom"
+          git add backups/
+          if git diff --staged --quiet; then
+            echo "資料無變動，不需 commit"
+          else
+            git commit -m "自動備份 $(date -u +%Y-%m-%d)"
+            git push
+          fi
