@@ -1,13 +1,21 @@
-name: 每日備份與保活
+name: 每週備份 D1
 
-# 每天跑一次：查詢 Supabase 保持活躍（免費專案閒置 7 天會暫停），並把資料備份 commit 進 repo。
+# 每週備份 Cloudflare D1（mwform）：完整 SQL dump + 每張表 JSON，存成 Artifact（保留 90 天）。
+# D1 本身另有 30 天時間點還原（wrangler d1 time-travel），這份是額外的離線副本。
+# 2026-11 前這個 workflow 是 Supabase 每日備份＋保活；D1 不會閒置暫停，所以不再需要保活。
+#
+# 需要的 GitHub Secret（Settings → Secrets and variables → Actions）：
+#   CLOUDFLARE_API_TOKEN  Cloudflare API Token，權限：Account → D1:Edit（d1 execute 讀資料也需要 Edit）
 on:
   schedule:
-    - cron: '0 20 * * *' # 每天 UTC 20:00（台灣 04:00）
+    - cron: '0 20 * * 0' # 每週日 UTC 20:00（台灣週一 04:00）
   workflow_dispatch: {} # 也可在 GitHub 手動觸發
 
 permissions:
-  contents: write # 允許 commit 備份
+  contents: read
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: 86e28a4ac02bab6c0599d99f50afb5f1
 
 jobs:
   backup:
@@ -19,23 +27,18 @@ jobs:
         with:
           node-version: '22'
 
-      - run: npm install @supabase/supabase-js --no-save
+      # 備份只需要 wrangler，不裝整包依賴
+      - run: npm install wrangler@4 --no-save --no-audit --no-fund
 
-      - name: 備份 + 保活
+      - name: 備份 D1
         env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          BACKUP_TIME: ${{ github.event.repository.updated_at }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          BACKUP_ROOT: ./backup-out
         run: node scripts/backup-db.mjs
 
-      - name: Commit 備份（若有變動）
-        run: |
-          git config user.name "mwform-backup-bot"
-          git config user.email "backup@aimommywisdom"
-          git add backups/
-          if git diff --staged --quiet; then
-            echo "資料無變動，不需 commit"
-          else
-            git commit -m "自動備份 $(date -u +%Y-%m-%d)"
-            git push
-          fi
+      - name: 上傳備份 Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mwform-d1-backup-${{ github.run_number }}
+          path: backup-out/
+          retention-days: 90

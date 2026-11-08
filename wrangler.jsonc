@@ -12,14 +12,19 @@
   "observability": {
     "enabled": true
   },
-  "vars": {
-    "NEXT_PUBLIC_SUPABASE_URL": "https://fqvozltpemtnshtwxqri.supabase.co"
-  },
+  // 資料層：Cloudflare D1（SQLite）。schema 在 migrations/d1/；本機 next dev 自動用 .wrangler/state 的本機 D1。
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mwform",
+      "database_id": "55924f66-4886-42ff-83b9-c63edcc7f793",
+      "migrations_dir": "migrations/d1"
+    }
+  ],
   "routes": [
     { "pattern": "survey.aimommywisdom.com", "custom_domain": true }
   ]
-  // 敏感值用 wrangler secret 設定（不寫進檔案）：
-  //   NEXT_PUBLIC_SUPABASE_ANON_KEY  ← 也可放 vars，但一併用 secret 較整齊
-  //   SUPABASE_SERVICE_ROLE_KEY       ← 一定要 secret
-  //   CRON_SECRET                     ← 一定要 secret
+  // 敏感值用 `npx wrangler secret put <NAME>` 設定（不寫進檔案）：
+  //   ADMIN_PASSWORD / SESSION_SECRET / SETTINGS_ENC_KEY / CRON_SECRET
+  // 2026-11 搬到 D1 後，SUPABASE_SERVICE_ROLE_KEY / NEXT_PUBLIC_SUPABASE_ANON_KEY 這兩個 secret 已不再使用。
 }

@@ -9,27 +9,16 @@
 //   npm run seed            # 寫入 DB（需 .env.local 有 service_role key）
 //   npm run seed -- --dry   # 只展開並印出，不連 DB（無 key 也能驗證引擎）
 //
-// 注意：只操作 MWForm 自己的表，service_role 僅本機用。
+// 2026-11 起資料層為 Cloudflare D1：這裡產生 upsert SQL 交給 wrangler 執行。
 
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { createClient } from '@supabase/supabase-js';
+import { randomUUID } from 'node:crypto';
 import { loadAndExpandProjectSurvey, SURVEYS_DIR } from '../lib/survey/load';
 import type { Block, Option } from '../lib/survey/types';
+import { execSql, querySql, sqlLit, targetLabel } from './d1';
 
 const DRY = process.argv.includes('--dry');
-
-// ── 載入 .env.local（tsx 不自動載入）──────────────
-function loadEnv() {
-  try {
-    // Node 20.12+/22：直接載入 env 檔
-    (process as unknown as { loadEnvFile: (p: string) => void }).loadEnvFile(
-      '.env.local'
-    );
-  } catch {
-    /* 沒有就算了，--dry 不需要 */
-  }
-}
 
 // ── 題庫索引 ──────────────────────────────────────
 function blockSections(block: Block) {
@@ -104,8 +93,6 @@ function listProjects(): ProjectMeta[] {
 }
 
 async function main() {
-  loadEnv();
-
   const projects = listProjects();
   const bankRows = buildBankIndex();
 
@@ -142,62 +129,62 @@ async function main() {
     return;
   }
 
-  // ── 寫入 DB（service_role）──────────────────────
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !serviceKey) {
-    console.error(
-      '\n✗ 缺少 NEXT_PUBLIC_SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY。' +
-        '\n  請在 .env.local 填入新 Supabase 專案的 key，或用 `npm run seed -- --dry` 先驗證引擎。'
+  // ── 寫入 D1（產生 upsert SQL → wrangler d1 execute）──────────────
+  console.log(`\n→ 寫入 ${targetLabel()}`);
+  const now = new Date().toISOString();
+  const sql: string[] = [];
+
+  // 題庫索引（陣列欄位存 JSON 字串）
+  for (const r of bankRows) {
+    const row = { ...r, updated_at: now };
+    const cols = Object.keys(row);
+    sql.push(
+      `INSERT INTO bank_blocks (${cols.join(', ')}) VALUES (${cols
+        .map((c) => sqlLit((row as Record<string, unknown>)[c]))
+        .join(', ')}) ON CONFLICT(code) DO UPDATE SET ${cols
+        .filter((c) => c !== 'code')
+        .map((c) => `${c} = excluded.${c}`)
+        .join(', ')};`
     );
-    process.exit(1);
   }
-  const db = createClient(url, serviceKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
 
-  // 題庫索引
-  const { error: bankErr } = await db
-    .from('bank_blocks')
-    .upsert(
-      bankRows.map((r) => ({ ...r, updated_at: new Date().toISOString() })),
-      { onConflict: 'code' }
-    );
-  if (bankErr) throw bankErr;
-  console.log(`\n✓ bank_blocks 已同步（${bankRows.length} 筆）`);
-
-  // 專案 + 問卷快照
+  // 專案 + 問卷快照（撞 slug 只更新欄位、保留原 id）
   for (const p of projects) {
-    const { data: proj, error: pErr } = await db
-      .from('projects')
-      .upsert(
-        {
-          slug: p.slug,
-          name: p.name,
-          contact_name: p.contact_name ?? null,
-          retention_days: p.retention_days ?? 365,
-          brand_domain: p.brand_domain ?? 'survey.vega-lin.com',
-        },
-        { onConflict: 'slug' }
-      )
-      .select('id')
-      .single();
-    if (pErr) throw pErr;
-    console.log(`✓ project ${p.slug}（${proj.id}）`);
-
+    sql.push(
+      `INSERT INTO projects (id, slug, name, contact_name, retention_days, brand_domain) VALUES (${[
+        randomUUID(),
+        p.slug,
+        p.name,
+        p.contact_name ?? null,
+        p.retention_days ?? 365,
+        p.brand_domain ?? 'survey.aimommywisdom.com',
+      ]
+        .map(sqlLit)
+        .join(', ')}) ON CONFLICT(slug) DO UPDATE SET name = excluded.name, contact_name = excluded.contact_name, retention_days = excluded.retention_days, brand_domain = excluded.brand_domain;`
+    );
     for (const e of expanded.filter((x) => x.project.slug === p.slug)) {
-      const { error: sErr } = await db.from('surveys').upsert(
-        {
-          project_id: proj.id,
-          slug: e.slug,
-          title: e.definition.title,
-          version: e.definition.version,
-          definition: e.definition, // ← 快照
-          source_refs: e.sourceRefs,
-        },
-        { onConflict: 'project_id,slug,version' }
+      sql.push(
+        `INSERT INTO surveys (id, project_id, slug, title, version, definition, source_refs) VALUES (${sqlLit(
+          randomUUID()
+        )}, (SELECT id FROM projects WHERE slug = ${sqlLit(p.slug)}), ${[
+          e.slug,
+          e.definition.title,
+          e.definition.version,
+          e.definition,
+          e.sourceRefs,
+        ]
+          .map(sqlLit)
+          .join(', ')}) ON CONFLICT(project_id, slug, version) DO UPDATE SET title = excluded.title, definition = excluded.definition, source_refs = excluded.source_refs;`
       );
-      if (sErr) throw sErr;
+    }
+  }
+
+  execSql(sql);
+  console.log(`✓ bank_blocks 已同步（${bankRows.length} 筆）`);
+  for (const p of projects) {
+    const [{ id }] = querySql<{ id: string }>(`SELECT id FROM projects WHERE slug = ${sqlLit(p.slug)}`);
+    console.log(`✓ project ${p.slug}（${id}）`);
+    for (const e of expanded.filter((x) => x.project.slug === p.slug)) {
       console.log(`  ✓ survey ${p.slug}/${e.slug} v${e.definition.version}`);
     }
   }
